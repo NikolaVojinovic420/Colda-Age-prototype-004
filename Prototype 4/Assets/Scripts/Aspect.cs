@@ -26,13 +26,12 @@ public class Aspect : MonoBehaviour
         c = 0;
         for (int i = 0; i < deck.transform.childCount; i++)
         {
-            Aspect asp = deck.transform.GetChild(i).gameObject.GetComponent<Aspect>();
-            if (asp != null)
-            {
-                a += asp.a;
-                p += asp.p;
-                c += asp.c;
-            }
+              if (deck.transform.GetChild(i).gameObject.GetComponent<Unit>().aspect != null)
+              {
+                a += deck.transform.GetChild(i).gameObject.GetComponent<Unit>().aspect.a;
+                p += deck.transform.GetChild(i).gameObject.GetComponent<Unit>().aspect.p;
+                c += deck.transform.GetChild(i).gameObject.GetComponent<Unit>().aspect.c;
+              }
         }
     }
     public string ReturnAspectString() => $"A = {a}\nP = {p}\nC = {c}";

@@ -33,18 +33,18 @@ public class UnitDisplay : MonoBehaviour
     {
         RefreshAspects();
     }
+    void RefreshAspects()
+    {
+      // if (vigCount != vigilant.transform.childCount || engCount != engaged.transform.childCount)
+      // {
+            CopyAspects();
+            UpdateAspectsUI();
+      // }
+    }
     public void CopyAspects()
     {
         sumVigilant.Copy(vigilant);
         sumEngaged.Copy(engaged);
-    }
-    void RefreshAspects()
-    {
-        if (vigCount != vigilant.transform.childCount || engCount != engaged.transform.childCount)
-        {
-            CopyAspects();
-            UpdateAspectsUI();
-        }          
     }
     void UpdateAspectsUI()
     {
