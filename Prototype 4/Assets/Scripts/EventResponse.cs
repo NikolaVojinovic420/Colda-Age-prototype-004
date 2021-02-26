@@ -30,6 +30,7 @@ public class EventResponse : MonoBehaviour
     {
         if (Aplicable())
             eventStage.ExecuteEndEvent(effect);
+        Debug.Log($"{Time.time} Hit on {gameObject.name} {gameObject.transform.parent.gameObject.name}");
     }
     public void OnMouseDown() => RespondToEvent();
 }

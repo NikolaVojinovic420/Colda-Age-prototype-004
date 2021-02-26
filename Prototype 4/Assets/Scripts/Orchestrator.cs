@@ -41,13 +41,13 @@ public class Orchestrator : MonoBehaviour
     void Controller()
     {
         //draw event
-        if (Input.GetKeyDown("F1") && drawEventFree)
+        if (Input.GetKeyDown(KeyCode.F1) && drawEventFree)
         {
             DrawEvent();
             Debug.Log($"{Time.time} Orchestrator drawed an event");
         }
         //unit engage and disengage
-        if(Input.GetKeyDown("F2") && !canEngageDisengage)
+        if(Input.GetKeyDown(KeyCode.F2) && !canEngageDisengage)
         {
             Debug.Log("Orchestrator aproves Engage/Disengage method");
             canEngageDisengage = true;
@@ -55,14 +55,14 @@ public class Orchestrator : MonoBehaviour
         }
 
         //Responding to event
-        if (Input.GetKeyDown("F3") && responded)
+        if (Input.GetKeyDown(KeyCode.F3) && responded)
         {
             Debug.Log($"{Time.time} Orchestrator accept respond and continues, u can migrate Engaged");
             canMigrateEngaged = true;
             responded = false;
         }
         //send engaged into recovering
-        if (Input.GetKeyDown("F4") && canMigrateEngaged)
+        if (Input.GetKeyDown(KeyCode.F4) && canMigrateEngaged)
         {
             Debug.Log($"{Time.time} Orchestrator moving migrating Engaged and ask for reshuffle");
             drawer.MigrateCards(unitDisplay.engaged, unitDisplay.recovering);
@@ -70,7 +70,7 @@ public class Orchestrator : MonoBehaviour
             askForReshuffle = true;
         }
         //controll reshuffle
-        if (Input.GetKeyDown("F5") && askForReshuffle)
+        if (Input.GetKeyDown(KeyCode.F5) && askForReshuffle)
         {
             Debug.Log($"{Time.time} Orchestrator checking for reshuffle");
             ReshuffleFutureAndPreparingIfEmpty();
@@ -78,7 +78,7 @@ public class Orchestrator : MonoBehaviour
             canDraw = true;
         }
         //draw
-        if (Input.GetKeyDown("F6") && canDraw)
+        if (Input.GetKeyDown(KeyCode.F6) && canDraw)
         {
             Debug.Log($"{Time.time} Orchestrator draws {drawTimes} Units");
             for (int i = 0; i < drawTimes; i++)
