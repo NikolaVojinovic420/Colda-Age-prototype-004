@@ -24,6 +24,9 @@ public class Orchestrator : MonoBehaviour
         drawer = gameObject.GetComponent<Drawer>();
         eventStage = eventStageObject.GetComponent<EventStage>();
         unitDisplay = unitDisplayObject.GetComponent<UnitDisplay>();
+
+        //starting event and units
+        drawer.Reshuffle(eventStage.future);
         DrawEvent();
         for (int i = 0; i < 5; i++)
             drawer.DrawFirst(unitDisplay.preparing, unitDisplay.vigilant);
@@ -41,13 +44,13 @@ public class Orchestrator : MonoBehaviour
     void Controller()
     {
         //draw event
-        if (Input.GetKeyDown(KeyCode.F1) && drawEventFree)
+        if ( drawEventFree) //Input.GetKeyDown(KeyCode.F1)&&
         {
             DrawEvent();
             Debug.Log($"{Time.time} Orchestrator drawed an event");
         }
         //unit engage and disengage
-        if(Input.GetKeyDown(KeyCode.F2) && !canEngageDisengage)
+        if(!canEngageDisengage)//Input.GetKeyDown(KeyCode.F2) && 
         {
             Debug.Log("Orchestrator aproves Engage/Disengage method");
             canEngageDisengage = true;
@@ -55,14 +58,14 @@ public class Orchestrator : MonoBehaviour
         }
 
         //Responding to event
-        if (Input.GetKeyDown(KeyCode.F3) && responded)
+        if (responded)//Input.GetKeyDown(KeyCode.F3) && 
         {
             Debug.Log($"{Time.time} Orchestrator accept respond and continues, u can migrate Engaged");
             canMigrateEngaged = true;
             responded = false;
         }
         //send engaged into recovering
-        if (Input.GetKeyDown(KeyCode.F4) && canMigrateEngaged)
+        if ( canMigrateEngaged)//Input.GetKeyDown(KeyCode.F4) &&
         {
             Debug.Log($"{Time.time} Orchestrator moving migrating Engaged and ask for reshuffle");
             drawer.MigrateCards(unitDisplay.engaged, unitDisplay.recovering);
@@ -70,7 +73,7 @@ public class Orchestrator : MonoBehaviour
             askForReshuffle = true;
         }
         //controll reshuffle
-        if (Input.GetKeyDown(KeyCode.F5) && askForReshuffle)
+        if ( askForReshuffle)//Input.GetKeyDown(KeyCode.F5) &&
         {
             Debug.Log($"{Time.time} Orchestrator checking for reshuffle");
             ReshuffleFutureAndPreparingIfEmpty();
@@ -78,7 +81,7 @@ public class Orchestrator : MonoBehaviour
             canDraw = true;
         }
         //draw
-        if (Input.GetKeyDown(KeyCode.F6) && canDraw)
+        if ( canDraw)//Input.GetKeyDown(KeyCode.F6) &&
         {
             Debug.Log($"{Time.time} Orchestrator draws {drawTimes} Units");
             for (int i = 0; i < drawTimes; i++)

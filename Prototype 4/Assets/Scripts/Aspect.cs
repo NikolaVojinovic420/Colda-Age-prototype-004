@@ -26,7 +26,7 @@ public class Aspect : MonoBehaviour
         c = 0;
         for (int i = 0; i < deck.transform.childCount; i++)
         {
-            Aspect asp = deck.transform.GetChild(i).GetComponent<Aspect>();
+            Aspect asp = deck.transform.GetChild(i).gameObject.GetComponent<Aspect>();
             if (asp != null)
             {
                 a += asp.a;

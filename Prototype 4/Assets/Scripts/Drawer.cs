@@ -17,8 +17,16 @@ public class Drawer : MonoBehaviour
     public void MigrateCards(GameObject fromDeck, GameObject toDeck)
     {
         for (int i = 0; i < fromDeck.transform.childCount; i++)
+        {
+            fromDeck.transform.GetChild(0).transform.position = toDeck.transform.position;
             fromDeck.transform.GetChild(0).SetParent(toDeck.transform);
+        }
+            
     }
-    public void DrawFirst(GameObject fromDeck, GameObject toDeck) => fromDeck.transform.GetChild(0).SetParent(toDeck.transform);
+    public void DrawFirst(GameObject fromDeck, GameObject toDeck)
+    {
+        fromDeck.transform.GetChild(0).position = toDeck.transform.position;
+        fromDeck.transform.GetChild(0).SetParent(toDeck.transform);
+    }
 
 }

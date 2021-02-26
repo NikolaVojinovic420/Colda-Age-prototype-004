@@ -35,10 +35,8 @@ public class UnitDisplay : MonoBehaviour
     }
     public void CopyAspects()
     {
-        for (int i = 0; i < vigilant.transform.childCount; i++)
-            sumVigilant.Copy(vigilant);
-        for (int i = 0; i < engaged.transform.childCount; i++)
-            sumEngaged.Copy(engaged);
+        sumVigilant.Copy(vigilant);
+        sumEngaged.Copy(engaged);
     }
     void RefreshAspects()
     {

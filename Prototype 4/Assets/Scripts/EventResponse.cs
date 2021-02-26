@@ -28,9 +28,9 @@ public class EventResponse : MonoBehaviour
     bool Aplicable() => unitDisplay.sumEngaged.CanPay(reqAspect);
     void RespondToEvent()
     {
-        if (Aplicable())
-            eventStage.ExecuteEndEvent(effect);
         Debug.Log($"{Time.time} Hit on {gameObject.name} {gameObject.transform.parent.gameObject.name}");
+        if (Aplicable())
+            eventStage.ExecuteEndEvent(effect);       
     }
     public void OnMouseDown() => RespondToEvent();
 }
