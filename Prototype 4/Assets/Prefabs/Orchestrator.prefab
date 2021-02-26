@@ -375,7 +375,7 @@ GameObject:
   - component: {fileID: 116356600273138459}
   m_Layer: 0
   m_Name: EventStage
-  m_TagString: Untagged
+  m_TagString: EventStage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,6 +392,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 160824342645935091}
+  - {fileID: 4691704116942216104}
   m_Father: {fileID: 3443694046491400953}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -408,7 +409,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   poofArea: {fileID: 7439222442970697522}
-  activeEventStage: {fileID: 0}
+  activeEventStage: {fileID: 4191464785136584019}
   future: {fileID: 8043214501754964568}
   history: {fileID: 5781784203967521932}
   winWindow: {fileID: 2694162338359568748}
@@ -541,7 +542,7 @@ GameObject:
   - component: {fileID: 7609663757227435689}
   m_Layer: 0
   m_Name: UnitDisplay
-  m_TagString: Untagged
+  m_TagString: UnitDisplay
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -923,6 +924,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4191464785136584019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4691704116942216104}
+  m_Layer: 0
+  m_Name: Active Event Stage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4691704116942216104
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4191464785136584019}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 986818241538994859}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4509226389336783860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,7 +1202,7 @@ GameObject:
   - component: {fileID: 3838218267834098294}
   m_Layer: 0
   m_Name: Orchestrator
-  m_TagString: Untagged
+  m_TagString: Orchestrator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1212,6 +1243,7 @@ MonoBehaviour:
   unitDisplayObject: {fileID: 2227618012779304281}
   unitDisplay: {fileID: 0}
   drawer: {fileID: 0}
+  canEngageDisengage: 1
 --- !u!114 &3838218267834098294
 MonoBehaviour:
   m_ObjectHideFlags: 0
