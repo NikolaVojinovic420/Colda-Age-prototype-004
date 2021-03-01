@@ -5,28 +5,32 @@ using UnityEngine;
 public class Drawer : MonoBehaviour
 {
     public Transform tmpShuffleDeck;
-
-    public void Reshuffle(GameObject deck)
+    private void Awake()
     {
-        for (int i = 0; i < deck.transform.childCount; i++)
-            deck.transform.GetChild(0).SetParent(tmpShuffleDeck);
-        int count = tmpShuffleDeck.childCount;
-        for (int i = 0; i < count; i++)
-            tmpShuffleDeck.GetChild(Random.Range(0, tmpShuffleDeck.childCount)).SetParent(deck.transform);
+        Reshuffle();
     }
-    public void MigrateCards(GameObject fromDeck, GameObject toDeck)
+    public void Reshuffle()
     {
-        for (int i = 0; i < fromDeck.transform.childCount; i++)
+        Debug.Log($"{Time.time} {gameObject.name} reshuffled.");
+        int count = gameObject.transform.childCount;
+        for (int i = 0; i < count; i++)
+            gameObject.transform.GetChild(0).SetParent(tmpShuffleDeck);       
+        for (int i = 0; i < count; i++)
+            tmpShuffleDeck.GetChild(Random.Range(0, tmpShuffleDeck.childCount)).SetParent(gameObject.transform);
+    }
+    public void MigrateCards(GameObject toDeck)
+    {
+        for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            fromDeck.transform.GetChild(0).transform.position = toDeck.transform.position;
-            fromDeck.transform.GetChild(0).SetParent(toDeck.transform);
+            gameObject.transform.GetChild(0).transform.position = toDeck.transform.position;
+            gameObject.transform.GetChild(0).SetParent(toDeck.transform);
         }
             
     }
-    public void DrawFirst(GameObject fromDeck, GameObject toDeck)
+    public void DrawFirst(GameObject toDeck)
     {
-        fromDeck.transform.GetChild(0).position = toDeck.transform.position;
-        fromDeck.transform.GetChild(0).SetParent(toDeck.transform);
+        gameObject.transform.GetChild(0).position = toDeck.transform.position;
+        gameObject.transform.GetChild(0).SetParent(toDeck.transform);
     }
 
 }

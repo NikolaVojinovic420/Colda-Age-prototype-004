@@ -8,7 +8,6 @@ public class Orchestrator : MonoBehaviour
     public EventStage eventStage;
     public GameObject unitDisplayObject;
     public UnitDisplay unitDisplay;
-    public Drawer drawer;
 
     //block
     bool drawEventFree = false;
@@ -21,15 +20,12 @@ public class Orchestrator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        drawer = gameObject.GetComponent<Drawer>();
         eventStage = eventStageObject.GetComponent<EventStage>();
         unitDisplay = unitDisplayObject.GetComponent<UnitDisplay>();
 
-        //starting event and units
-        drawer.Reshuffle(eventStage.future);
         DrawEvent();
         for (int i = 0; i < 5; i++)
-            drawer.DrawFirst(unitDisplay.preparing, unitDisplay.vigilant);
+            unitDisplay.preparing.GetComponent<Drawer>().DrawFirst(unitDisplay.vigilant);
     }
 
     void FixedUpdate()
@@ -39,7 +35,7 @@ public class Orchestrator : MonoBehaviour
     void DrawEvent()
     {
         if (eventStage.activeEventStage.transform.childCount <= 0)
-            drawer.DrawFirst(eventStage.future, eventStage.activeEventStage);
+            eventStage.future.GetComponent<Drawer>().DrawFirst(eventStage.activeEventStage);
     }
     void Controller()
     {
@@ -68,7 +64,7 @@ public class Orchestrator : MonoBehaviour
         if ( canMigrateEngaged)//Input.GetKeyDown(KeyCode.F4) &&
         {
             Debug.Log($"{Time.time} Orchestrator moving migrating Engaged and ask for reshuffle");
-            drawer.MigrateCards(unitDisplay.engaged, unitDisplay.recovering);
+            unitDisplay.engaged.GetComponent<Drawer>().MigrateCards(unitDisplay.recovering);
             canMigrateEngaged = false;
             askForReshuffle = true;
         }
@@ -85,7 +81,7 @@ public class Orchestrator : MonoBehaviour
         {
             Debug.Log($"{Time.time} Orchestrator draws {drawTimes} Units");
             for (int i = 0; i < drawTimes; i++)
-                    drawer.DrawFirst(unitDisplay.preparing, unitDisplay.vigilant);
+                unitDisplay.preparing.GetComponent<Drawer>().DrawFirst(unitDisplay.vigilant);
             canDraw = false;
             drawEventFree = true;
         }
@@ -103,14 +99,14 @@ public class Orchestrator : MonoBehaviour
         if(unitDisplay.preparing.transform.childCount <= 0)
         {
             Debug.Log($"{Time.time} Orchestrator reshuffling into preparing from recovering");
-            drawer.MigrateCards(unitDisplay.recovering, unitDisplay.preparing);
-            drawer.Reshuffle(unitDisplay.preparing);
+            unitDisplay.recovering.GetComponent<Drawer>().MigrateCards(unitDisplay.preparing);
+            unitDisplay.preparing.GetComponent<Drawer>().Reshuffle();
         }
         if(eventStage.future.transform.childCount <= 0)
         {
             Debug.Log($"{Time.time} Orchestrator reshuffling into future from history");
-            drawer.MigrateCards(eventStage.history, eventStage.future);
-            drawer.Reshuffle(eventStage.future);
+            eventStage.history.GetComponent<Drawer>().MigrateCards(eventStage.future);
+            eventStage.future.GetComponent<Drawer>().Reshuffle();
         }
     }
 }

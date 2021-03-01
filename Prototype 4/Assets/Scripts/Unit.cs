@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class Unit : MonoBehaviour
 {
     public GameObject aspectObject;
     public Aspect aspect;
     public UnitDisplay unitDisplay;
-    public Text txt;
+    public TMP_Text meshObject;
     // Start is called before the first frame update
     void Start()
     {
         aspect = aspectObject.GetComponent<Aspect>();
         unitDisplay = GameObject.FindWithTag("UnitDisplay").GetComponent<UnitDisplay>();
-        txt.text = $"{gameObject.name}\n{aspect.ReturnAspectString()}";
+        meshObject.text = $"{gameObject.name}\n{aspect.ReturnAspectString()}";
     }
 
     // Update is called once per frame

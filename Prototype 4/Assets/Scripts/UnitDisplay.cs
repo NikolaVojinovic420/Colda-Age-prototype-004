@@ -32,6 +32,8 @@ public class UnitDisplay : MonoBehaviour
     void Update()
     {
         RefreshAspects();
+        SortCards(vigilant);
+        SortCards(engaged);
     }
     void RefreshAspects()
     {
@@ -50,5 +52,11 @@ public class UnitDisplay : MonoBehaviour
     {
         vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:\n{sumVigilant.ReturnAspectString()}";
         engAspectUIObject.GetComponent<Text>().text = $"Engaged:\n{sumEngaged.ReturnAspectString()}";
+    }
+    public void SortCards(GameObject deck)//tmp solution
+    {
+        for (int i = 0; i < deck.transform.childCount; i++)
+            deck.transform.GetChild(i).position = 
+                new Vector2(deck.transform.position.x + i * (deck.transform.GetChild(i).localScale.x + 0.5f), deck.transform.position.y);
     }
 }
