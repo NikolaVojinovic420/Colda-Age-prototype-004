@@ -46,7 +46,7 @@ public class EventStage : MonoBehaviour
 
         if (effect.insertEvent != null)
         {
-            effect.insertEvent.transform.SetParent(history.transform);
+            Instantiate(effect.insertEvent, history.transform);
             Debug.Log($"{Time.time} {effect.insertEvent.name} has been inserted into History");
         }
             
