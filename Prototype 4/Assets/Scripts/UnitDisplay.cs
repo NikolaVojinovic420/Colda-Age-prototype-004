@@ -18,8 +18,8 @@ public class UnitDisplay : MonoBehaviour
     public GameObject orchestratorObject;
     public Orchestrator orchestrator;
 
-    int vigCount = 0;
-    int engCount = 0;
+    //int vigCount = 0;
+    //int engCount = 0;
     // Start is called before the first frame update
     void Start()
     {

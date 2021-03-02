@@ -20,7 +20,8 @@ public class Drawer : MonoBehaviour
     }
     public void MigrateCards(GameObject toDeck)
     {
-        for (int i = 0; i < gameObject.transform.childCount; i++)
+        int count = gameObject.transform.childCount;
+        for (int i = 0; i < count; i++)
         {
             gameObject.transform.GetChild(0).transform.position = toDeck.transform.position;
             gameObject.transform.GetChild(0).SetParent(toDeck.transform);

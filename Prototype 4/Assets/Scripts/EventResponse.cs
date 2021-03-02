@@ -10,6 +10,7 @@ public class EventResponse : MonoBehaviour
     public Aspect reqAspect;
     public GameObject effectObject;
     public Effect effect;
+    public GameObject greenLight;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,9 @@ public class EventResponse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Aplicable())
+            greenLight.SetActive(true);
+        else greenLight.SetActive(false);
     }
     bool Aplicable() => unitDisplay.sumEngaged.CanPay(reqAspect);
     void RespondToEvent()

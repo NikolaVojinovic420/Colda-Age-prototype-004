@@ -27,7 +27,11 @@ public class EventStage : MonoBehaviour
         
     }
     void Exhaust() => Destroy(activeEventStage.transform.GetChild(0).gameObject);
-    void Discard() => activeEventStage.transform.GetChild(0).SetParent(history.transform);
+    void Discard()
+    {
+        activeEventStage.transform.GetChild(0).position = history.transform.position;
+        activeEventStage.transform.GetChild(0).SetParent(history.transform);        
+    }
     public void ExecuteEndEvent(Effect effect)
     {
         if(effect.loss)

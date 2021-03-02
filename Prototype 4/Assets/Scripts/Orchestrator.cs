@@ -65,6 +65,7 @@ public class Orchestrator : MonoBehaviour
         {
             Debug.Log($"{Time.time} Orchestrator moving migrating Engaged and ask for reshuffle");
             unitDisplay.engaged.GetComponent<Drawer>().MigrateCards(unitDisplay.recovering);
+            Debug.Log($"{Time.time} Orchestrator finished migrating Engaged");
             canMigrateEngaged = false;
             askForReshuffle = true;
         }
