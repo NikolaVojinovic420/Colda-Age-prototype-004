@@ -30,8 +30,13 @@ public class Drawer : MonoBehaviour
     }
     public void DrawFirst(GameObject toDeck)
     {
+        //aniamtion play
+        
+        //aniamtion pla
+
         gameObject.transform.GetChild(0).position = toDeck.transform.position;
         gameObject.transform.GetChild(0).SetParent(toDeck.transform);
     }
+    
 
 }

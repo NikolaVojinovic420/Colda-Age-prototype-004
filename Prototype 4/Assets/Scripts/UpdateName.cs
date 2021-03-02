@@ -9,6 +9,11 @@ public class UpdateName : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        txtMeshObject.text = gameObject.name;
+        if (gameObject.tag == "Unit")
+            txtMeshObject.text = gameObject.name.Split('(')[0] +
+                 $"\nA={gameObject.GetComponent<Unit>().aspectObject.GetComponent<Aspect>().a}" +
+                 $"\nP={gameObject.GetComponent<Unit>().aspectObject.GetComponent<Aspect>().p}" +
+                 $"\nC={gameObject.GetComponent<Unit>().aspectObject.GetComponent<Aspect>().c}";
+        else txtMeshObject.text = gameObject.name.Split('(')[0];
     }
 }

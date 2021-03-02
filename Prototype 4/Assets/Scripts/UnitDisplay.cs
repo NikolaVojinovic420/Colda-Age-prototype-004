@@ -24,12 +24,12 @@ public class UnitDisplay : MonoBehaviour
     void Start()
     {
         orchestrator = orchestratorObject.GetComponent<Orchestrator>();
-        sumVigilant = sumEngagedObject.GetComponent<Aspect>();
+        sumVigilant = sumVigilantObject.GetComponent<Aspect>();
         sumEngaged = sumEngagedObject.GetComponent<Aspect>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RefreshAspects();
         SortCards(vigilant);
@@ -57,6 +57,6 @@ public class UnitDisplay : MonoBehaviour
     {
         for (int i = 0; i < deck.transform.childCount; i++)
             deck.transform.GetChild(i).position = 
-                new Vector2(deck.transform.position.x + i * (deck.transform.GetChild(i).localScale.x + 0.5f), deck.transform.position.y);
+                new Vector2(deck.transform.position.x + i * (deck.transform.GetChild(i).localScale.x + 0.2f), deck.transform.position.y);
     }
 }

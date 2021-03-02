@@ -24,7 +24,8 @@ public class Aspect : MonoBehaviour
         a = 0;
         p = 0;
         c = 0;
-        for (int i = 0; i < deck.transform.childCount; i++)
+        int count = deck.transform.childCount;
+        for (int i = 0; i < count; i++)
         {
               if (deck.transform.GetChild(i).gameObject.GetComponent<Unit>().aspect != null)
               {

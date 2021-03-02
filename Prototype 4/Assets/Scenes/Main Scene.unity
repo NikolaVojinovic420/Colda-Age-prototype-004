@@ -906,6 +906,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95f68809d5273f0448fa8ec03d7c77c3, type: 3}
+--- !u!1 &919793026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2067142728579058469, guid: 2a7ae062e2359ff4fbb37170ed2f6241,
+    type: 3}
+  m_PrefabInstance: {fileID: 2161164961539280188}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &922395080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1041,6 +1047,75 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &958422417
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 216714524}
+    m_Modifications:
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 21
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7632281684454586200, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7972234901794485255, guid: fad438789ac4462439c252786d53ae31,
+        type: 3}
+      propertyPath: m_Name
+      value: Cyborg (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fad438789ac4462439c252786d53ae31, type: 3}
 --- !u!1001 &980626177
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2008,17 +2083,27 @@ PrefabInstance:
     - target: {fileID: 5516935817766390521, guid: 2a7ae062e2359ff4fbb37170ed2f6241,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 5791480314679275481, guid: 2a7ae062e2359ff4fbb37170ed2f6241,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6366664983717588070, guid: 2a7ae062e2359ff4fbb37170ed2f6241,
         type: 3}
       propertyPath: m_Name
       value: Orchestrator
       objectReference: {fileID: 0}
+    - target: {fileID: 7609663757227435689, guid: 2a7ae062e2359ff4fbb37170ed2f6241,
+        type: 3}
+      propertyPath: sumVigilant
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7609663757227435689, guid: 2a7ae062e2359ff4fbb37170ed2f6241,
+        type: 3}
+      propertyPath: sumVigilantObject
+      value: 
+      objectReference: {fileID: 919793026}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a7ae062e2359ff4fbb37170ed2f6241, type: 3}

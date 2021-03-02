@@ -59,9 +59,10 @@ GameObject:
   - component: {fileID: 5149839341027287238}
   - component: {fileID: 4351196906235241784}
   - component: {fileID: 4968898957206584021}
+  - component: {fileID: 5107819557986268148}
   m_Layer: 0
   m_Name: Disfigured
-  m_TagString: Untagged
+  m_TagString: Unit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -159,7 +160,19 @@ MonoBehaviour:
   aspectObject: {fileID: 25604438774635249}
   aspect: {fileID: 0}
   unitDisplay: {fileID: 0}
-  meshObject: {fileID: 7467458311966191245}
+--- !u!114 &5107819557986268148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598460590006965642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ab1f3c1ae84ee04c967dc47b115dab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  txtMeshObject: {fileID: 7467458311966191245}
 --- !u!1 &3895046382391700619
 GameObject:
   m_ObjectHideFlags: 0
