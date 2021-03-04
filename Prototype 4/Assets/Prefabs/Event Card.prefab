@@ -753,6 +753,7 @@ GameObject:
   - component: {fileID: 3891847790138790941}
   - component: {fileID: 3891847790138790940}
   - component: {fileID: 8355695712456791587}
+  - component: {fileID: 4020556347367396564}
   m_Layer: 0
   m_Name: Event Card
   m_TagString: Untagged
@@ -854,6 +855,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtMeshObject: {fileID: 3124408643385392203}
+--- !u!114 &4020556347367396564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3891847790138790915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6a071be676ebd43b409a65de8a2811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDestination: {fileID: 0}
+  moveSpeed: 0
+  rotateSpeed: 0
+  angle: 0
+  poof: 0
+  particleSplash: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
+    type: 3}
 --- !u!1 &3952133694597425372
 GameObject:
   m_ObjectHideFlags: 0
