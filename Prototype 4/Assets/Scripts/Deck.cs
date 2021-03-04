@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Drawer : MonoBehaviour
+public class Deck : MonoBehaviour
 {
     public Transform tmpShuffleDeck;
     private void Awake()
@@ -14,9 +14,9 @@ public class Drawer : MonoBehaviour
         Debug.Log($"{Time.time} {gameObject.name} reshuffled.");
         int count = gameObject.transform.childCount;
         for (int i = 0; i < count; i++)
-            gameObject.transform.GetChild(0).SetParent(tmpShuffleDeck);       
+            gameObject.transform.GetChild(0).SetParent(tmpShuffleDeck);
         for (int i = 0; i < count; i++)
-            tmpShuffleDeck.GetChild(Random.Range(0, tmpShuffleDeck.childCount)).SetParent(gameObject.transform);
+            tmpShuffleDeck.GetChild(Random.Range(0, tmpShuffleDeck.childCount)).SetParent(gameObject.transform);           
     }
     public void MigrateCards(GameObject toDeck)
     {
@@ -30,10 +30,6 @@ public class Drawer : MonoBehaviour
     }
     public void DrawFirst(GameObject toDeck)
     {
-        //aniamtion play
-        
-        //aniamtion pla
-
         gameObject.transform.GetChild(0).position = toDeck.transform.position;
         gameObject.transform.GetChild(0).SetParent(toDeck.transform);
     }

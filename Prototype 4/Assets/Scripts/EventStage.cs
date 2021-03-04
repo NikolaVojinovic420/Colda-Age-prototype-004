@@ -10,15 +10,10 @@ public class EventStage : MonoBehaviour
     public GameObject history;
     public GameObject winWindow;
     public GameObject lossWindow;
-    public GameObject unitDisplayObject;
-    public UnitDisplay unitDisplay;
     public GameObject orchestratorObject;
-    public Orchestrator orchestrator;
     // Start is called before the first frame update
     void Start()
     {
-        orchestrator = orchestratorObject.GetComponent<Orchestrator>();
-        unitDisplay = unitDisplayObject.GetComponent<UnitDisplay>();
     }
 
     // Update is called once per frame
@@ -51,7 +46,7 @@ public class EventStage : MonoBehaviour
         }
             
 
-        orchestrator.CallOrchestrator(effect);
+        orchestratorObject.GetComponent<Orchestrator>().CallOrchestrator(effect);
 
         //or finish everything here
         //orchestrator.drawer.MigrateCards(unitDisplay.engaged, unitDisplay.recovering);

@@ -9,17 +9,15 @@ public class UnitDisplay : MonoBehaviour
     public Aspect sumVigilant;
     public GameObject sumEngagedObject;
     public Aspect sumEngaged;
+    public GameObject vigAspectUIObject;
+    public GameObject engAspectUIObject;
     public GameObject preparing;
     public GameObject recovering;
     public GameObject vigilant;
     public GameObject engaged;
-    public GameObject vigAspectUIObject;
-    public GameObject engAspectUIObject;
     public GameObject orchestratorObject;
     public Orchestrator orchestrator;
 
-    //int vigCount = 0;
-    //int engCount = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,11 +35,8 @@ public class UnitDisplay : MonoBehaviour
     }
     void RefreshAspects()
     {
-      // if (vigCount != vigilant.transform.childCount || engCount != engaged.transform.childCount)
-      // {
             CopyAspects();
             UpdateAspectsUI();
-      // }
     }
     public void CopyAspects()
     {
@@ -50,8 +45,8 @@ public class UnitDisplay : MonoBehaviour
     }
     void UpdateAspectsUI()
     {
-        vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:\n{sumVigilant.ReturnAspectString()}";
-        engAspectUIObject.GetComponent<Text>().text = $"Engaged:\n{sumEngaged.ReturnAspectString()}";
+        vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:{sumVigilant.ReturnAspectString()}";
+        engAspectUIObject.GetComponent<Text>().text = $"Engaged:{sumEngaged.ReturnAspectString()}";
     }
     public void SortCards(GameObject deck)//tmp solution
     {

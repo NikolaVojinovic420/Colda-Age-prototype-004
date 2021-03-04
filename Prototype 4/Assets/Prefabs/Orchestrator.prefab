@@ -109,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: 300}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &6619754225608514518
@@ -269,7 +269,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3166864238947565541
@@ -414,10 +414,7 @@ MonoBehaviour:
   history: {fileID: 5781784203967521932}
   winWindow: {fileID: 2694162338359568748}
   lossWindow: {fileID: 35582045694923716}
-  unitDisplayObject: {fileID: 2227618012779304281}
-  unitDisplay: {fileID: 0}
   orchestratorObject: {fileID: 6366664983717588070}
-  orchestrator: {fileID: 0}
 --- !u!1 &2204857897952559237
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,12 +578,12 @@ MonoBehaviour:
   sumVigilant: {fileID: 0}
   sumEngagedObject: {fileID: 9203635346276739646}
   sumEngaged: {fileID: 0}
+  vigAspectUIObject: {fileID: 1588441672303882420}
+  engAspectUIObject: {fileID: 625847712664147694}
   preparing: {fileID: 5051838228969514705}
   recovering: {fileID: 4627037694108642685}
   vigilant: {fileID: 7112818056948669624}
   engaged: {fileID: 4509226389336783860}
-  vigAspectUIObject: {fileID: 1588441672303882420}
-  engAspectUIObject: {fileID: 625847712664147694}
   orchestratorObject: {fileID: 6366664983717588070}
   orchestrator: {fileID: 0}
 --- !u!1 &2694162338359568748
@@ -948,7 +945,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4191464785136584019}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 986818241538994859}
@@ -979,7 +976,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4509226389336783860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.89, y: -3.77, z: 0}
+  m_LocalPosition: {x: -3.89, y: -1.77, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7083364353474859718}
@@ -1255,7 +1252,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3443694046491400953}
   - component: {fileID: 8738935841693813067}
-  - component: {fileID: 3838218267834098294}
   m_Layer: 0
   m_Name: Orchestrator
   m_TagString: Orchestrator
@@ -1299,19 +1295,6 @@ MonoBehaviour:
   unitDisplayObject: {fileID: 2227618012779304281}
   unitDisplay: {fileID: 0}
   canEngageDisengage: 1
---- !u!114 &3838218267834098294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6366664983717588070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2cc6261b76a910468ed58ae845f532f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tmpShuffleDeck: {fileID: 4348380965860466835}
 --- !u!1 &7112818056948669624
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,7 +1320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7112818056948669624}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.89, y: -6.97, z: 0}
+  m_LocalPosition: {x: -3.89, y: -4.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7083364353474859718}

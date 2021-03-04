@@ -10,3 +10,4 @@ public class Effect : MonoBehaviour
     public int draw;
     public GameObject insertEvent;
 }
+    //bring execute event here

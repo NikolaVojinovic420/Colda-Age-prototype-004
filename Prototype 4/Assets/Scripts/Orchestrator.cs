@@ -25,7 +25,7 @@ public class Orchestrator : MonoBehaviour
 
         DrawEvent();
         for (int i = 0; i < 5; i++)
-            unitDisplay.preparing.GetComponent<Drawer>().DrawFirst(unitDisplay.vigilant);
+            unitDisplay.preparing.GetComponent<Deck>().DrawFirst(unitDisplay.vigilant);
     }
 
     void FixedUpdate()
@@ -35,18 +35,18 @@ public class Orchestrator : MonoBehaviour
     void DrawEvent()
     {
         if (eventStage.activeEventStage.transform.childCount <= 0)
-            eventStage.future.GetComponent<Drawer>().DrawFirst(eventStage.activeEventStage);
+            eventStage.future.GetComponent<Deck>().DrawFirst(eventStage.activeEventStage);
     }
     void Controller()
     {
         //draw event
-        if ( drawEventFree) //Input.GetKeyDown(KeyCode.F1)&&
+        if ( drawEventFree)
         {
             DrawEvent();
             Debug.Log($"{Time.time} Orchestrator drawed an event");
         }
         //unit engage and disengage
-        if(!canEngageDisengage)//Input.GetKeyDown(KeyCode.F2) && 
+        if(!canEngageDisengage)
         {
             Debug.Log("Orchestrator aproves Engage/Disengage method");
             canEngageDisengage = true;
@@ -54,23 +54,23 @@ public class Orchestrator : MonoBehaviour
         }
 
         //Responding to event
-        if (responded)//Input.GetKeyDown(KeyCode.F3) && 
+        if (responded)
         {
             Debug.Log($"{Time.time} Orchestrator accept respond and continues, u can migrate Engaged");
             canMigrateEngaged = true;
             responded = false;
         }
         //send engaged into recovering
-        if ( canMigrateEngaged)//Input.GetKeyDown(KeyCode.F4) &&
+        if ( canMigrateEngaged)
         {
             Debug.Log($"{Time.time} Orchestrator moving migrating Engaged and ask for reshuffle");
-            unitDisplay.engaged.GetComponent<Drawer>().MigrateCards(unitDisplay.recovering);
+            unitDisplay.engaged.GetComponent<Deck>().MigrateCards(unitDisplay.recovering);
             Debug.Log($"{Time.time} Orchestrator finished migrating Engaged");
             canMigrateEngaged = false;
             askForReshuffle = true;
         }
         //controll reshuffle
-        if ( askForReshuffle)//Input.GetKeyDown(KeyCode.F5) &&
+        if ( askForReshuffle)
         {
             Debug.Log($"{Time.time} Orchestrator checking for reshuffle");
             ReshuffleFutureAndPreparingIfEmpty();
@@ -78,11 +78,11 @@ public class Orchestrator : MonoBehaviour
             canDraw = true;
         }
         //draw
-        if ( canDraw)//Input.GetKeyDown(KeyCode.F6) &&
+        if ( canDraw)
         {
             Debug.Log($"{Time.time} Orchestrator draws {drawTimes} Units");
             for (int i = 0; i < drawTimes; i++)
-                unitDisplay.preparing.GetComponent<Drawer>().DrawFirst(unitDisplay.vigilant);
+                unitDisplay.preparing.GetComponent<Deck>().DrawFirst(unitDisplay.vigilant);
             canDraw = false;
             drawEventFree = true;
         }
@@ -100,14 +100,14 @@ public class Orchestrator : MonoBehaviour
         if(unitDisplay.preparing.transform.childCount <= 0)
         {
             Debug.Log($"{Time.time} Orchestrator reshuffling into preparing from recovering");
-            unitDisplay.recovering.GetComponent<Drawer>().MigrateCards(unitDisplay.preparing);
-            unitDisplay.preparing.GetComponent<Drawer>().Reshuffle();
+            unitDisplay.recovering.GetComponent<Deck>().MigrateCards(unitDisplay.preparing);
+            unitDisplay.preparing.GetComponent<Deck>().Reshuffle();
         }
         if(eventStage.future.transform.childCount <= 0)
         {
             Debug.Log($"{Time.time} Orchestrator reshuffling into future from history");
-            eventStage.history.GetComponent<Drawer>().MigrateCards(eventStage.future);
-            eventStage.future.GetComponent<Drawer>().Reshuffle();
+            eventStage.history.GetComponent<Deck>().MigrateCards(eventStage.future);
+            eventStage.future.GetComponent<Deck>().Reshuffle();
         }
     }
 }

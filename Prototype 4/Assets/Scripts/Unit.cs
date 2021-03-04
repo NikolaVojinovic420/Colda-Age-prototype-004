@@ -22,16 +22,27 @@ public class Unit : MonoBehaviour
     public void OnMouseDown() => EngageDisengage();
     void EngageDisengage()
     {
-        Debug.Log($"{Time.time} Hit {gameObject.name} in {gameObject.transform.parent.name}");
+        if(!Engage())
+            Disengage();   
+    }
+    bool Engage()
+    {       
         if (gameObject.transform.parent.tag == "Vigilant" && unitDisplay.orchestrator.canEngageDisengage)
         {
             gameObject.transform.position = unitDisplay.engaged.transform.position;
             gameObject.transform.SetParent(unitDisplay.engaged.transform);
+            Debug.Log($"{Time.time} {gameObject.name} engaged");
+            return true;
         }
-        else if (gameObject.transform.parent.tag == "Engaged" && unitDisplay.orchestrator.canEngageDisengage)
+        return false;
+    }
+    void Disengage()
+    {
+        if (unitDisplay.orchestrator.canEngageDisengage)
         {
             gameObject.transform.position = unitDisplay.vigilant.transform.position;
             gameObject.transform.SetParent(unitDisplay.vigilant.transform);
+            Debug.Log($"{Time.time} {gameObject.name} disengaged");
         }
     }
 }
