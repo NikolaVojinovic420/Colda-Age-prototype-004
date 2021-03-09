@@ -27,7 +27,7 @@ public class Unit : MonoBehaviour
     }
     bool Engage()
     {       
-        if (gameObject.transform.parent.tag == "Vigilant" && unitDisplay.orchestrator.canEngageDisengage)
+        if (gameObject.transform.parent.tag == "Vigilant" && unitDisplay.orchestrator.GetComponent<Orchestrator>().canEngageDisengage)
         {
             gameObject.transform.position = unitDisplay.engaged.transform.position;
             gameObject.transform.SetParent(unitDisplay.engaged.transform);
@@ -38,7 +38,7 @@ public class Unit : MonoBehaviour
     }
     void Disengage()
     {
-        if (unitDisplay.orchestrator.canEngageDisengage)
+        if (unitDisplay.orchestrator.GetComponent<Orchestrator>().canEngageDisengage)
         {
             gameObject.transform.position = unitDisplay.vigilant.transform.position;
             gameObject.transform.SetParent(unitDisplay.vigilant.transform);

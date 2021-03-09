@@ -7,18 +7,16 @@ public class EventResponse : MonoBehaviour
     public EventStage eventStage;
     public UnitDisplay unitDisplay;
     public GameObject aspectObject;
-    public Aspect reqAspect;
     public GameObject effectObject;
-    public Effect effect;
     public GameObject greenLight;
+    public StateMachine stateMachine;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         eventStage = GameObject.FindWithTag("EventStage").GetComponent<EventStage>();
         unitDisplay = GameObject.FindWithTag("UnitDisplay").GetComponent<UnitDisplay>();
-        reqAspect = aspectObject.GetComponent<Aspect>();
-        effect = effectObject.GetComponent<Effect>();
+        stateMachine = GameObject.FindWithTag("StateMachine").GetComponent<StateMachine>();
     }
 
     // Update is called once per frame
@@ -28,12 +26,12 @@ public class EventResponse : MonoBehaviour
             greenLight.SetActive(true);
         else greenLight.SetActive(false);
     }
-    bool Aplicable() => unitDisplay.sumEngaged.CanPay(reqAspect);
+    bool Aplicable() => unitDisplay.sumEngagedObject.GetComponent<Aspect>().CanPay(aspectObject.GetComponent<Aspect>());
     void RespondToEvent()
     {
         Debug.Log($"{Time.time} Hit on {gameObject.name} {gameObject.transform.parent.gameObject.name}");
         if (Aplicable())
-            eventStage.ExecuteEndEvent(effect);       
+            stateMachine.OnResponse(this);      
     }
     public void OnMouseDown() => RespondToEvent();
 }

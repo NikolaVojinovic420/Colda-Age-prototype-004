@@ -5,9 +5,9 @@ using UnityEngine;
 public class Orchestrator : MonoBehaviour
 {
     public GameObject eventStageObject;
-    public EventStage eventStage;
+    EventStage eventStage;
     public GameObject unitDisplayObject;
-    public UnitDisplay unitDisplay;
+    UnitDisplay unitDisplay;
 
     //block
     bool drawEventFree = false;

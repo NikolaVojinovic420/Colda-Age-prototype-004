@@ -5,28 +5,19 @@ using UnityEngine.UI;
 
 public class UnitDisplay : MonoBehaviour
 {
+    //UI display vig and eng
     public GameObject sumVigilantObject;
-    public Aspect sumVigilant;
     public GameObject sumEngagedObject;
-    public Aspect sumEngaged;
     public GameObject vigAspectUIObject;
     public GameObject engAspectUIObject;
+    //Decks
     public GameObject preparing;
     public GameObject recovering;
     public GameObject vigilant;
     public GameObject engaged;
-    public GameObject orchestratorObject;
-    public Orchestrator orchestrator;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        orchestrator = orchestratorObject.GetComponent<Orchestrator>();
-        sumVigilant = sumVigilantObject.GetComponent<Aspect>();
-        sumEngaged = sumEngagedObject.GetComponent<Aspect>();
-    }
+    public GameObject orchestrator;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         RefreshAspects();
@@ -40,13 +31,13 @@ public class UnitDisplay : MonoBehaviour
     }
     public void CopyAspects()
     {
-        sumVigilant.Copy(vigilant);
-        sumEngaged.Copy(engaged);
+        sumVigilantObject.GetComponent<Aspect>().Copy(vigilant);
+        sumEngagedObject.GetComponent<Aspect>().Copy(engaged);
     }
     void UpdateAspectsUI()
     {
-        vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:{sumVigilant.ReturnAspectString()}";
-        engAspectUIObject.GetComponent<Text>().text = $"Engaged:{sumEngaged.ReturnAspectString()}";
+        vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:{sumVigilantObject.GetComponent<Aspect>().ReturnAspectString()}";
+        engAspectUIObject.GetComponent<Text>().text = $"Engaged:{sumEngagedObject.GetComponent<Aspect>().ReturnAspectString()}";
     }
     public void SortCards(GameObject deck)//tmp solution
     {

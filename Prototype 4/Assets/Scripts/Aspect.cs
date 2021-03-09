@@ -7,17 +7,6 @@ public class Aspect : MonoBehaviour
     [SerializeField]
     int a, p, c;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public bool CanPay(Aspect asp) => (a >= asp.a && p >= asp.p && c >= asp.c);
     public void Copy(GameObject deck) // this reset aspect
     {
