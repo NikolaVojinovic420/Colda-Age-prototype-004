@@ -6,7 +6,7 @@ public class Animate : MonoBehaviour
 {
     // move animation
     [SerializeField]
-    GameObject moveDestination;
+    public GameObject moveDestination;
     [SerializeField]
     float moveSpeed;
     // flip animation

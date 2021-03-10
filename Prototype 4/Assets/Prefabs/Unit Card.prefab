@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 9049685754158423120}
   - component: {fileID: 9154675248610284414}
   - component: {fileID: -2859005912313582913}
+  - component: {fileID: 941333389007375924}
   m_Layer: 0
   m_Name: Unit Card
   m_TagString: Unit
@@ -116,7 +117,6 @@ Transform:
   m_Children:
   - {fileID: 8712312913240075582}
   - {fileID: 4499159016172377924}
-  - {fileID: 1532722402258923126}
   - {fileID: 1605629231730232945}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c478dd50f7f842408939296bf76a004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspectObject: {fileID: 4123350438064438388}
+  aspectObject: {fileID: 0}
   aspect: {fileID: 0}
   unitDisplay: {fileID: 0}
 --- !u!114 &9154675248610284414
@@ -228,44 +228,13 @@ MonoBehaviour:
   poof: 0
   particleSplash: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
     type: 3}
---- !u!1 &4123350438064438388
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1532722402258923126}
-  - component: {fileID: 292355463606276311}
-  m_Layer: 0
-  m_Name: Aspect
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1532722402258923126
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4123350438064438388}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3919702205820481616}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &292355463606276311
+--- !u!114 &941333389007375924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4123350438064438388}
+  m_GameObject: {fileID: 3543711430005125903}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
@@ -526,7 +495,7 @@ RectTransform:
   m_Children:
   - {fileID: 2931867963534604966}
   m_Father: {fileID: 3919702205820481616}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

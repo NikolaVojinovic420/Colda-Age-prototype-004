@@ -6,43 +6,23 @@ public class Unit : MonoBehaviour
 {
     public GameObject aspectObject;
     public Aspect aspect;
-    public UnitDisplay unitDisplay;
-    // Start is called before the first frame update
-    void Start()
+    public bool isEngaged = false;
+    StateMachine stateMachine;
+    void Awake()
     {
-        aspect = aspectObject.GetComponent<Aspect>();
-        unitDisplay = GameObject.FindWithTag("UnitDisplay").GetComponent<UnitDisplay>();
+        stateMachine = FindObjectOfType<StateMachine>();
+        aspect = GetComponent<Aspect>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void OnMouseDown()
     {
-        
+        isEngaged = !isEngaged;
+        if (isEngaged)
+            stateMachine.Engage(this);
+        else stateMachine.Disengage(this);
     }
-    public void OnMouseDown() => EngageDisengage();
-    void EngageDisengage()
+    public void Move(GameObject destination)
     {
-        if(!Engage())
-            Disengage();   
-    }
-    bool Engage()
-    {       
-        if (gameObject.transform.parent.tag == "Vigilant" && unitDisplay.orchestrator.GetComponent<Orchestrator>().canEngageDisengage)
-        {
-            gameObject.transform.position = unitDisplay.engaged.transform.position;
-            gameObject.transform.SetParent(unitDisplay.engaged.transform);
-            Debug.Log($"{Time.time} {gameObject.name} engaged");
-            return true;
-        }
-        return false;
-    }
-    void Disengage()
-    {
-        if (unitDisplay.orchestrator.GetComponent<Orchestrator>().canEngageDisengage)
-        {
-            gameObject.transform.position = unitDisplay.vigilant.transform.position;
-            gameObject.transform.SetParent(unitDisplay.vigilant.transform);
-            Debug.Log($"{Time.time} {gameObject.name} disengaged");
-        }
+        gameObject.transform.SetParent(destination.transform);
+        GetComponent<Animate>().moveDestination = destination;
     }
 }

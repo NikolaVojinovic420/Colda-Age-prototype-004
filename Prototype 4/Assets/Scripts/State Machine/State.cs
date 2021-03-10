@@ -17,4 +17,16 @@ public abstract class State
     {
         yield break;
     }
+    public virtual IEnumerator Engage(Unit unit)
+    {
+        yield break;
+    }
+    public virtual IEnumerator Disengage(Unit unit)
+    {
+        yield break;
+    }
+    public virtual IEnumerator OnEventResponse(EventResponse eventResponse)
+    {
+        yield break;
+    }
 }

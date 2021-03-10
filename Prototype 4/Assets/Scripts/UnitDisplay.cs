@@ -5,18 +5,10 @@ using UnityEngine.UI;
 
 public class UnitDisplay : MonoBehaviour
 {
-    //UI display vig and eng
-    public GameObject sumVigilantObject;
-    public GameObject sumEngagedObject;
     public GameObject vigAspectUIObject;
     public GameObject engAspectUIObject;
-    //Decks
-    public GameObject preparing;
-    public GameObject recovering;
     public GameObject vigilant;
     public GameObject engaged;
-
-    public GameObject orchestrator;
 
     void FixedUpdate()
     {
@@ -31,13 +23,13 @@ public class UnitDisplay : MonoBehaviour
     }
     public void CopyAspects()
     {
-        sumVigilantObject.GetComponent<Aspect>().Copy(vigilant);
-        sumEngagedObject.GetComponent<Aspect>().Copy(engaged);
+        vigAspectUIObject.GetComponent<Aspect>().Copy(vigilant);
+        engAspectUIObject.GetComponent<Aspect>().Copy(engaged);
     }
     void UpdateAspectsUI()
     {
-        vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:{sumVigilantObject.GetComponent<Aspect>().ReturnAspectString()}";
-        engAspectUIObject.GetComponent<Text>().text = $"Engaged:{sumEngagedObject.GetComponent<Aspect>().ReturnAspectString()}";
+        vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:{vigAspectUIObject.GetComponent<Aspect>().ReturnAspectString()}";
+        engAspectUIObject.GetComponent<Text>().text = $"Engaged:{engAspectUIObject.GetComponent<Aspect>().ReturnAspectString()}";
     }
     public void SortCards(GameObject deck)//tmp solution
     {

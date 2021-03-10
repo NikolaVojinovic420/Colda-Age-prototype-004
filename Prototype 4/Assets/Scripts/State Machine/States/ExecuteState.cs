@@ -3,14 +3,19 @@
 internal class ExecuteState : State
 {
     EventResponse eventResponse;
+    Effect effect;
     public ExecuteState(StateMachine stateMachine, EventResponse eResponse) : base(stateMachine)
     {
         eventResponse = eResponse;
+        effect = eventResponse.GetComponent<Effect>();
     }
     public override IEnumerator Start()
     {
         //execute effect
-        //win/lose
+        if (effect.loss)
+            _stateMachine.SetState(new LossState(_stateMachine));
+        if (effect.win)
+            _stateMachine.SetState(new WinState(_stateMachine));
         //instantiate new card
         //exhaust/discard
         //move engaged to recovery

@@ -6,8 +6,10 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     protected State _state;
+    public GameObject vigilant;
+    public GameObject engaged;
 
-    void Awake()
+    void  Awake()
     {
         Debug.Log("awake statemachine");
         _state = new StartState(this);
@@ -18,9 +20,7 @@ public class StateMachine : MonoBehaviour
         _state = state;
         StartCoroutine(_state.Start());
     }
-    internal void OnResponse(EventResponse eventResponse)
-    {
-        if (_state is PlayState)
-            (_state as PlayState).OnResponse(eventResponse);
-    }
+    public void OnResponse(EventResponse eventResponse) => _state.OnEventResponse(eventResponse);
+    public void Engage(Unit unit) => _state.Engage(unit);
+    public void Disengage(Unit unit) => _state.Disengage(unit);
 }

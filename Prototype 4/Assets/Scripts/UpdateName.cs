@@ -16,27 +16,27 @@ public class UpdateName : MonoBehaviour
 
         if (gameObject.tag == "Response")
         {
-            txtMeshObject.text += gameObject.GetComponent<EventResponse>().aspectObject.GetComponent<Aspect>().ReturnAspectString(); // req
+            txtMeshObject.text += GetComponent<Aspect>().ReturnAspectString(); // req
 
-            if (gameObject.GetComponent<EventResponse>().effectObject.GetComponent<Effect>().win) //win
+            if (GetComponent<Effect>().win) //win
             {
                 txtMeshObject.text += $"\nWin!";
                 return;
             }
                 
-            if (gameObject.GetComponent<EventResponse>().effectObject.GetComponent<Effect>().loss) // loss
+            if (GetComponent<Effect>().loss) // loss
             {
                 txtMeshObject.text += $"\nLoss!";
                 return;
             }
 
-            if (gameObject.GetComponent<EventResponse>().effectObject.GetComponent<Effect>().draw > 0) // draw
-                txtMeshObject.text += $"\nDraw {gameObject.GetComponent<EventResponse>().effectObject.GetComponent<Effect>().draw}";
+            if (GetComponent<Effect>().draw > 0) // draw
+                txtMeshObject.text += $"\nDraw {GetComponent<Effect>().draw > 0}";
 
-            if (gameObject.GetComponent<EventResponse>().effectObject.GetComponent<Effect>().insertEvent != null)
-                txtMeshObject.text += $"\nInsert {gameObject.GetComponent<EventResponse>().effectObject.GetComponent<Effect>().insertEvent.name}";
+            if (GetComponent<Effect>().insertEvent != null)
+                txtMeshObject.text += $"\nInsert {GetComponent<Effect>().insertEvent.name}";
 
-            if (gameObject.GetComponent<EventResponse>().effectObject.GetComponent<Effect>().exhaustable) //exhaust
+            if (GetComponent<Effect>().exhaustable) //exhaust
                 txtMeshObject.text += "\nExhaust";
         }
     }
