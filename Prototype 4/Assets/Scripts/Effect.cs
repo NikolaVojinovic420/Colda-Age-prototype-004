@@ -8,7 +8,6 @@ public class Effect : MonoBehaviour
     public bool loss;
     public bool exhaustable;
     public int draw;
-    [SerializeField]
     public GameObject insertEvent;
 
     public void Execute(EventStage eventStage)
