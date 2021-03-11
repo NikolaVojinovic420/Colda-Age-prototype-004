@@ -4,35 +4,30 @@ using UnityEngine;
 
 public class Deck : MonoBehaviour
 {
-    public Transform tmpShuffleDeck;
+    [SerializeField]
+    Transform tmpShuffleDeck;
     private void Awake()
     {
-        Reshuffle();
+        Shuffle();
     }
-    public void Reshuffle()
+    public void Shuffle()
     {
-        Debug.Log($"{Time.time} {gameObject.name} reshuffled.");
-        int count = gameObject.transform.childCount;
-        for (int i = 0; i < count; i++)
+        Debug.Log($"{Time.time} {gameObject.name} shuffled.");
+        while (transform.childCount > 0)
             gameObject.transform.GetChild(0).SetParent(tmpShuffleDeck);
-        for (int i = 0; i < count; i++)
+        while(tmpShuffleDeck.childCount > 0)
             tmpShuffleDeck.GetChild(Random.Range(0, tmpShuffleDeck.childCount)).SetParent(gameObject.transform);           
+    }
+    public void Reshuffle(Deck from)
+    {
+        from.MigrateCards(gameObject);
+        Shuffle();
     }
     public void MigrateCards(GameObject toDeck)
     {
-        int count = gameObject.transform.childCount;
-        for (int i = 0; i < count; i++)
-        {
-            gameObject.transform.GetChild(0).transform.position = toDeck.transform.position;
+        while (transform.childCount > 0)
             gameObject.transform.GetChild(0).SetParent(toDeck.transform);
-        }
-            
     }
-    public void DrawFirst(GameObject toDeck)
-    {
-        gameObject.transform.GetChild(0).position = toDeck.transform.position;
-        gameObject.transform.GetChild(0).SetParent(toDeck.transform);
-    }
+    public void Draw(GameObject toDeck) =>  gameObject.transform.GetChild(0).SetParent(toDeck.transform);
     
-
 }

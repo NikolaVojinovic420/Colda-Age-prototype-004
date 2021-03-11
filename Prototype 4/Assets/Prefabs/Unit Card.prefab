@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 9049685754158423120}
   - component: {fileID: 9154675248610284414}
   - component: {fileID: -2859005912313582913}
-  - component: {fileID: 941333389007375924}
+  - component: {fileID: 8304935786563955701}
   m_Layer: 0
   m_Name: Unit Card
   m_TagString: Unit
@@ -193,9 +193,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c478dd50f7f842408939296bf76a004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspectObject: {fileID: 0}
   aspect: {fileID: 0}
-  unitDisplay: {fileID: 0}
+  isEngaged: 0
 --- !u!114 &9154675248610284414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +227,7 @@ MonoBehaviour:
   poof: 0
   particleSplash: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
     type: 3}
---- !u!114 &941333389007375924
+--- !u!114 &8304935786563955701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

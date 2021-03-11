@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State
+public abstract class State : Object
 {
     protected StateMachine _stateMachine;
+    public State()
+    {
+    }
     public State(StateMachine stateMachine)
     {
         _stateMachine = stateMachine;
     }
     public virtual IEnumerator Start()
     {
-        yield break;
+        Debug.Log($"ss");
+        yield return new WaitForSeconds(1);
+        Debug.Log($"ss");
     }
     public virtual IEnumerator End()
     {

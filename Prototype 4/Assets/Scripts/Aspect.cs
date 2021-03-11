@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Aspect : MonoBehaviour
+public class Aspect :MonoBehaviour
 {
     [SerializeField]
     int a, p, c;

@@ -17,12 +17,10 @@ public class Animate : MonoBehaviour
     // effects
     public bool poof = false;
     public GameObject particleSplash;
-    // Start is called before the first frame update
-    void Start()
+    void Awake() //change parent = change new destination
     {
         moveDestination = gameObject;
     }
-    // Update is called once per frame
     void FixedUpdate()
     {
         Flip();

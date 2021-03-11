@@ -11,15 +11,24 @@ internal class ExecuteState : State
     }
     public override IEnumerator Start()
     {
-        //execute effect
-        if (effect.loss)
+        if (effect.loss) //loss
+        {
             _stateMachine.SetState(new LossState(_stateMachine));
-        if (effect.win)
+            yield break;
+        }           
+        if (effect.win) //win
+        {
             _stateMachine.SetState(new WinState(_stateMachine));
-        //instantiate new card
-        //exhaust/discard
-        //move engaged to recovery
-        _stateMachine.SetState(new DrawUnitState(_stateMachine));
+            yield break;
+        }
+        if (effect.insertEvent != null) //insert new event into history
+            UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
+        if (effect.exhaustable) //exhaust or discard event
+            UnityEngine.Object.Destroy(eventResponse.gameObject.transform.parent);
+        else eventResponse.gameObject.transform.parent.SetParent(_stateMachine.history.transform);
+        while (_stateMachine.engaged.transform.childCount > 0) //move all from engaged to recovering
+                _stateMachine.engaged.transform.GetChild(0).SetParent(_stateMachine.recovering.transform);
+        _stateMachine.SetState(new DrawUnitState(_stateMachine)); //set new state
         yield break;
     }
 }

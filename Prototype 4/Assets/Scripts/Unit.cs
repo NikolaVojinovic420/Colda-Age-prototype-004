@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour
 {
-    public GameObject aspectObject;
     public Aspect aspect;
     public bool isEngaged = false;
     StateMachine stateMachine;
