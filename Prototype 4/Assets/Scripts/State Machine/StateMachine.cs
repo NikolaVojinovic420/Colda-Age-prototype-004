@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    protected State _state;
+    State _state;
     public GameObject vigilant;
     public GameObject engaged;
     public GameObject preparing;
@@ -16,10 +16,8 @@ public class StateMachine : MonoBehaviour
     {
         Debug.Log("awake statemachine");
         _state = new StartState(this);
-        //Debug.Log($"{_state.name}");
-        if(_state == null)
-            Debug.Log("state is null");
-        _state.Start();
+
+        StartCoroutine(_state.Start());
     }
     public void SetState(State state)
     {

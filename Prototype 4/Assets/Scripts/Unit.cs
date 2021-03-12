@@ -12,7 +12,7 @@ public class Unit : MonoBehaviour
         stateMachine = FindObjectOfType<StateMachine>();
         aspect = GetComponent<Aspect>();
     }
-    private void OnMouseDown()
+    void OnMouseDown()
     {
         isEngaged = !isEngaged;
         if (isEngaged)

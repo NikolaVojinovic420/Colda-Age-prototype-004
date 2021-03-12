@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State 
+public  class State
 {
     protected StateMachine _stateMachine;
     public State()
@@ -14,21 +14,21 @@ public abstract class State
     }
     public virtual IEnumerator Start()
     {
-        Debug.Log($"ss");
-        yield return new WaitForSeconds(1);
-        Debug.Log($"ss");
+
+        yield break;
+
     }
     public virtual IEnumerator End()
     {
         yield break;
     }
-    public virtual IEnumerator Engage(Unit unit)
+    public virtual void Engage(Unit unit)
     {
-        yield break;
+
     }
-    public virtual IEnumerator Disengage(Unit unit)
+    public virtual void Disengage(Unit unit)
     {
-        yield break;
+
     }
     public virtual IEnumerator OnEventResponse(EventResponse eventResponse)
     {

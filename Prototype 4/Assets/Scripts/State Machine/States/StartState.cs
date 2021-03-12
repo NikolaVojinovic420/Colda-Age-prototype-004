@@ -11,8 +11,12 @@ public class StartState : State
     public override IEnumerator Start()
     {
         //create cards - deserialize
-        //draw N units
-        Debug.Log($" started");
+        _stateMachine.preparing.GetComponent<Deck>().Draw(_stateMachine.vigilant);
+        _stateMachine.preparing.GetComponent<Deck>().Draw(_stateMachine.vigilant);
+        _stateMachine.preparing.GetComponent<Deck>().Draw(_stateMachine.vigilant);
+        _stateMachine.preparing.GetComponent<Deck>().Draw(_stateMachine.vigilant);
+        _stateMachine.preparing.GetComponent<Deck>().Draw(_stateMachine.vigilant);
+        Debug.Log($"started");
         _stateMachine.SetState(new NewEventState(_stateMachine));
         yield break;
     }

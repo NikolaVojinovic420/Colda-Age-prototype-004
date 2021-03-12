@@ -8,7 +8,6 @@ public class Deck : MonoBehaviour
     Transform tmpShuffleDeck;
     private void Awake()
     {
-        Shuffle();
     }
     public void Shuffle()
     {

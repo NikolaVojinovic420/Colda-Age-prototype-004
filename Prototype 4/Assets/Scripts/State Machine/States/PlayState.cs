@@ -12,15 +12,15 @@ internal class PlayState : State
         _stateMachine.SetState(new ExecuteState(_stateMachine, eventResponse));
         yield break;
     }
-    public override IEnumerator Engage(Unit unit)
+    public override void Engage(Unit unit)
     {
+        Debug.Log("Engaged");
         unit.Move(_stateMachine.engaged);
-        yield break;
     }
-    public override IEnumerator Disengage(Unit unit)
+    public override void Disengage(Unit unit) 
     {
+        Debug.Log("Disengaged");
         unit.Move(_stateMachine.vigilant);
-        yield break;
     }
 
 }
