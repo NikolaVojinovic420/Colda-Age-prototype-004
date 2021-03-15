@@ -2,32 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Deck : MonoBehaviour
+public class Deck<C> where C : Card
 {
-    [SerializeField]
-    Transform tmpShuffleDeck;
-    private void Awake()
-    {
-        Shuffle();
-    }
-    public void Shuffle()
-    {
-        Debug.Log($"{Time.time} {gameObject.name} shuffled.");
-        while (transform.childCount > 0)
-            gameObject.transform.GetChild(0).SetParent(tmpShuffleDeck);
-        while(tmpShuffleDeck.childCount > 0)
-            tmpShuffleDeck.GetChild(Random.Range(0, tmpShuffleDeck.childCount)).SetParent(gameObject.transform);           
-    }
-    public void Reshuffle(Deck from)
-    {
-        from.MigrateCards(gameObject);
-        Shuffle();
-    }
-    public void MigrateCards(GameObject toDeck)
-    {
-        while (transform.childCount > 0)
-            gameObject.transform.GetChild(0).SetParent(toDeck.transform);
-    }
-    public void Draw(GameObject toDeck) =>  gameObject.transform.GetChild(0).SetParent(toDeck.transform);
+    private List<C> cards = new List<C>();
     
+    public void push(C card)
+    {
+        cards.Add(card);
+    }
+    public C pop()
+    {
+        int index = cards.Count - 1;
+        C popped = cards[index];
+        cards.RemoveAt[index];
+        return popped;
+    }
+
+    public bool isEmpty()
+    {
+        return cards.Count == 0;
+    }
+
+    public void shuffle()
+    {
+        for (int i = 0; i < cards.Count; i++)
+        {
+            C tmp = alpha[i];
+            int randomIndex = Random.Range(i, cards.Count);
+            cards[i] = cards[randomIndex];
+            cards[randomIndex] = tmp;
+        }
+    }
 }

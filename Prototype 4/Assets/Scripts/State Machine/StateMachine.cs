@@ -17,8 +17,10 @@ public class StateMachine : MonoBehaviour
         Debug.Log("awake statemachine");
         _state = new StartState(this);
         //Debug.Log($"{_state.name}");
-        if(_state == null)
-            Debug.Log("state is null");
+        if (_state == null)
+            Debug.Log("start state is null");
+        else
+            Debug.Log("start state is NOT null");
         _state.Start();
     }
     public void SetState(State state)
