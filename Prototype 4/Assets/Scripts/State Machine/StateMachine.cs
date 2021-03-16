@@ -51,7 +51,7 @@ public class StateMachine : MonoBehaviour
     public void OnResponse(EventResponse eventResponse)
     {
         Debug.Log(state + " == null " + (state == null));
-        state.OnEventResponse(eventResponse);
+        StartCoroutine(state.OnEventResponse(eventResponse));
     }
     public void Engage(Unit unit) => state.Engage(unit);
     public void Disengage(Unit unit) => state.Disengage(unit);
