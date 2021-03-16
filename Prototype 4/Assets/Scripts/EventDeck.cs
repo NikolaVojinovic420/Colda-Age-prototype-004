@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EventDeck : MonoBehaviour
 {
-    private Deck<Event> deck = new Deck<Event>();
+    private readonly Deck<Event> deck = new Deck<Event>();
 
     public void Awake()
     {
@@ -16,10 +16,17 @@ public class EventDeck : MonoBehaviour
         }
     }
 
-    public Event Draw()
+    public Event Draw(GameObject newOwner)
     {
-        Debug.Log($"event deck "+deck.IsEmpty());
-        return deck.Pop();
+        Debug.Log($"event deck is empty="+deck.IsEmpty());
+        Event e = deck.Pop();
+        e.Draw(newOwner);
+        return e;
+    }
+
+    public void AddEvent(Event e)
+    {
+        deck.push(e);
     }
 
     public bool IsEmpty()
@@ -31,7 +38,7 @@ public class EventDeck : MonoBehaviour
     {
         while (!from.IsEmpty())
         {
-            Event e = from.Draw();
+            Event e = from.Draw(gameObject);
             deck.push(e);
         }
         deck.Shuffle();

@@ -4,24 +4,25 @@ using UnityEngine;
 
 internal class PlayState : State
 {
-    public PlayState(StateMachine stateMachine) : base(stateMachine)
-    {
-    }
-    public override IEnumerator OnEventResponse(EventResponse eventResponse)
+    public PlayState(StateMachine stateMachine) : base(stateMachine) {}
+
+    public override IEnumerator ResponseClicked(EventResponse eventResponse)
     {
         Debug.Log("caught OnEventResponse event");
         _stateMachine.SetState(new ExecuteState(_stateMachine, eventResponse));
         yield break;
     }
-    public override void Engage(Unit unit)
+    public override IEnumerator UnitClicked(Unit unit)
     {
-        Debug.Log("Engaged");
-        unit.Move(_stateMachine.engagedObject);
-    }
-    public override void Disengage(Unit unit) 
-    {
-        Debug.Log("Disengaged");
-        unit.Move(_stateMachine.vigilantObject);
-    }
+        Debug.Log(unit+ " UnitClicked (method call in play state)");
 
+        if (unit.engaged)
+            unit.Move(_stateMachine.vigilantObject);
+        else
+            unit.Move(_stateMachine.engagedObject);
+
+        unit.engaged = !unit.engaged;
+
+        yield break;
+    }
 }

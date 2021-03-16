@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-internal class NewEventState : State
+internal class DrawEventState : State
 {
-    public NewEventState(StateMachine stateMachine) : base(stateMachine)
-    {
-    }
+    public DrawEventState(StateMachine stateMachine) : base(stateMachine) {}
+
     public override IEnumerator Start()
     {
         //if reshuffle needed
@@ -14,11 +13,7 @@ internal class NewEventState : State
             _stateMachine.future.Reshuffle(_stateMachine.history);
 
         //draw event to event stage
-        Event e = _stateMachine.future.Draw();
-        e.gameObject.transform.SetParent(_stateMachine.eventStage.transform);
-
-        //FIXME: do in animation
-        e.gameObject.transform.position = _stateMachine.eventStage.transform.position;
+        _stateMachine.future.Draw(_stateMachine.eventStage);
 
         _stateMachine.SetState(new PlayState(_stateMachine));
         yield break;

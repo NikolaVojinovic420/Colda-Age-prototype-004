@@ -16,7 +16,8 @@ public class StartState : State
             _stateMachine.DrawUnit();
         }
 
-        _stateMachine.SetState(new NewEventState(_stateMachine));
+        _stateMachine.SetState(new DrawEventState(_stateMachine));
+
         yield break;
     }
 }

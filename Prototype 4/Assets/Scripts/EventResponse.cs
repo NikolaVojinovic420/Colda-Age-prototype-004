@@ -16,6 +16,6 @@ public class EventResponse : MonoBehaviour
     public void OnMouseDown()
     {
         Debug.Log("response clicked");
-        stateMachine.OnResponse(this);
+        stateMachine.ResponseClicked(this);
     }
 }

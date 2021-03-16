@@ -48,18 +48,26 @@ public class StateMachine : MonoBehaviour
         Debug.Log($"{state} started");
         StartCoroutine(state.Start());
     }
-    public void OnResponse(EventResponse eventResponse)
+    public void ResponseClicked(EventResponse eventResponse)
     {
         Debug.Log(state + " == null " + (state == null));
-        StartCoroutine(state.OnEventResponse(eventResponse));
+        StartCoroutine(state.ResponseClicked(eventResponse));
     }
-    public void Engage(Unit unit) => state.Engage(unit);
-    public void Disengage(Unit unit) => state.Disengage(unit);
+
+    public void UnitClicked(Unit unit)
+    {
+        Debug.Log("engage unit in " + state);
+        StartCoroutine(state.UnitClicked(unit));
+    }
+
     public void DrawUnit()
     {
-        Unit drawnUnit = preparing.draw();
-        drawnUnit.isVigilant = true;
-        drawnUnit.gameObject.transform.SetParent(vigilantObject.transform);
+        preparing.Draw(vigilantObject);
+    }
+
+    public void ReshuffleUnits()
+    {
+        preparing.Reshuffle(recovering);
     }
 }
 

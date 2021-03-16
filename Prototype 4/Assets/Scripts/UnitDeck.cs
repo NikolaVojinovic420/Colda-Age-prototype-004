@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitDeck : MonoBehaviour
 {
-    private Deck<Unit> deck = new Deck<Unit>();
+    private readonly Deck<Unit> deck = new Deck<Unit>();
 
     public void Awake()
     {
@@ -16,21 +16,28 @@ public class UnitDeck : MonoBehaviour
         }
     }
 
-    public Unit draw()
+    public Unit Draw(GameObject to)
     {
-        return deck.Pop();
+        Unit u = deck.Pop();
+        u.Draw(to);
+        return u;
     }
 
-    public bool isEmpty()
+    public void AddUnit(Unit u)
+    {
+        deck.push(u);
+    }
+
+    public bool IsEmpty()
     {
         return deck.IsEmpty();
     }
 
-    public void reshuffle(UnitDeck from)
+    public void Reshuffle(UnitDeck from)
     {
-        while(!from.isEmpty())
+        while(!from.IsEmpty())
         {
-            Unit u = from.draw();
+            Unit u = from.Draw(gameObject);
             deck.push(u);
         }
         deck.Shuffle();

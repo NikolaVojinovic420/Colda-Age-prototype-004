@@ -5,32 +5,23 @@ using UnityEngine;
 public  class State
 {
     protected StateMachine _stateMachine;
-    public State()
-    {
-    }
-    public State(StateMachine stateMachine)
-    {
-        _stateMachine = stateMachine;
-    }
+
+    public State(StateMachine stateMachine) { _stateMachine = stateMachine; }
+
     public virtual IEnumerator Start()
     {
-
         yield break;
-
     }
     public virtual IEnumerator End()
     {
         yield break;
     }
-    public virtual void Engage(Unit unit)
-    {
 
-    }
-    public virtual void Disengage(Unit unit)
+    public virtual IEnumerator UnitClicked(Unit unit)
     {
-
+        yield break;
     }
-    public virtual IEnumerator OnEventResponse(EventResponse eventResponse)
+    public virtual IEnumerator ResponseClicked(EventResponse eventResponse)
     {
         yield break;
     }

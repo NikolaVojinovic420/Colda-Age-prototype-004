@@ -2,18 +2,17 @@
 
 internal class DrawUnitState : State
 {
-    public DrawUnitState(StateMachine stateMachine) : base(stateMachine)
-    {
-    }
+    public DrawUnitState(StateMachine stateMachine) : base(stateMachine) {}
+
     public override IEnumerator Start()
     {
-        //check reshuffle\
-        if (_stateMachine.preparingObject.transform.childCount == 0)
-            _stateMachine.preparing.reshuffle(_stateMachine.recovering);
-        //draw one from preparing into vigilant
+        if (_stateMachine.preparing.IsEmpty())
+            _stateMachine.ReshuffleUnits();
+
         _stateMachine.DrawUnit();
-        //update aspect display auto updates itsdelf
-        _stateMachine.SetState(new NewEventState(_stateMachine));
+
+        _stateMachine.SetState(new DrawEventState(_stateMachine));
+
         yield break;
     }
 }
