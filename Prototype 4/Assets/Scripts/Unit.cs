@@ -44,6 +44,8 @@ public class Unit : MonoBehaviour , Card
     public void Move(GameObject destination)
     {
         gameObject.transform.SetParent(destination.transform);
-        GetComponent<Animate>().moveDestination = destination;
+        //GetComponent<Animate>().moveDestination = destination;
+        Vector3 parentPos = destination.transform.position;
+        gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
     }
 }
