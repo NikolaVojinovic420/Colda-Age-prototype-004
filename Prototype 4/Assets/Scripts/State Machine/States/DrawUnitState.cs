@@ -8,10 +8,10 @@ internal class DrawUnitState : State
     public override IEnumerator Start()
     {
         //check reshuffle\
-        if (_stateMachine.preparing.transform.childCount == 0)
-            _stateMachine.preparing.GetComponent<Deck>().Reshuffle(_stateMachine.recovering.GetComponent<Deck>());
+        if (_stateMachine.preparingObject.transform.childCount == 0)
+            _stateMachine.preparing.Reshuffle(_stateMachine.recovering);
         //draw one from preparing into vigilant
-        _stateMachine.preparing.GetComponent<Deck>().Draw(_stateMachine.vigilant);
+        _stateMachine.DrawUnit();
         //update aspect display auto updates itsdelf
         _stateMachine.SetState(new NewEventState(_stateMachine));
         yield break;

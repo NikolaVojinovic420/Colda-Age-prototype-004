@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public class Unit : MonoBehaviour , Card
 {
     public Aspect aspect;
     public bool isEngaged = false;
+    public bool isVigilant = false;
     StateMachine stateMachine;
     void Awake()
     {
         stateMachine = FindObjectOfType<StateMachine>();
         aspect = GetComponent<Aspect>();
     }
-    private void OnMouseDown()
+    void OnMouseDown()
     {
+        if (!isEngaged && !isVigilant)
+            return;
         isEngaged = !isEngaged;
-        if (isEngaged)
+        if (isEngaged )
             stateMachine.Engage(this);
         else stateMachine.Disengage(this);
     }
