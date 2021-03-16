@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Event : MonoBehaviour, Card
+public class Event : Card
 {
     private bool inDeck = true;
 

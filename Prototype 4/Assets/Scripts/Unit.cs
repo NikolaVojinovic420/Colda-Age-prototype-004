@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour, Card
+public class Unit : Card
 {
     public Aspect aspect;
 

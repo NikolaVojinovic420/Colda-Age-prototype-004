@@ -20,5 +20,4 @@ public class Aspect :MonoBehaviour
     }
 
     public string ReturnAspectString() => $"\nA = {a}\nP = {p}\nC = {c}";
-
 }
