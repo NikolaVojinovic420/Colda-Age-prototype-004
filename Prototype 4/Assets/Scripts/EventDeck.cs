@@ -18,7 +18,6 @@ public class EventDeck : MonoBehaviour
 
     public Event Draw(GameObject newOwner)
     {
-        Debug.Log($"event deck is empty="+deck.IsEmpty());
         Event e = deck.Pop();
         e.Draw(newOwner);
         return e;

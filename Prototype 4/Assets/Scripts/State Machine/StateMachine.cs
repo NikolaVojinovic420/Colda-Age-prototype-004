@@ -5,35 +5,40 @@ using UnityEngine;
 
 public class StateMachine : MonoBehaviour
 {
-    public GameObject futureObject;
-    public GameObject historyObject;
+    [SerializeField] private GameObject futureObject;
+    [SerializeField] private GameObject historyObject;
 
-    public GameObject eventStage;
+    public GameObject eventStageObject;
 
-    public GameObject preparingObject;
-    public GameObject recoveringObject;
+    [SerializeField] private GameObject preparingObject;
+    [SerializeField] private GameObject recoveringObject;
 
-    public GameObject vigilantObject;
-    public GameObject engagedObject;
+    [SerializeField] private GameObject vigilantObject;
+    [SerializeField] private GameObject engagedObject;
+
+    public EventDeck future;
+    public EventDeck history;
 
     public UnitDeck preparing;
     public UnitDeck recovering;
 
-    public EventDeck future;
-    public EventDeck history;
+    public UnitDisplay vigilant;
+    public UnitDisplay engaged;
 
     private State state;
 
     void Awake()
     {
-        Debug.Log("awake statemachine");
         state = new StartState(this);
+
+        future = futureObject.GetComponent<EventDeck>();
+        history = historyObject.GetComponent<EventDeck>();
 
         preparing = preparingObject.GetComponent<UnitDeck>();
         recovering = recoveringObject.GetComponent<UnitDeck>();
 
-        future = futureObject.GetComponent<EventDeck>();
-        history = historyObject.GetComponent<EventDeck>();
+        vigilant = vigilantObject.GetComponent<UnitDisplay>();
+        engaged = engagedObject.GetComponent<UnitDisplay>();
     }
 
     void Start()
@@ -45,7 +50,7 @@ public class StateMachine : MonoBehaviour
     {
         StartCoroutine(state.End());
         this.state = state;
-        Debug.Log($"{state} started");
+        Debug.Log("State change to -> "+state);
         StartCoroutine(state.Start());
     }
     public void ResponseClicked(EventResponse eventResponse)
@@ -56,19 +61,14 @@ public class StateMachine : MonoBehaviour
 
     public void UnitClicked(Unit unit)
     {
-        Debug.Log("engage unit in " + state);
+        Debug.Log("mehtod call -> UnitClicked in StateMachine. Current state is " + state);
         StartCoroutine(state.UnitClicked(unit));
     }
 
-    public void DrawUnit()
+    public void ReshuffleIfNeededAndDrawUnit()
     {
-        preparing.Draw(vigilantObject);
-    }
-
-    public void ReshuffleUnits()
-    {
-        preparing.Reshuffle(recovering);
+        if (preparing.IsEmpty())
+            preparing.Reshuffle(recovering);
+        preparing.Draw(vigilant);
     }
 }
-
-

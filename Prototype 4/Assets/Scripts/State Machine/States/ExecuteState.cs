@@ -33,7 +33,11 @@ internal class ExecuteState : State
             _stateMachine.history.AddEvent(newEvent);
         }
 
-        Event currentEvent = effect.gameObject.transform.parent.gameObject.GetComponent<Event>();
+        // draw units
+        for (int i = 0; i < effect.draw; i++)
+            _stateMachine.ReshuffleIfNeededAndDrawUnit();
+
+        Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
 
         //exhaust or discard event
         if (effect.exhaustable)
@@ -41,14 +45,17 @@ internal class ExecuteState : State
         else
             currentEvent.Discard(_stateMachine.history);
 
-        //move all from engaged to recovering
-        for (int i = _stateMachine.engagedObject.transform.childCount - 1; i >= 0; i--)
-        //while (_stateMachine.engagedObject.transform.childCount > 0)
+        //discard all units in engaged
+        for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
         {
-            //_stateMachine.engagedObject.transform.GetChild(i).SetParent(_stateMachine.recoveringObject.transform);
-            Unit u = _stateMachine.engagedObject.transform.GetChild(i).GetComponent<Unit>();
+            Unit u = _stateMachine.engaged.units[i];
+            if (u == null)
+                continue;
+            _stateMachine.engaged.units[i] = null;
             u.Discard(_stateMachine.recovering);
         }
+
+        _stateMachine.vigilant.reorder();
 
         _stateMachine.SetState(new DrawUnitState(_stateMachine)); //set new state
         yield break;

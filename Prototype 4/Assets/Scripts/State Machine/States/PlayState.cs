@@ -17,9 +17,9 @@ internal class PlayState : State
         Debug.Log(unit+ " UnitClicked (method call in play state)");
 
         if (unit.engaged)
-            unit.Move(_stateMachine.vigilantObject);
+            _stateMachine.engaged.transferUnit(_stateMachine.vigilant, unit);
         else
-            unit.Move(_stateMachine.engagedObject);
+            _stateMachine.vigilant.transferUnit(_stateMachine.engaged, unit);
 
         unit.engaged = !unit.engaged;
 

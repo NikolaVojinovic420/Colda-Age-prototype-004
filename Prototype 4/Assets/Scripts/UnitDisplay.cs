@@ -5,36 +5,68 @@ using UnityEngine.UI;
 
 public class UnitDisplay : MonoBehaviour
 {
-    public GameObject vigAspectUIObject;
-    public GameObject engAspectUIObject;
-    public GameObject vigilant;
-    public GameObject engaged;
+    //TODO make private
+    public Unit[] units = new Unit[10];
 
-    void FixedUpdate()
+    public void add(Unit u)
     {
-        RefreshAspects();
-        SortCards(vigilant);
-        SortCards(engaged);
+        for (int i = 0; i < units.Length; i++)
+        {
+            if (units[i] == null)
+            {
+                add(u, i);
+                break;
+            }
+        }
     }
-    void RefreshAspects()
+    public void add(Unit u, int index)
     {
-            CopyAspects();
-            UpdateAspectsUI();
+        units[index] = u;
+        u.setPosition(calcPosition(index));
     }
-    public void CopyAspects()
+
+    public void transferUnit(UnitDisplay newDisplay, Unit unitToTransfer)
     {
-        vigAspectUIObject.GetComponent<Aspect>().Copy(vigilant);
-        engAspectUIObject.GetComponent<Aspect>().Copy(engaged);
+        Debug.Log("Transfering unit="+unitToTransfer+" from "+this+" to "+newDisplay);
+        for (int i = 0; i < units.Length; i++)
+        {
+            Debug.Log("index="+i+" -> "+units[i]);
+            if (units[i] == unitToTransfer)
+            {
+                Debug.Log("unit found at index="+i);
+                units[i].Move(newDisplay.gameObject);
+                newDisplay.add(units[i], i);
+                units[i] = null;
+                break;
+            }
+            Debug.Log("unit was NOT found at index=" + i);
+        }
     }
-    void UpdateAspectsUI()
+
+    public void reorder()
     {
-        vigAspectUIObject.GetComponent<Text>().text = $"Vigilant:{vigAspectUIObject.GetComponent<Aspect>().ReturnAspectString()}";
-        engAspectUIObject.GetComponent<Text>().text = $"Engaged:{engAspectUIObject.GetComponent<Aspect>().ReturnAspectString()}";
+        int freeSlotIndex = -1;
+        for (int i = 0; i < units.Length; i++)
+        {
+            if (freeSlotIndex == -1 && units[i] == null)
+            {
+                freeSlotIndex = i;
+                continue;
+            }
+            if (freeSlotIndex > -1 && units[i] != null)
+            {
+                units[freeSlotIndex] = units[i];
+                units[freeSlotIndex].setPosition(calcPosition(freeSlotIndex));
+                units[i] = null;
+                freeSlotIndex = i;
+            }
+        }
     }
-    public void SortCards(GameObject deck)//tmp solution
+
+    public Vector3 calcPosition(int index)
     {
-        for (int i = 0; i < deck.transform.childCount; i++)
-            deck.transform.GetChild(i).position = 
-                new Vector2(deck.transform.position.x + i * (deck.transform.GetChild(i).localScale.x + 0.2f), deck.transform.position.y);
+        Vector3 parentPos = gameObject.transform.position;
+        Vector3 pos = new Vector3(parentPos.x + index * 2.5f, parentPos.y, parentPos.z);
+        return pos;
     }
 }

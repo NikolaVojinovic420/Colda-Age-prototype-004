@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour , Card
+public class Unit : MonoBehaviour, Card
 {
     public Aspect aspect;
 
@@ -24,8 +24,6 @@ public class Unit : MonoBehaviour , Card
         if (inDeck)
             return;
 
-        Debug.Log(this + " is not in the deck");
-
         stateMachine.UnitClicked(this);
     }
 
@@ -36,10 +34,11 @@ public class Unit : MonoBehaviour , Card
         discardTo.AddUnit(this);
     }
 
-    public void Draw(GameObject newOwner)
+    public void Draw(UnitDisplay toDisplay)
     {
         inDeck = false;
-        Move(newOwner);
+        Move(toDisplay.gameObject);
+        toDisplay.add(this);
     }
     public void Move(GameObject destination)
     {
@@ -47,5 +46,10 @@ public class Unit : MonoBehaviour , Card
         //GetComponent<Animate>().moveDestination = destination;
         Vector3 parentPos = destination.transform.position;
         gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
+    }
+
+    public void setPosition(Vector3 pos)
+    {
+        gameObject.transform.position = pos;
     }
 }

@@ -6,10 +6,7 @@ internal class DrawUnitState : State
 
     public override IEnumerator Start()
     {
-        if (_stateMachine.preparing.IsEmpty())
-            _stateMachine.ReshuffleUnits();
-
-        _stateMachine.DrawUnit();
+        _stateMachine.ReshuffleIfNeededAndDrawUnit();
 
         _stateMachine.SetState(new DrawEventState(_stateMachine));
 
