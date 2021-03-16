@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using UnityEngine;
 
 internal class ExecuteState : State
 {
@@ -11,6 +12,7 @@ internal class ExecuteState : State
     }
     public override IEnumerator Start()
     {
+        Debug.Log("event execute started");
         if (effect.loss) //loss
         {
             _stateMachine.SetState(new LossState(_stateMachine));

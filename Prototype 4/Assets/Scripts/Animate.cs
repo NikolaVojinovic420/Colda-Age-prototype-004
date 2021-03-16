@@ -26,6 +26,7 @@ public class Animate : MonoBehaviour
         Flip();
         MoveTo();
         Poof();
+        moveDestination = gameObject.transform.parent.gameObject;
     }
     //need to use in Udpate or FixedUpdate (prefer FixedUpdate)
     public void MoveTo() => gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, moveDestination.transform.position, moveSpeed * Time.deltaTime);

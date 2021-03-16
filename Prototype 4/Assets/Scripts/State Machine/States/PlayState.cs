@@ -9,6 +9,7 @@ internal class PlayState : State
     }
     public override IEnumerator OnEventResponse(EventResponse eventResponse)
     {
+        Debug.Log("caught OnEventResponse event");
         _stateMachine.SetState(new ExecuteState(_stateMachine, eventResponse));
         yield break;
     }

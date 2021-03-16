@@ -1557,6 +1557,8 @@ GameObject:
   - component: {fileID: 8136461781030749561}
   - component: {fileID: 3827354804401735494}
   - component: {fileID: 8152633126309021105}
+  - component: {fileID: 20851824715408973}
+  - component: {fileID: 6607427232051725860}
   m_Layer: 0
   m_Name: Almost there
   m_TagString: Untagged
@@ -1677,6 +1679,36 @@ MonoBehaviour:
   poof: 0
   particleSplash: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
     type: 3}
+--- !u!114 &20851824715408973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136461781030749542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d83753ae07b9248a6dd4968a811163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6607427232051725860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8136461781030749542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d6a071be676ebd43b409a65de8a2811, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveDestination: {fileID: 0}
+  moveSpeed: 0
+  rotateSpeed: 0
+  angle: 0
+  poof: 0
+  particleSplash: {fileID: 0}
 --- !u!1 &8136461781502259682
 GameObject:
   m_ObjectHideFlags: 0

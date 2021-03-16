@@ -13,6 +13,9 @@ public class EventResponse : MonoBehaviour
         stateMachine = FindObjectOfType<StateMachine>();
     }
 
-    void RespondToEvent() => stateMachine.OnResponse(this); 
-    public void OnMouseDown() => RespondToEvent();
+    public void OnMouseDown()
+    {
+        Debug.Log("response clicked");
+        stateMachine.OnResponse(this);
+    }
 }

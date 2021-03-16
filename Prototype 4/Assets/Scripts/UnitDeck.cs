@@ -6,19 +6,24 @@ public class UnitDeck : MonoBehaviour
 {
     private Deck<Unit> deck = new Deck<Unit>();
 
-    void Awake()
+    public void Awake()
     {
-        // find all unit children of the game object and put them into the deck object
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject childObject = transform.GetChild(i).gameObject;
+            Unit child = childObject.GetComponent<Unit>();
+            deck.push(child);
+        }
     }
 
     public Unit draw()
     {
-        return deck.pop();
+        return deck.Pop();
     }
 
     public bool isEmpty()
     {
-        return deck.isEmpty();
+        return deck.IsEmpty();
     }
 
     public void reshuffle(UnitDeck from)
@@ -28,6 +33,6 @@ public class UnitDeck : MonoBehaviour
             Unit u = from.draw();
             deck.push(u);
         }
-        deck.shuffle();
+        deck.Shuffle();
     }
 }

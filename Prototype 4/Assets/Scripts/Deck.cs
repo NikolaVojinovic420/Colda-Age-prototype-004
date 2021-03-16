@@ -10,7 +10,7 @@ public class Deck<C> where C : Card
     {
         cards.Add(card);
     }
-    public C pop()
+    public C Pop()
     {
         int index = cards.Count - 1;
         C popped = cards[index];
@@ -18,12 +18,12 @@ public class Deck<C> where C : Card
         return popped;
     }
 
-    public bool isEmpty()
+    public bool IsEmpty()
     {
         return cards.Count == 0;
     }
 
-    public void shuffle()
+    public void Shuffle()
     {
         for (int i = 0; i < cards.Count; i++)
         {
