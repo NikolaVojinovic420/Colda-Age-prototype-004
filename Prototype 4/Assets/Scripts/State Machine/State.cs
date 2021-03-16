@@ -21,7 +21,7 @@ public  class State
     {
         yield break;
     }
-    public virtual IEnumerator ResponseClicked(EventResponse eventResponse)
+    public virtual IEnumerator ResponseClicked(Response eventResponse)
     {
         yield break;
     }

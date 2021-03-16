@@ -27,19 +27,15 @@ public class UnitDisplay : MonoBehaviour
 
     public void transferUnit(UnitDisplay newDisplay, Unit unitToTransfer)
     {
-        Debug.Log("Transfering unit="+unitToTransfer+" from "+this+" to "+newDisplay);
         for (int i = 0; i < units.Length; i++)
         {
-            Debug.Log("index="+i+" -> "+units[i]);
             if (units[i] == unitToTransfer)
             {
-                Debug.Log("unit found at index="+i);
                 units[i].Move(newDisplay.gameObject);
                 newDisplay.add(units[i], i);
                 units[i] = null;
                 break;
             }
-            Debug.Log("unit was NOT found at index=" + i);
         }
     }
 
@@ -63,10 +59,19 @@ public class UnitDisplay : MonoBehaviour
         }
     }
 
-    public Vector3 calcPosition(int index)
+    private Vector3 calcPosition(int index)
     {
         Vector3 parentPos = gameObject.transform.position;
         Vector3 pos = new Vector3(parentPos.x + index * 2.5f, parentPos.y, parentPos.z);
         return pos;
+    }
+
+    public Aspect calcAspectSum()
+    {
+        Aspect a = new Aspect();
+        for (int i = 0; i < units.Length; i++)
+            if (units[i] != null)
+                a.add(units[i].aspect);
+        return a;
     }
 }

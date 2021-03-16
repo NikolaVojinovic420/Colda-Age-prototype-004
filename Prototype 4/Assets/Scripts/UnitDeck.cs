@@ -19,7 +19,6 @@ public class UnitDeck : MonoBehaviour
     public Unit Draw(UnitDisplay to)
     {
         Unit u = deck.Pop();
-        Debug.Log(u+" drawn");
         u.Draw(to);
         return u;
     }

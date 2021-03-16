@@ -20,7 +20,6 @@ public class Unit : MonoBehaviour, Card
     }
     void OnMouseDown()
     {
-        Debug.Log(this+" mouse click");
         if (inDeck)
             return;
 

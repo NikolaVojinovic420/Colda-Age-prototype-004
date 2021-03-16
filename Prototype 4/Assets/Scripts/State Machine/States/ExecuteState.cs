@@ -3,17 +3,16 @@ using UnityEngine;
 
 internal class ExecuteState : State
 {
-    private EventResponse eventResponse;
+    private Response eventResponse;
     private Effect effect;
 
-    public ExecuteState(StateMachine stateMachine, EventResponse eResponse) : base(stateMachine)
+    public ExecuteState(StateMachine stateMachine, Response eResponse) : base(stateMachine)
     {
         eventResponse = eResponse;
         effect = eventResponse.GetComponent<Effect>();
     }
     public override IEnumerator Start()
     {
-        Debug.Log("event execute started");
         if (effect.loss) //loss
         {
             _stateMachine.SetState(new LossState(_stateMachine));
@@ -41,7 +40,7 @@ internal class ExecuteState : State
 
         //exhaust or discard event
         if (effect.exhaustable)
-            UnityEngine.Object.Destroy(eventResponse.gameObject.transform.parent.gameObject);
+            UnityEngine.Object.Destroy(currentEvent.gameObject);
         else
             currentEvent.Discard(_stateMachine.history);
 

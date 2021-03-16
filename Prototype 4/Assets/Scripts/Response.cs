@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventResponse : MonoBehaviour
+public class Response : MonoBehaviour
 {
     public GameObject greenLight;
     public StateMachine stateMachine;
@@ -15,7 +15,6 @@ public class EventResponse : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("response clicked");
         stateMachine.ResponseClicked(this);
     }
 }

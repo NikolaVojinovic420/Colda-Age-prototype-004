@@ -53,15 +53,13 @@ public class StateMachine : MonoBehaviour
         Debug.Log("State change to -> "+state);
         StartCoroutine(state.Start());
     }
-    public void ResponseClicked(EventResponse eventResponse)
+    public void ResponseClicked(Response eventResponse)
     {
-        Debug.Log(state + " == null " + (state == null));
         StartCoroutine(state.ResponseClicked(eventResponse));
     }
 
     public void UnitClicked(Unit unit)
     {
-        Debug.Log("mehtod call -> UnitClicked in StateMachine. Current state is " + state);
         StartCoroutine(state.UnitClicked(unit));
     }
 
