@@ -24,6 +24,6 @@ public class Event : MonoBehaviour, Card
         gameObject.transform.SetParent(destination.transform);
         //GetComponent<Animate>().moveDestination = destination;
         Vector3 parentPos = destination.transform.position;
-        gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
+        //gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
     }
 }
