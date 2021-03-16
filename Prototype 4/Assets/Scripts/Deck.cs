@@ -14,7 +14,7 @@ public class Deck<C> where C : Card
     {
         int index = cards.Count - 1;
         C popped = cards[index];
-        cards.RemoveAt[index];
+        cards.RemoveAt(index);
         return popped;
     }
 
@@ -27,7 +27,7 @@ public class Deck<C> where C : Card
     {
         for (int i = 0; i < cards.Count; i++)
         {
-            C tmp = alpha[i];
+            C tmp = cards[i];
             int randomIndex = Random.Range(i, cards.Count);
             cards[i] = cards[randomIndex];
             cards[randomIndex] = tmp;

@@ -26,8 +26,8 @@ internal class ExecuteState : State
         if (effect.exhaustable) //exhaust or discard event
             UnityEngine.Object.Destroy(eventResponse.gameObject.transform.parent);
         else eventResponse.gameObject.transform.parent.SetParent(_stateMachine.history.transform);
-        while (_stateMachine.engaged.transform.childCount > 0) //move all from engaged to recovering
-                _stateMachine.engaged.transform.GetChild(0).SetParent(_stateMachine.recoveringObject.transform);
+        while (_stateMachine.engagedObject.transform.childCount > 0) //move all from engaged to recovering
+                _stateMachine.engagedObject.transform.GetChild(0).SetParent(_stateMachine.recoveringObject.transform);
         _stateMachine.SetState(new DrawUnitState(_stateMachine)); //set new state
         yield break;
     }

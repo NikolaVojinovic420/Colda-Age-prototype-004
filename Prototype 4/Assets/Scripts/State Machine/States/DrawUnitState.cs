@@ -9,7 +9,7 @@ internal class DrawUnitState : State
     {
         //check reshuffle\
         if (_stateMachine.preparingObject.transform.childCount == 0)
-            _stateMachine.preparing.Reshuffle(_stateMachine.recovering);
+            _stateMachine.preparing.reshuffle(_stateMachine.recovering);
         //draw one from preparing into vigilant
         _stateMachine.DrawUnit();
         //update aspect display auto updates itsdelf
