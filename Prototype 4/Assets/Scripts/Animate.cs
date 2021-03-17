@@ -14,20 +14,20 @@ public class Animate : MonoBehaviour
     public bool faceUpDesination = false;
     [SerializeField]
     float rotateSpeed;
-    [SerializeField]
-    float angle;
     public bool poof = false;
     public GameObject particleSplash;
-    void FixedUpdate()
+    void Update()
     {
         Flip();
         Poof();
         MoveTo();
     }
-    public void MoveTo() => gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveDestination, moveSpeed * Time.deltaTime);
+    public void MoveTo() => transform.position = Vector3.MoveTowards(gameObject.transform.position, moveDestination, moveSpeed * Time.deltaTime);
     public void Flip()
     {
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, angle, 0), rotateSpeed * Time.deltaTime);
+        if(faceUpDesination)
+        transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 0, 0).normalized, rotateSpeed * Time.deltaTime);
+        else transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 180, 0f).normalized, rotateSpeed * Time.deltaTime);
     }
     public void Poof()
     {
