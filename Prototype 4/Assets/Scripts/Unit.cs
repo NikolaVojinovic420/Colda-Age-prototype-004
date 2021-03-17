@@ -5,12 +5,10 @@ using UnityEngine;
 public class Unit : Card
 {
     public Aspect aspect;
-    private Animate animator;
+    //private Animate animator;
 
     //FIXME get rid of this field and solve in play state
     public bool engaged = false;
-
-    private bool inDeck = true;
 
     private StateMachine stateMachine;
 
@@ -23,7 +21,7 @@ public class Unit : Card
     }
     void OnMouseDown()
     {
-        if (inDeck)
+        if (!IsActive())
             return;
 
         stateMachine.UnitClicked(this);
@@ -31,14 +29,14 @@ public class Unit : Card
 
     public void Discard(UnitDeck discardTo)
     {
-        inDeck = true;
+        SetActive(false);
         Move(discardTo.gameObject);
         discardTo.AddUnit(this);
     }
 
     public void Draw(UnitDisplay toDisplay)
     {
-        inDeck = false;
+        SetActive(true);
         Move(toDisplay.gameObject);
         toDisplay.add(this);
     }

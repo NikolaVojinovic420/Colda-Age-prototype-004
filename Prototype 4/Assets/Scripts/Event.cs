@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class Event : Card
 {
-    private bool inDeck = true;
-
-    private Animate animator;
-
     private void Awake()
     {
         animator = GetComponent<Animate>();
@@ -16,14 +12,14 @@ public class Event : Card
 
     public void Discard(EventDeck discardTo)
     {
-        inDeck = true;
+        SetActive(false);
         Move(discardTo.gameObject);
         discardTo.AddEvent(this);
     }
 
     public void Draw(GameObject newOwner)
     {
-        inDeck = false;
+        SetActive(true);
         Move(newOwner);
     }
 

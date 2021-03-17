@@ -8,7 +8,10 @@ public class Animate : MonoBehaviour
     public Vector3 moveDestination;
     [SerializeField]
     float moveSpeed;
+
     // flip animation
+    // initially all cards are face down, this field will be updated automatically by the card class
+    public bool faceUpDesination = false;
     [SerializeField]
     float rotateSpeed;
     [SerializeField]

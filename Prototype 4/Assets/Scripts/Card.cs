@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    private bool active;
-    public void transfer(Transform newParent, Vector3 position, bool active)
+    protected Animate animator;
+
+    private bool Active;
+
+    void Awake()
     {
-        this.active = active;
+        animator = GetComponent<Animate>();
+    }
+
+    public bool IsActive() { return Active; }
+    public void SetActive(bool active)
+    {
+        Active = active;
+        animator.faceUpDesination = active;
+    }
+    public void Transfer(Transform newParent, Vector3 position, bool active)
+    {
+        SetActive(active);
         gameObject.transform.SetParent(newParent);
         gameObject.transform.position = position;
     }
-    public void transfer(Transform newParent, bool active)
+    public void Transfer(Transform newParent, bool active)
     {
         Vector3 position = newParent.position;
-        transfer(newParent, position, active);
+        Transfer(newParent, position, active);
     }
 }
