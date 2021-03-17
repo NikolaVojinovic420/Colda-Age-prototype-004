@@ -11,7 +11,10 @@ public class StartState : State
         {
             _stateMachine.ReshuffleIfNeededAndDrawUnit();
         }
-        
+
+        _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
+        _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
+
         _stateMachine.SetState(new DrawEventState(_stateMachine));
 
         yield break;

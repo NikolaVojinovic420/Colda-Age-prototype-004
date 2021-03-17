@@ -8,6 +8,16 @@ public class UnitDisplay : MonoBehaviour
     //TODO make private
     public Unit[] units = new Unit[10];
 
+    public bool IsFull()
+    {
+        for (int i = 0; i < units.Length; i++)
+        {
+            if (units[i] == null)
+                return false;
+        }
+        return true;
+    }
+
     public void Add(Unit u)
     {
         for (int i = 0; i < units.Length; i++)
@@ -67,9 +77,9 @@ public class UnitDisplay : MonoBehaviour
         return pos;
     }
 
-    public Aspect CalcAspectSum()
+    public AspectMap CalcAspectSum()
     {
-        Aspect a = new Aspect();
+        AspectMap a = new AspectMap();
         for (int i = 0; i < units.Length; i++)
             if (units[i] != null)
                 a.Add(units[i].aspect);

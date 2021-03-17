@@ -16,6 +16,9 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private GameObject vigilantObject;
     [SerializeField] private GameObject engagedObject;
 
+    [SerializeField] private GameObject vigilantAspectsObject;
+    [SerializeField] private GameObject engagedAspectsObject;
+
     public EventDeck future;
     public EventDeck history;
 
@@ -24,6 +27,9 @@ public class StateMachine : MonoBehaviour
 
     public UnitDisplay vigilant;
     public UnitDisplay engaged;
+
+    public AspectDisplay vigilantAspectsDisplay;
+    public AspectDisplay engagedAspectsDisplay;
 
     private State state;
 
@@ -39,6 +45,9 @@ public class StateMachine : MonoBehaviour
 
         vigilant = vigilantObject.GetComponent<UnitDisplay>();
         engaged = engagedObject.GetComponent<UnitDisplay>();
+
+        vigilantAspectsDisplay = vigilantAspectsObject.GetComponent<AspectDisplay>();
+        engagedAspectsDisplay = engagedAspectsObject.GetComponent<AspectDisplay>();
     }
 
     void Start()

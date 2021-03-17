@@ -6,7 +6,12 @@ internal class DrawUnitState : State
 
     public override IEnumerator Start()
     {
-        _stateMachine.ReshuffleIfNeededAndDrawUnit();
+        if (!_stateMachine.vigilant.IsFull())
+        {
+            _stateMachine.ReshuffleIfNeededAndDrawUnit();
+            
+            _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
+        }
 
         _stateMachine.SetState(new DrawEventState(_stateMachine));
 

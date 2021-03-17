@@ -20,6 +20,9 @@ internal class PlayState : State
 
         unit.engaged = !unit.engaged;
 
+        _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
+        _stateMachine.engagedAspectsDisplay.SetAspect(_stateMachine.engaged.CalcAspectSum());
+
         yield break;
     }
 }

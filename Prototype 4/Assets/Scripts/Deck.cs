@@ -6,7 +6,7 @@ public class Deck<C> where C : Card
 {
     private readonly List<C> Cards = new List<C>();
 
-    public void push(C card)
+    public void Push(C card)
     {
         Cards.Add(card);
     }

@@ -12,7 +12,7 @@ public class EventDeck : MonoBehaviour
         {
             GameObject childObject = transform.GetChild(i).gameObject;
             Event child = childObject.GetComponent<Event>();
-            deck.push(child);
+            deck.Push(child);
         }
     }
 
@@ -25,7 +25,7 @@ public class EventDeck : MonoBehaviour
 
     public void AddEvent(Event e)
     {
-        deck.push(e);
+        deck.Push(e);
     }
 
     public bool IsEmpty()
@@ -38,7 +38,7 @@ public class EventDeck : MonoBehaviour
         while (!from.IsEmpty())
         {
             Event e = from.Draw(gameObject);
-            deck.push(e);
+            deck.Push(e);
         }
         deck.Shuffle();
     }

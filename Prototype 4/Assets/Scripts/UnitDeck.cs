@@ -12,7 +12,7 @@ public class UnitDeck : MonoBehaviour
         {
             GameObject childObject = transform.GetChild(i).gameObject;
             Unit child = childObject.GetComponent<Unit>();
-            deck.push(child);
+            deck.Push(child);
         }
     }
 
@@ -25,7 +25,7 @@ public class UnitDeck : MonoBehaviour
 
     public void AddUnit(Unit u)
     {
-        deck.push(u);
+        deck.Push(u);
     }
 
     public bool IsEmpty()

@@ -4,20 +4,11 @@ using UnityEngine;
 
 public class Aspect : MonoBehaviour
 {
-    [SerializeField]
-    private int a, p, c;
+    public int a, p, c;
 
-    public bool ApplicableTo(Aspect cost)
-    {
-        return a >= cost.a && p >= cost.p && c >= cost.c;
-    }
-
-    public void Add(Aspect addFrom)
-    {
-        a += addFrom.a;
-        p += addFrom.p;
-        c += addFrom.c;
-    }
+    public int GetAggression() { return a; }
+    public int GetPractical() { return p; }
+    public int GetCreative() { return c; }
 
     public string ReturnAspectString() => $"\nA = {a}\nP = {p}\nC = {c}";
 }

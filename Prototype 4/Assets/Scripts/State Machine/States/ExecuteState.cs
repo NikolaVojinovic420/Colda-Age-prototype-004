@@ -35,7 +35,11 @@ internal class ExecuteState : State
 
         // draw units
         for (int i = 0; i < effect.draw; i++)
+        {
+            if (_stateMachine.vigilant.IsFull())
+                break;
             _stateMachine.ReshuffleIfNeededAndDrawUnit();
+        }
 
         Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
 
@@ -55,9 +59,11 @@ internal class ExecuteState : State
             u.Discard(_stateMachine.recovering);
         }
 
+        _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
+
         _stateMachine.vigilant.Reorder();
 
-        _stateMachine.SetState(new DrawUnitState(_stateMachine)); //set new state
+        _stateMachine.SetState(new DrawUnitState(_stateMachine));
         yield break;
     }
 }

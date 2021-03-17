@@ -11,9 +11,9 @@ public class AspectDisplay : MonoBehaviour
         _aspect = GetComponent<Aspect>();
     }
     void UpdateUIAspect() => GetComponent<Text>().text = _aspect.ReturnAspectString();
-    public void SetAspect(Aspect aspect)
+    public void SetAspect(AspectMap aspectMap)
     {
-        _aspect = aspect;
+        aspectMap.MirrorValuesTo(_aspect);
         UpdateUIAspect();
     }
 }
