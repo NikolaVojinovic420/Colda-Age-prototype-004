@@ -11,6 +11,7 @@ internal class ExecuteState : State
         eventResponse = eResponse;
         effect = eventResponse.GetComponent<Effect>();
     }
+
     public override IEnumerator Start()
     {
         if (effect.loss) //loss

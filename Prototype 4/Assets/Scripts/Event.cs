@@ -6,6 +6,14 @@ public class Event : Card
 {
     private bool inDeck = true;
 
+    private Animate animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animate>();
+        animator.moveDestination = gameObject.transform.parent.position;
+    }
+
     public void Discard(EventDeck discardTo)
     {
         inDeck = true;
