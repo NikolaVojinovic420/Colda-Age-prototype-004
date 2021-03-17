@@ -3,9 +3,7 @@ using UnityEngine.SceneManagement;
 
 internal class LossState : State
 {
-    public LossState(StateMachine stateMachine) : base(stateMachine)
-    {
-    }
+    public LossState(StateMachine stateMachine) : base(stateMachine) {}
     public override IEnumerator Start()
     {
         SceneManager.LoadSceneAsync(0);

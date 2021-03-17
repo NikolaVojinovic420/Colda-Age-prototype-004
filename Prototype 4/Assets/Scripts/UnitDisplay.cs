@@ -22,7 +22,7 @@ public class UnitDisplay : MonoBehaviour
     public void add(Unit u, int index)
     {
         units[index] = u;
-        u.setPosition(calcPosition(index));
+        //u.setPosition(calcPosition(index));
     }
 
     public void transferUnit(UnitDisplay newDisplay, Unit unitToTransfer)

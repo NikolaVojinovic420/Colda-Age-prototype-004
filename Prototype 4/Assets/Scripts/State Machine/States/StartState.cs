@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class StartState : State
 {
-    public StartState(StateMachine sm) : base(sm)
-    {
-    }
+    public StartState(StateMachine sm) : base(sm) {}
 
     public override IEnumerator Start()
     {

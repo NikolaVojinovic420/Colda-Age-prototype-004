@@ -5,7 +5,7 @@ using UnityEngine;
 public class Animate : MonoBehaviour
 {
     // move animation
-    public Transform moveDestination;
+    public Vector3 moveDestination;
     [SerializeField]
     float moveSpeed;
     // flip animation
@@ -19,9 +19,10 @@ public class Animate : MonoBehaviour
     {
         Flip();
         Poof();
-        CheckParent();
+        //CheckParent();
+        MoveTo();
     }
-    public void MoveTo() => gameObject.transform.position = Vector2.MoveTowards(gameObject.transform.position, moveDestination.transform.position, moveSpeed * Time.deltaTime);
+    public void MoveTo() => gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveDestination, moveSpeed * Time.deltaTime);
     public void Flip()
     {
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, angle, 0), rotateSpeed * Time.deltaTime);
@@ -38,10 +39,10 @@ public class Animate : MonoBehaviour
     {
 
     }
-    void CheckParent()
-    {
-        if (moveDestination != gameObject.transform.parent)
-            moveDestination = gameObject.transform.parent;
-        MoveTo();
-    }
+    //void CheckParent()
+    //{
+    //    if (moveDestination != gameObject.transform.parent)
+    //        moveDestination = gameObject.transform.parent;
+    //    MoveTo();
+    //}
 }

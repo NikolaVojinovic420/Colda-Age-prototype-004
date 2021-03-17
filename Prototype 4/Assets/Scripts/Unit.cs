@@ -5,6 +5,7 @@ using UnityEngine;
 public class Unit : Card
 {
     public Aspect aspect;
+    private Animate animator;
 
     //FIXME get rid of this field and solve in play state
     public bool engaged = false;
@@ -17,6 +18,8 @@ public class Unit : Card
     {
         stateMachine = FindObjectOfType<StateMachine>();
         aspect = GetComponent<Aspect>();
+        animator = GetComponent<Animate>();
+        animator.moveDestination = gameObject.transform.parent.position;
     }
     void OnMouseDown()
     {
@@ -44,11 +47,13 @@ public class Unit : Card
         gameObject.transform.SetParent(destination.transform);
         //GetComponent<Animate>().moveDestination = destination;
         Vector3 parentPos = destination.transform.position;
-        gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
+        setPosition(parentPos);
+        //gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
     }
 
     public void setPosition(Vector3 pos)
     {
-        gameObject.transform.position = pos;
+        animator.moveDestination = pos;
+        //gameObject.transform.position = pos;
     }
 }
