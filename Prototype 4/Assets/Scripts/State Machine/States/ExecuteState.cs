@@ -3,8 +3,8 @@ using UnityEngine;
 
 internal class ExecuteState : State
 {
-    private Response eventResponse;
-    private Effect effect;
+    private readonly Response eventResponse;
+    private readonly Effect effect;
 
     public ExecuteState(StateMachine stateMachine, Response eResponse) : base(stateMachine)
     {
@@ -55,7 +55,7 @@ internal class ExecuteState : State
             u.Discard(_stateMachine.recovering);
         }
 
-        _stateMachine.vigilant.reorder();
+        _stateMachine.vigilant.Reorder();
 
         _stateMachine.SetState(new DrawUnitState(_stateMachine)); //set new state
         yield break;

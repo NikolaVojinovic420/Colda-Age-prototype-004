@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Aspect :MonoBehaviour
+public class Aspect : MonoBehaviour
 {
     [SerializeField]
     private int a, p, c;
@@ -12,7 +12,7 @@ public class Aspect :MonoBehaviour
         return a >= cost.a && p >= cost.p && c >= cost.c;
     }
 
-    public void add(Aspect addFrom)
+    public void Add(Aspect addFrom)
     {
         a += addFrom.a;
         p += addFrom.p;

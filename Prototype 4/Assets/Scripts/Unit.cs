@@ -38,18 +38,18 @@ public class Unit : Card
     {
         SetActive(true);
         Move(toDisplay.gameObject);
-        toDisplay.add(this);
+        toDisplay.Add(this);
     }
     public void Move(GameObject destination)
     {
         gameObject.transform.SetParent(destination.transform);
         //GetComponent<Animate>().moveDestination = destination;
         Vector3 parentPos = destination.transform.position;
-        setPosition(parentPos);
+        SetPosition(parentPos);
         //gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
     }
 
-    public void setPosition(Vector3 pos)
+    public void SetPosition(Vector3 pos)
     {
         animator.moveDestination = pos;
         //gameObject.transform.position = pos;

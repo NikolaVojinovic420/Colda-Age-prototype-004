@@ -8,38 +8,38 @@ public class UnitDisplay : MonoBehaviour
     //TODO make private
     public Unit[] units = new Unit[10];
 
-    public void add(Unit u)
+    public void Add(Unit u)
     {
         for (int i = 0; i < units.Length; i++)
         {
             if (units[i] == null)
             {
-                add(u, i);
+                Add(u, i);
                 break;
             }
         }
     }
-    public void add(Unit u, int index)
+    public void Add(Unit u, int index)
     {
         units[index] = u;
-        u.setPosition(calcPosition(index));
+        u.SetPosition(CalcPosition(index));
     }
 
-    public void transferUnit(UnitDisplay newDisplay, Unit unitToTransfer)
+    public void TransferUnit(UnitDisplay newDisplay, Unit unitToTransfer)
     {
         for (int i = 0; i < units.Length; i++)
         {
             if (units[i] == unitToTransfer)
             {
                 units[i].Move(newDisplay.gameObject);
-                newDisplay.add(units[i], i);
+                newDisplay.Add(units[i], i);
                 units[i] = null;
                 break;
             }
         }
     }
 
-    public void reorder()
+    public void Reorder()
     {
         int freeSlotIndex = -1;
         for (int i = 0; i < units.Length; i++)
@@ -52,26 +52,27 @@ public class UnitDisplay : MonoBehaviour
             if (freeSlotIndex > -1 && units[i] != null)
             {
                 units[freeSlotIndex] = units[i];
-                units[freeSlotIndex].setPosition(calcPosition(freeSlotIndex));
+                units[freeSlotIndex].SetPosition(CalcPosition(freeSlotIndex));
                 units[i] = null;
-                freeSlotIndex = i;
+                i = freeSlotIndex;
+                freeSlotIndex = -1;
             }
         }
     }
 
-    private Vector3 calcPosition(int index)
+    private Vector3 CalcPosition(int index)
     {
         Vector3 parentPos = gameObject.transform.position;
         Vector3 pos = new Vector3(parentPos.x + index * 2.5f, parentPos.y, parentPos.z);
         return pos;
     }
 
-    public Aspect calcAspectSum()
+    public Aspect CalcAspectSum()
     {
         Aspect a = new Aspect();
         for (int i = 0; i < units.Length; i++)
             if (units[i] != null)
-                a.add(units[i].aspect);
+                a.Add(units[i].aspect);
         return a;
     }
 }

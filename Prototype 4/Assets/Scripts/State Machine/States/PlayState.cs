@@ -14,9 +14,9 @@ internal class PlayState : State
     public override IEnumerator UnitClicked(Unit unit)
     {
         if (unit.engaged)
-            _stateMachine.engaged.transferUnit(_stateMachine.vigilant, unit);
+            _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, unit);
         else
-            _stateMachine.vigilant.transferUnit(_stateMachine.engaged, unit);
+            _stateMachine.vigilant.TransferUnit(_stateMachine.engaged, unit);
 
         unit.engaged = !unit.engaged;
 
