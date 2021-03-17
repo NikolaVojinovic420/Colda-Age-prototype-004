@@ -194,7 +194,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aspect: {fileID: 0}
-  isEngaged: 0
+  engaged: 0
 --- !u!114 &8808409978054293155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6a071be676ebd43b409a65de8a2811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDestination: {fileID: 0}
-  moveSpeed: 0
+  moveDestination: {x: 0, y: 0, z: 0}
+  moveSpeed: 30
   rotateSpeed: 0
   angle: 0
   poof: 0
