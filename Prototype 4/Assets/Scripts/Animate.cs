@@ -19,7 +19,6 @@ public class Animate : MonoBehaviour
     {
         Flip();
         Poof();
-        //CheckParent();
         MoveTo();
     }
     public void MoveTo() => gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveDestination, moveSpeed * Time.deltaTime);
@@ -39,10 +38,4 @@ public class Animate : MonoBehaviour
     {
 
     }
-    //void CheckParent()
-    //{
-    //    if (moveDestination != gameObject.transform.parent)
-    //        moveDestination = gameObject.transform.parent;
-    //    MoveTo();
-    //}
 }

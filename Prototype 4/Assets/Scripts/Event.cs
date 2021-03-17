@@ -32,6 +32,12 @@ public class Event : Card
         gameObject.transform.SetParent(destination.transform);
         //GetComponent<Animate>().moveDestination = destination;
         Vector3 parentPos = destination.transform.position;
+        setPosition(parentPos);
         //gameObject.transform.position = new Vector3(parentPos.x, parentPos.y, parentPos.z);
+    }
+    public void setPosition(Vector3 pos)
+    {
+        animator.moveDestination = pos;
+        //gameObject.transform.position = pos;
     }
 }
