@@ -16,13 +16,12 @@ public class UnitDeck : MonoBehaviour
         }
     }
 
-    public Unit Draw(UnitDisplay to)
+    public Unit Draw()
     {
         Unit u = deck.Pop();
-        u.Draw(to);
         return u;
     }
-
+  
     public void AddUnit(Unit u)
     {
         deck.Push(u);
@@ -38,7 +37,7 @@ public class UnitDeck : MonoBehaviour
         while(!from.IsEmpty())
         {
             Unit u = from.deck.Pop();
-            u.Move(gameObject);
+            u.Transfer(transform, false);
             AddUnit(u);
         }
         deck.Shuffle();

@@ -56,7 +56,8 @@ internal class ExecuteState : State
             if (u == null)
                 continue;
             _stateMachine.engaged.units[i] = null;
-            u.Discard(_stateMachine.recovering);
+            u.Transfer(_stateMachine.recovering.transform, false);
+            _stateMachine.recovering.AddUnit(u);
         }
 
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
