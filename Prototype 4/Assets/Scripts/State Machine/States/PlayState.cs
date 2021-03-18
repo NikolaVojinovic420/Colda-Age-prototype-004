@@ -13,12 +13,10 @@ internal class PlayState : State
     }
     public override IEnumerator UnitClicked(Unit unit)
     {
-        if (unit.engaged)
+        if (_stateMachine.engaged.Contains(unit))
             _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, unit);
         else
             _stateMachine.vigilant.TransferUnit(_stateMachine.engaged, unit);
-
-        unit.engaged = !unit.engaged;
 
         _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         _stateMachine.engagedAspectsDisplay.SetAspect(_stateMachine.engaged.CalcAspectSum());

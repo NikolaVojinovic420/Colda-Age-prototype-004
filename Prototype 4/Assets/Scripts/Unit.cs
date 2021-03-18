@@ -6,9 +6,6 @@ public class Unit : Card
 {
     public Aspect aspect;
 
-    //FIXME get rid of this field and solve in play state
-    public bool engaged = false;
-
     private StateMachine stateMachine;
 
     void Awake()

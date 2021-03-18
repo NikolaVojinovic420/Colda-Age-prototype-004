@@ -18,6 +18,16 @@ public class UnitDisplay : MonoBehaviour
         return true;
     }
 
+    public bool Contains(Unit u)
+    {
+        for (int i = 0; i < units.Length; i++)
+        {
+            if (units[i] == u)
+                return true;
+        }
+        return false;
+    }
+
     public void Add(Unit u)
     {
         for (int i = 0; i < units.Length; i++)
