@@ -7,12 +7,6 @@ public class Card : MonoBehaviour
     protected Animate animator;
 
     private bool Active;
-
-    void Awake()
-    {
-        animator = GetComponent<Animate>();
-    }
-
     public bool IsActive() { return Active; }
     public void SetActive(bool active)
     {
@@ -23,7 +17,7 @@ public class Card : MonoBehaviour
     {
         SetActive(active);
         gameObject.transform.SetParent(newParent);
-        gameObject.transform.position = position;
+        animator.moveDestination = position;
     }
     public void Transfer(Transform newParent, bool active)
     {

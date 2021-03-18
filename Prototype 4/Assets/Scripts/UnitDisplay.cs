@@ -32,7 +32,7 @@ public class UnitDisplay : MonoBehaviour
     public void Add(Unit u, int index)
     {
         units[index] = u;
-        u.SetPosition(CalcPosition(index));
+        u.Transfer(transform, CalcPosition(index), true);
     }
 
     public void TransferUnit(UnitDisplay newDisplay, Unit unitToTransfer)
@@ -41,7 +41,6 @@ public class UnitDisplay : MonoBehaviour
         {
             if (units[i] == unitToTransfer)
             {
-                units[i].Move(newDisplay.gameObject);
                 newDisplay.Add(units[i], i);
                 units[i] = null;
                 break;
@@ -62,7 +61,7 @@ public class UnitDisplay : MonoBehaviour
             if (freeSlotIndex > -1 && units[i] != null)
             {
                 units[freeSlotIndex] = units[i];
-                units[freeSlotIndex].SetPosition(CalcPosition(freeSlotIndex));
+                units[freeSlotIndex].Transfer(transform, CalcPosition(freeSlotIndex), true);
                 units[i] = null;
                 i = freeSlotIndex;
                 freeSlotIndex = -1;

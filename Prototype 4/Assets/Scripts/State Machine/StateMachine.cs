@@ -76,6 +76,8 @@ public class StateMachine : MonoBehaviour
     {
         if (preparing.IsEmpty())
             preparing.Reshuffle(recovering);
-        preparing.Draw(vigilant);
+        Unit drawnUnit = preparing.Draw();
+        drawnUnit.Transfer(vigilant.transform, true);
+        vigilant.Add(drawnUnit);
     }
 }
