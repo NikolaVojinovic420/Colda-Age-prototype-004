@@ -13,7 +13,8 @@ internal class DrawEventState : State
             _stateMachine.future.Reshuffle(_stateMachine.history);
 
         //draw event to event stage
-        _stateMachine.future.Draw(_stateMachine.eventStageObject);
+        Event drawnEvent = _stateMachine.future.Draw();
+        drawnEvent.Transfer(_stateMachine.eventStageObject.transform, true);
 
         _stateMachine.SetState(new PlayState(_stateMachine));
         yield break;

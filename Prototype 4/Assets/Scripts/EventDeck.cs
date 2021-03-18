@@ -16,10 +16,9 @@ public class EventDeck : MonoBehaviour
         }
     }
 
-    public Event Draw(GameObject newOwner)
+    public Event Draw()
     {
         Event e = deck.Pop();
-        e.Draw(newOwner);
         return e;
     }
 
@@ -37,7 +36,8 @@ public class EventDeck : MonoBehaviour
     {
         while (!from.IsEmpty())
         {
-            Event e = from.Draw(gameObject);
+            Event e = from.Draw();
+            e.Transfer(transform, false);
             deck.Push(e);
         }
         deck.Shuffle();

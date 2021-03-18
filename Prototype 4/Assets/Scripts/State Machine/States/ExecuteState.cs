@@ -47,7 +47,10 @@ internal class ExecuteState : State
         if (effect.exhaustable)
             UnityEngine.Object.Destroy(currentEvent.gameObject);
         else
-            currentEvent.Discard(_stateMachine.history);
+        {
+            currentEvent.Transfer(_stateMachine.history.transform, false);
+            _stateMachine.history.AddEvent(currentEvent);
+        }
 
         //discard all units in engaged
         for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
