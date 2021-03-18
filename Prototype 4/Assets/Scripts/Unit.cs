@@ -10,7 +10,6 @@ public class Unit : Card
 
     void Awake()
     {
-        Debug.Log("awake unit");
         stateMachine = FindObjectOfType<StateMachine>();
         aspect = GetComponent<Aspect>();
         animator = GetComponent<Animate>();

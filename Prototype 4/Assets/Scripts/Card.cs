@@ -11,7 +11,6 @@ public class Card : MonoBehaviour
     public void SetActive(bool active)
     {
         Active = active;
-        animator.faceUpDesination = active;
     }
     public void Transfer(Transform newParent, Vector3 position, bool active)
     {
