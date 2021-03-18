@@ -61,8 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLight: {fileID: 1065721556532738680}
-  stateMachine: {fileID: 0}
 --- !u!114 &3506910073942303248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,11 +611,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDestination: {x: 0, y: 0, z: 0}
   moveSpeed: 20
-  faceUpDesination: 0
   rotateSpeed: 180
-  poof: 0
-  particleSplash: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
-    type: 3}
+  poofEffect: {fileID: 0}
 --- !u!114 &-7634171109441968679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,10 +639,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDestination: {x: 0, y: 0, z: 0}
   moveSpeed: 0
-  faceUpDesination: 0
   rotateSpeed: 0
-  poof: 0
-  particleSplash: {fileID: 0}
+  poofEffect: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
+    type: 3}
 --- !u!1 &4027603586467845530
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,8 +703,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLight: {fileID: 4733211181225140079}
-  stateMachine: {fileID: 0}
 --- !u!114 &4339026854996515176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -980,8 +972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLight: {fileID: 4843932173912680695}
-  stateMachine: {fileID: 0}
 --- !u!114 &6038696554388172736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2041,8 +2031,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  greenLight: {fileID: 5829386592266286386}
-  stateMachine: {fileID: 0}
 --- !u!114 &5188545304992521593
 MonoBehaviour:
   m_ObjectHideFlags: 0

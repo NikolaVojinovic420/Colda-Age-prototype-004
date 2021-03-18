@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class Animate : MonoBehaviour
 {
-    // move animation
+    private Card card;
     public Vector3 moveDestination;
+    // move animation
     [SerializeField]
     float moveSpeed;
-
+    //rotation
     [SerializeField]
     float rotateSpeed;
-    public bool poof = false;
-    public GameObject particleSplash;
-
-    private Card card;
+    //poof
+    public GameObject poofEffect;
 
     void Awake()
     {
         card = GetComponent<Card>();
+        
+    }
+    private void Start()
+    {
+        Poof();
     }
 
     void Update()
     {
         Flip();
-        Poof();
         MoveTo();
     }
     public void MoveTo() => transform.position = Vector3.MoveTowards(gameObject.transform.position, moveDestination, moveSpeed * Time.deltaTime);
@@ -32,17 +35,11 @@ public class Animate : MonoBehaviour
     {
         if(card.IsActive())
             transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 0, 0).normalized, rotateSpeed * Time.deltaTime);
-        else
+        else 
             transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 180, 0f).normalized, rotateSpeed * Time.deltaTime);
     }
-    public void Poof()
-    {
-        if (poof)
-        {
-            Instantiate(particleSplash, gameObject.transform);
-            poof = false;
-        }
-    }      
+    public void Poof() => Instantiate(poofEffect, gameObject.transform);
+    
     public void Disapear()
     {
 

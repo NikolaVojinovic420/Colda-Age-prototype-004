@@ -30,6 +30,7 @@ internal class ExecuteState : State
         {
             GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
             Event newEvent = eventObject.GetComponent<Event>();
+            //newEvent.GetComponent<Animate>().Poof();
             _stateMachine.history.AddEvent(newEvent);
         }
 
