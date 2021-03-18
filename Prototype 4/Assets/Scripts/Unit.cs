@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Unit : Card
 {
-    public Aspect aspect;
-
+    private Aspect aspect;
     private StateMachine stateMachine;
 
     void Awake()
@@ -22,4 +21,7 @@ public class Unit : Card
 
         stateMachine.UnitClicked(this);
     }
+
+    public void addAspectTo(AspectMap am) { am.Add(aspect); }
+    public string AspectsAsString() { return aspect.ReturnAspectString(); }
 }

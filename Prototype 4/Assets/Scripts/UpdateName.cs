@@ -12,7 +12,7 @@ public class UpdateName : MonoBehaviour
         txtMeshObject.text = gameObject.name.Split('(')[0];
 
         if (gameObject.tag == "Unit")
-            txtMeshObject.text += gameObject.GetComponent<Unit>().aspect.ReturnAspectString();
+            txtMeshObject.text += gameObject.GetComponent<Unit>().AspectsAsString();
 
         if (gameObject.tag == "Response")
         {

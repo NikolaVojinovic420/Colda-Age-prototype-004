@@ -88,10 +88,10 @@ public class UnitDisplay : MonoBehaviour
 
     public AspectMap CalcAspectSum()
     {
-        AspectMap a = new AspectMap();
+        AspectMap am = new AspectMap();
         for (int i = 0; i < units.Length; i++)
             if (units[i] != null)
-                a.Add(units[i].aspect);
-        return a;
+                units[i].addAspectTo(am);
+        return am;
     }
 }

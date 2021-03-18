@@ -19,11 +19,11 @@ public class Response : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (card.IsActive() && currentEngagedCanPay())
+        if (card.IsActive() && CurrentEngagedCanPay())
             stateMachine.ResponseClicked(this);
     }
 
-    private bool currentEngagedCanPay()
+    private bool CurrentEngagedCanPay()
     {
         AspectDisplay engagedAspectDisplay = stateMachine.engagedAspectsDisplay;
 
