@@ -512,8 +512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c478dd50f7f842408939296bf76a004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  aspect: {fileID: 0}
-  engaged: 0
 --- !u!114 &3402567724467586502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -541,10 +539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveDestination: {x: 0, y: 0, z: 0}
   moveSpeed: 30
-  rotateSpeed: 0
-  angle: 0
-  poof: 0
-  particleSplash: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
+  rotateSpeed: 180
+  poofEffect: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
     type: 3}
 --- !u!114 &2554287469049773389
 MonoBehaviour:
