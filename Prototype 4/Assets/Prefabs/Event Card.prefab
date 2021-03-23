@@ -61,12 +61,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventStage: {fileID: 0}
-  unitDisplay: {fileID: 0}
-  aspectObject: {fileID: 0}
-  effectObject: {fileID: 0}
-  greenLight: {fileID: 1093326828868423525}
-  stateMachine: {fileID: 0}
 --- !u!114 &3552635110670374669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -609,12 +603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventStage: {fileID: 0}
-  unitDisplay: {fileID: 0}
-  aspectObject: {fileID: 0}
-  effectObject: {fileID: 0}
-  greenLight: {fileID: 4632458625125952114}
-  stateMachine: {fileID: 0}
 --- !u!114 &4454379996977687669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -690,7 +678,7 @@ Transform:
   m_GameObject: {fileID: 3891847790138790915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 5, z: 0.02}
+  m_LocalScale: {x: 6, y: 10, z: 0.02}
   m_Children:
   - {fileID: 3891847789381010973}
   - {fileID: 3891847789299314114}
@@ -787,12 +775,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d6a071be676ebd43b409a65de8a2811, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDestination: {fileID: 0}
-  moveSpeed: 0
-  rotateSpeed: 0
-  angle: 0
-  poof: 0
-  particleSplash: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
+  moveDestination: {x: 0, y: 0, z: 0}
+  moveSpeed: 30
+  rotateSpeed: 200
+  poofEffect: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
     type: 3}
 --- !u!1 &3952133694597425372
 GameObject:
@@ -955,12 +941,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventStage: {fileID: 0}
-  unitDisplay: {fileID: 0}
-  aspectObject: {fileID: 0}
-  effectObject: {fileID: 0}
-  greenLight: {fileID: 4818684799296331242}
-  stateMachine: {fileID: 0}
 --- !u!114 &5921020109424024285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2020,12 +2000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2bffb418cfe504d93a5dab01963516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eventStage: {fileID: 0}
-  unitDisplay: {fileID: 0}
-  aspectObject: {fileID: 0}
-  effectObject: {fileID: 0}
-  greenLight: {fileID: 5836760597935652911}
-  stateMachine: {fileID: 0}
 --- !u!114 &5325252126603929700
 MonoBehaviour:
   m_ObjectHideFlags: 0
