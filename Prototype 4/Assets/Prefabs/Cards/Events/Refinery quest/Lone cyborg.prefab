@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 578098849291729956}
   - component: {fileID: 5616599910221168155}
   - component: {fileID: 706130096553098476}
+  - component: {fileID: -6994302976267692362}
   m_Layer: 0
   m_Name: Lone cyborg
   m_TagString: Untagged
@@ -539,7 +540,7 @@ Transform:
   m_GameObject: {fileID: 578098849291729979}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 10, z: 0.02}
+  m_LocalScale: {x: 9, y: 15, z: 0.02}
   m_Children:
   - {fileID: 578098849004203557}
   - {fileID: 578098849056802298}
@@ -641,6 +642,18 @@ MonoBehaviour:
   rotateSpeed: 200
   poofEffect: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
     type: 3}
+--- !u!114 &-6994302976267692362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578098849291729979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d83753ae07b9248a6dd4968a811163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &639374263212572900
 GameObject:
   m_ObjectHideFlags: 0

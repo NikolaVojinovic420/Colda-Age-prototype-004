@@ -1542,6 +1542,7 @@ GameObject:
   - component: {fileID: 5819437911500551158}
   - component: {fileID: 1528182597036749257}
   - component: {fileID: 5839963314468451134}
+  - component: {fileID: -3973605288893283304}
   m_Layer: 0
   m_Name: Nomads
   m_TagString: Untagged
@@ -1558,7 +1559,7 @@ Transform:
   m_GameObject: {fileID: 5819437911500551145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 6, y: 10, z: 0.02}
+  m_LocalScale: {x: 9, y: 15, z: 0.02}
   m_Children:
   - {fileID: 5819437911267025399}
   - {fileID: 5819437911197731368}
@@ -1660,6 +1661,18 @@ MonoBehaviour:
   rotateSpeed: 200
   poofEffect: {fileID: 4629227956818277269, guid: 386b4eaadff65e145b5a292010f6ca3e,
     type: 3}
+--- !u!114 &-3973605288893283304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819437911500551145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0d83753ae07b9248a6dd4968a811163, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6441213740104326634
 GameObject:
   m_ObjectHideFlags: 0
