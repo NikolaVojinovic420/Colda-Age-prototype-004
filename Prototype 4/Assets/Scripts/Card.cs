@@ -6,6 +6,9 @@ public class Card : MonoBehaviour
 {
     protected Animate animator;
 
+    private string cardName;
+    public string getCardName() { return cardName; }
+
     private bool Active;
     public bool IsActive() { return Active; }
     public void SetActive(bool active)

@@ -4,33 +4,41 @@ using UnityEngine;
 
 public class Deck<C> where C : Card
 {
-    private readonly List<C> Cards = new List<C>();
+    private readonly List<C> cards = new List<C>();
 
     public void Push(C card)
     {
-        Cards.Add(card);
+        cards.Add(card);
     }
     public C Pop()
     {
-        int index = Cards.Count - 1;
-        C popped = Cards[index];
-        Cards.RemoveAt(index);
+        int index = cards.Count - 1;
+        C popped = cards[index];
+        cards.RemoveAt(index);
         return popped;
     }
 
     public bool IsEmpty()
     {
-        return Cards.Count == 0;
+        return cards.Count == 0;
     }
 
     public void Shuffle()
     {
-        for (int i = 0; i < Cards.Count; i++)
+        for (int i = 0; i < cards.Count; i++)
         {
-            C tmp = Cards[i];
-            int randomIndex = Random.Range(i, Cards.Count);
-            Cards[i] = Cards[randomIndex];
-            Cards[randomIndex] = tmp;
+            C tmp = cards[i];
+            int randomIndex = Random.Range(i, cards.Count);
+            cards[i] = cards[randomIndex];
+            cards[randomIndex] = tmp;
         }
+    }
+
+    public bool Contains(string cardName)
+    {
+        foreach (Card c in cards)
+            if (cardName.Equals(c.getCardName()))
+                return true;
+        return false;
     }
 }
