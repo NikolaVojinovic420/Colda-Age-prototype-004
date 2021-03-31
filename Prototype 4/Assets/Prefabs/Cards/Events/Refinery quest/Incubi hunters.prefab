@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6451134343718364574}
   - component: {fileID: 2427688488918150028}
   m_Layer: 0
-  m_Name: Negotiate
+  m_Name: Try to negotiate. Maybe they'll accept some tribute.
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -395,7 +395,7 @@ GameObject:
   - component: {fileID: 8680394403424471253}
   - component: {fileID: 4407855274636982194}
   m_Layer: 0
-  m_Name: Kill
+  m_Name: Fight to survive.
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -466,9 +466,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 8
-  p: 1
-  c: 1
+  a: 6
+  p: 3
+  c: 0
 --- !u!114 &4407855274636982194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
   loss: 0
   exhaustable: 1
   draw: 0
-  insertEvent: {fileID: 5819437911500551145, guid: de36914ae0eb35842b49f2e92061640c,
+  insertEvent: {fileID: 4243277624928202109, guid: 9a6659dcf7402c746b9496091a05bad0,
     type: 3}
 --- !u!1 &4028495330074859262
 GameObject:
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 5547740626046972769}
   - component: {fileID: 2198028839981867212}
   m_Layer: 0
-  m_Name: Defeat
+  m_Name: Surrender.
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
