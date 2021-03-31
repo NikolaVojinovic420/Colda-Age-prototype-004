@@ -28,10 +28,17 @@ internal class ExecuteState : State
 
         if (effect.insertEvent != null) //insert new event into history
         {
-            GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
-            Event newEvent = eventObject.GetComponent<Event>();
-            //newEvent.GetComponent<Animate>().Poof();
-            _stateMachine.history.AddEvent(newEvent);
+            if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
+            {
+                GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
+                Event newEvent = eventObject.GetComponent<Event>();
+                //newEvent.GetComponent<Animate>().Poof();
+                _stateMachine.history.AddEvent(newEvent);
+            }
+            else
+            {
+                Debug.Log("inserted event in response already exists in history or future");
+            }
         }
 
         // draw units
