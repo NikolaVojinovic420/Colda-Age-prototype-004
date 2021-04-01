@@ -30,12 +30,14 @@ public class Animate : MonoBehaviour
         Flip();
         MoveTo();
     }
-    public void MoveTo() => transform.position = Vector3.MoveTowards(gameObject.transform.position, moveDestination, moveSpeed * Time.deltaTime);
-    public void Flip()
+    void MoveTo() => transform.position = Vector3.MoveTowards(gameObject.transform.position, moveDestination, moveSpeed * Time.deltaTime);
+    void Flip()
     {
         if(card.IsActive())
             transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 0, 0).normalized, rotateSpeed * Time.deltaTime);
-        else 
+        else if(gameObject.GetComponent<Event>() != null)
+            transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 180, -90f).normalized, rotateSpeed * Time.deltaTime);
+        else
             transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 180, 0f).normalized, rotateSpeed * Time.deltaTime);
     }
     public void Poof() => Instantiate(poofEffect, gameObject.transform);
