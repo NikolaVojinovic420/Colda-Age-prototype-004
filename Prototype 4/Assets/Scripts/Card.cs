@@ -12,7 +12,6 @@ public class Card : MonoBehaviour
     private bool Active;
     public virtual bool IsActive() { return Active; }
     public void SetActive(bool active) { Active = active; }
-
     public void Transfer(Transform newParent, Vector3 position, bool active)
     {
         SetActive(active);

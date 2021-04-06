@@ -20,5 +20,7 @@ public class Event : Card
     {
         animator = GetComponent<Animate>();
         animator.moveDestination = gameObject.transform.parent.position;
+        //pull name from gameObject at instantiation
+        eventName = gameObject.name.Split('(')[0];
     }
 }

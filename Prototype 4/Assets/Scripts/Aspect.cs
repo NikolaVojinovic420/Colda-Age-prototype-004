@@ -10,5 +10,5 @@ public class Aspect : MonoBehaviour
     public int GetPractical() { return p; }
     public int GetLeader() { return l; }
 
-    public string ReturnAspectString() => $"\nA = {a}\nP = {p}\nC = {l}";
+    public string ReturnAspectString() => $"\nA = {a}\nP = {p}\nL = {l}";
 }

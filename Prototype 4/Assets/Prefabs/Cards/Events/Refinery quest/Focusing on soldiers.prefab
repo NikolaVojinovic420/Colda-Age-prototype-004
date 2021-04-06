@@ -1423,7 +1423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: 0
   p: 0
-  c: 0
+  l: 0
 --- !u!114 &7308138782583981792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1614,7 +1614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8637836517381044876
 Transform:
   m_ObjectHideFlags: 0
@@ -1669,7 +1669,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: 0
   p: 0
-  c: 0
+  l: 0
 --- !u!114 &2683609705891341256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1916,7 +1916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: 0
   p: 0
-  c: 0
+  l: 0
 --- !u!114 &7639758369979020818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3152,7 +3152,7 @@ GameObject:
   - component: {fileID: 8836855028114082677}
   - component: {fileID: 2805189465207820361}
   m_Layer: 0
-  m_Name: Train units
+  m_Name: Train units / refreash cd
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3210,9 +3210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
+  a: 12
   p: 0
-  c: 0
+  l: 0
 --- !u!114 &8836855028114082677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3228,7 +3228,7 @@ MonoBehaviour:
   win: 0
   loss: 0
   exhaustable: 1
-  draw: 2
+  draw: 0
   insertEvent: {fileID: 3702751379893859179, guid: e17fb0c5503163e4ca68320a318447e3,
     type: 3}
 --- !u!114 &2805189465207820361
@@ -4309,8 +4309,8 @@ MonoBehaviour:
     more units. That way we are gonna give us more chance to defend our settlement
     and, at the same time, to send more units to explore various areas.
 
-    We
-    can train as much units as we can.
+    We can
+    train as much units as we can.
 
     Also, we can recruit some new people.'
   m_isRightToLeft: 0

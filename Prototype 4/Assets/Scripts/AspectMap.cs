@@ -19,7 +19,7 @@ public class AspectMap
     {
         aggression += addFrom.GetAggression();
         practical += addFrom.GetPractical();
-        if(leadership < addFrom.GetLeader())
+        if (leadership < addFrom.GetLeader())
             leadership = addFrom.GetLeader();
     }
 
