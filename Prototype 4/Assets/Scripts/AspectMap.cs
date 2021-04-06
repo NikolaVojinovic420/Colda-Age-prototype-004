@@ -26,6 +26,6 @@ public class AspectMap
     {
         reflection.a = aggression;
         reflection.p = practical;
-        reflection.c = creative;
+        reflection.l = creative;
     }
 }

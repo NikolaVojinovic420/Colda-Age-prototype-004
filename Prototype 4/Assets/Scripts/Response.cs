@@ -29,10 +29,10 @@ public class Response : MonoBehaviour
 
         Debug.Log(engagedAspectDisplay._aspect.a+" >= "+cost.a+" && "+
             engagedAspectDisplay._aspect.p+" >= "+cost.p+" && "+
-            engagedAspectDisplay._aspect.c+" >= "+cost.c);
+            engagedAspectDisplay._aspect.l+" >= "+cost.l);
 
         return engagedAspectDisplay._aspect.a >= cost.a &&
             engagedAspectDisplay._aspect.p >= cost.p &&
-            engagedAspectDisplay._aspect.c >= cost.c;
+            engagedAspectDisplay._aspect.l >= cost.l;
     }
 }

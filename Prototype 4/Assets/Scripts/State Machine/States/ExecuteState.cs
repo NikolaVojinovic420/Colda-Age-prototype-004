@@ -42,12 +42,12 @@ internal class ExecuteState : State
         }
 
         // draw units
-        for (int i = 0; i < effect.draw; i++)
-        {
-            if (_stateMachine.vigilant.IsFull())
-                break;
-            _stateMachine.ReshuffleIfNeededAndDrawUnit();
-        }
+        //for (int i = 0; i < effect.draw; i++)
+        //{
+        //    if (_stateMachine.vigilant.IsFull())
+        //        break;
+        //    _stateMachine.ReshuffleIfNeededAndDrawUnit();
+        //}
 
         Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
 
@@ -67,8 +67,8 @@ internal class ExecuteState : State
             if (u == null)
                 continue;
             _stateMachine.engaged.units[i] = null;
-            u.Transfer(_stateMachine.recovering.transform, false);
-            _stateMachine.recovering.AddUnit(u);
+            u.Transfer(_stateMachine.vigilant.transform, false);
+            //_stateMachine.vigilant.AddUnit(u);
         }
 
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());

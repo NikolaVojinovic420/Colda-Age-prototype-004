@@ -17,7 +17,7 @@ public class UpdateResponseUI : MonoBehaviour
         textUI.text = gameObject.name.Split('(')[0];
         a.text = $"{aspect.a}";
         p.text = $"{aspect.p}";
-        c.text = $"{aspect.c}";
+        c.text = $"{aspect.l}";
 
 
         if (effect.loss)

@@ -11,7 +11,7 @@ public class UpdateUnitUI : MonoBehaviour
         nameUI.text = gameObject.name.Split('(')[0];
         a.text = $"{GetComponent<Aspect>().a}";
         p.text = $"{GetComponent<Aspect>().p}";
-        c.text = $"{GetComponent<Aspect>().c}";
+        c.text = $"{GetComponent<Aspect>().l}";
     }
 }
 

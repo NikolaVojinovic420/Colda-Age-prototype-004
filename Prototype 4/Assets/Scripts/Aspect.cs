@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Aspect : MonoBehaviour
 {
-    public int a, p, c;
+    public int a, p, l;
 
     public int GetAggression() { return a; }
     public int GetPractical() { return p; }
-    public int GetCreative() { return c; }
+    public int GetCreative() { return l; }
 
-    public string ReturnAspectString() => $"\nA = {a}\nP = {p}\nC = {c}";
+    public string ReturnAspectString() => $"\nA = {a}\nP = {p}\nC = {l}";
 }

@@ -8,7 +8,7 @@ internal class DrawUnitState : State
     {
         if (!_stateMachine.vigilant.IsFull())
         {
-            _stateMachine.ReshuffleIfNeededAndDrawUnit();
+            //_stateMachine.ReshuffleIfNeededAndDrawUnit();
             
             _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         }
