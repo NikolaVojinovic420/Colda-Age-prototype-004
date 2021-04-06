@@ -28,6 +28,7 @@ internal class ExecuteState : State
 
         if (effect.insertEvent != null) //insert new event into history
         {
+            // FIXME: unique events are copied, and should not be
             if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
             {
                 GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
@@ -60,15 +61,13 @@ internal class ExecuteState : State
             _stateMachine.history.AddEvent(currentEvent);
         }
 
-        //discard all units in engaged
+        //move all units from engaged back to vigilant
         for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
         {
             Unit u = _stateMachine.engaged.units[i];
             if (u == null)
                 continue;
-            _stateMachine.engaged.units[i] = null;
-            u.Transfer(_stateMachine.vigilant.transform, false);
-            //_stateMachine.vigilant.AddUnit(u);
+            _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, u);
         }
 
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
