@@ -6,26 +6,27 @@ public class AspectMap
 {
     private int aggression;
     private int practical;
-    private int creative;
+    private int leadership;
 
     public bool ApplicableTo(Aspect cost)
     {
         return aggression >= cost.GetAggression() &&
             practical >= cost.GetPractical() &&
-            creative >= cost.GetCreative();
+            leadership >= cost.GetLeader();
     }
 
     public void Add(Aspect addFrom)
     {
         aggression += addFrom.GetAggression();
         practical += addFrom.GetPractical();
-        creative += addFrom.GetCreative();
+        if(leadership < addFrom.GetLeader())
+            leadership = addFrom.GetLeader();
     }
 
     public void MirrorValuesTo(Aspect reflection)
     {
         reflection.a = aggression;
         reflection.p = practical;
-        reflection.l = creative;
+        reflection.l = leadership;
     }
 }

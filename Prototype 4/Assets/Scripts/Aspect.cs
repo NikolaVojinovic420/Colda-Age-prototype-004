@@ -8,7 +8,7 @@ public class Aspect : MonoBehaviour
 
     public int GetAggression() { return a; }
     public int GetPractical() { return p; }
-    public int GetCreative() { return l; }
+    public int GetLeader() { return l; }
 
     public string ReturnAspectString() => $"\nA = {a}\nP = {p}\nC = {l}";
 }
