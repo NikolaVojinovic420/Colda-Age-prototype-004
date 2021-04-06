@@ -37,7 +37,7 @@ public class Deck<C> where C : Card
     public bool Contains(string cardName)
     {
         foreach (Card c in cards)
-            if (cardName.Equals(c.getCardName()))
+            if (cardName.Equals(c.GetCardName()))
                 return true;
         return false;
     }

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-internal class ExecuteState : State
+public class ExecuteState : State
 {
     private readonly Response eventResponse;
     private readonly Effect effect;
@@ -42,14 +42,6 @@ internal class ExecuteState : State
             }
         }
 
-        // draw units
-        //for (int i = 0; i < effect.draw; i++)
-        //{
-        //    if (_stateMachine.vigilant.IsFull())
-        //        break;
-        //    _stateMachine.ReshuffleIfNeededAndDrawUnit();
-        //}
-
         Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
 
         //exhaust or discard event
@@ -67,6 +59,7 @@ internal class ExecuteState : State
             Unit u = _stateMachine.engaged.units[i];
             if (u == null)
                 continue;
+            u.Fatique(2);
             _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, u);
         }
 

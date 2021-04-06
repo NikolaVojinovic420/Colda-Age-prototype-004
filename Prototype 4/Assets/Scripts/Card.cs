@@ -7,14 +7,12 @@ public class Card : MonoBehaviour
     protected Animate animator;
 
     private string cardName;
-    public string getCardName() { return cardName; }
+    public string GetCardName() { return cardName; }
 
     private bool Active;
-    public bool IsActive() { return Active; }
-    public void SetActive(bool active)
-    {
-        Active = active;
-    }
+    public virtual bool IsActive() { return Active; }
+    public void SetActive(bool active) { Active = active; }
+
     public void Transfer(Transform newParent, Vector3 position, bool active)
     {
         SetActive(active);

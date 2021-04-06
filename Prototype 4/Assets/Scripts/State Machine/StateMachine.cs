@@ -22,9 +22,6 @@ public class StateMachine : MonoBehaviour
     public EventDeck future;
     public EventDeck history;
 
-    //public UnitDeck preparing;
-    //public UnitDeck recovering;
-
     public UnitDisplay vigilant;
     public UnitDisplay engaged;
 
@@ -39,9 +36,6 @@ public class StateMachine : MonoBehaviour
 
         future = futureObject.GetComponent<EventDeck>();
         history = historyObject.GetComponent<EventDeck>();
-
-        //preparing = preparingObject.GetComponent<UnitDeck>();
-        //recovering = recoveringObject.GetComponent<UnitDeck>();
 
         vigilant = vigilantObject.GetComponent<UnitDisplay>();
         engaged = engagedObject.GetComponent<UnitDisplay>();
@@ -71,13 +65,4 @@ public class StateMachine : MonoBehaviour
     {
         StartCoroutine(state.UnitClicked(unit));
     }
-
-    //public void ReshuffleIfNeededAndDrawUnit()
-    //{
-    //    if (preparing.IsEmpty())
-    //        preparing.Reshuffle(recovering);
-    //    Unit drawnUnit = preparing.Draw();
-    //    drawnUnit.Transfer(vigilant.transform, true);
-    //    vigilant.Add(drawnUnit);
-    //}
 }

@@ -91,7 +91,7 @@ public class UnitDisplay : MonoBehaviour
         AspectMap am = new AspectMap();
         for (int i = 0; i < units.Length; i++)
             if (units[i] != null)
-                units[i].addAspectTo(am);
+                units[i].AddAspectTo(am);
         return am;
     }
 }

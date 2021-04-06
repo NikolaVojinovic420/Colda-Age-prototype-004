@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine.SceneManagement;
 
-internal class WinState : State
+public class WinState : State
 {
     public WinState(StateMachine stateMachine) : base(stateMachine) {}
     public override IEnumerator Start()

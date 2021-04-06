@@ -2,10 +2,19 @@
 using System.Collections;
 using UnityEngine;
 
-internal class PlayState : State
+public class PlayState : State
 {
     public PlayState(StateMachine stateMachine) : base(stateMachine) {}
+    public override IEnumerator Start()
+    {
+        for (int i = 0; i < _stateMachine.vigilant.units.Length; i++)
+        {
+            Unit u = _stateMachine.vigilant.units[i];
+            u.Recover(1);
+        }
 
+        yield break;
+    }
     public override IEnumerator ResponseClicked(Response eventResponse)
     {
         _stateMachine.SetState(new ExecuteState(_stateMachine, eventResponse));
