@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - Animate
     - Aspect
     - AspectDisplay
+    - AudioController
     - DestroyMeAfterTime
     - Effect
     - Event
@@ -17,12 +18,6 @@ ScriptsOnlyBuild:
     - UpdateEventUI
     - UpdateResponseUI
     - UpdateUnitUI
-    Unity.2D.Animation.Editor.dll:
-    - UnityEditor.U2D.Animation.BoneGizmo
-    Unity.2D.Tilemap.Editor.dll:
-    - UnityEditor.Tilemaps.GridPaintingState
-    - UnityEditor.Tilemaps.SceneViewGridManager
-    - UnityEditor.Tilemaps.TileDragAndDropManager
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -70,66 +65,72 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11270}
+      Script: {instanceID: 11436}
     - Class: 114
-      Script: {instanceID: 11294}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11422}
+      Script: {instanceID: 11556}
     - Class: 114
-      Script: {instanceID: 11454}
-    - Class: 114
-      Script: {instanceID: 11588}
+      Script: {instanceID: 11564}
     - Class: 114
       Script: {instanceID: 11642}
     - Class: 114
-      Script: {instanceID: 11744}
+      Script: {instanceID: 11686}
     - Class: 114
-      Script: {instanceID: 11776}
+      Script: {instanceID: 11756}
     - Class: 114
-      Script: {instanceID: 11940}
+      Script: {instanceID: 11782}
     - Class: 114
-      Script: {instanceID: 11972}
+      Script: {instanceID: 11902}
     - Class: 114
-      Script: {instanceID: 11976}
+      Script: {instanceID: 11914}
     - Class: 114
-      Script: {instanceID: 12302}
+      Script: {instanceID: 11920}
     - Class: 114
-      Script: {instanceID: 12324}
+      Script: {instanceID: 12124}
     - Class: 114
-      Script: {instanceID: 12378}
+      Script: {instanceID: 12142}
     - Class: 114
-      Script: {instanceID: 12524}
+      Script: {instanceID: 12174}
     - Class: 114
-      Script: {instanceID: 12770}
+      Script: {instanceID: 12278}
     - Class: 114
-      Script: {instanceID: 12902}
+      Script: {instanceID: 12422}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 12508}
     - Class: 114
-      Script: {instanceID: 13390}
+      Script: {instanceID: 12656}
     - Class: 114
-      Script: {instanceID: 13408}
+      Script: {instanceID: 12870}
     - Class: 114
-      Script: {instanceID: 13556}
+      Script: {instanceID: 12884}
     - Class: 114
-      Script: {instanceID: 13712}
+      Script: {instanceID: 12986}
     - Class: 114
-      Script: {instanceID: 13814}
+      Script: {instanceID: 13094}
     - Class: 114
-      Script: {instanceID: 13836}
+      Script: {instanceID: 13168}
     - Class: 114
-      Script: {instanceID: 14094}
+      Script: {instanceID: 13184}
     - Class: 114
-      Script: {instanceID: 14214}
+      Script: {instanceID: 13336}
     - Class: 114
-      Script: {instanceID: 14364}
+      Script: {instanceID: 13414}
     - Class: 114
-      Script: {instanceID: 14384}
+      Script: {instanceID: 13524}
     - Class: 114
-      Script: {instanceID: 14434}
+      Script: {instanceID: 13544}
+    - Class: 114
+      Script: {instanceID: 13566}
+    - Class: 114
+      Script: {instanceID: 261828}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -257,12 +258,6 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 1d845b2535654b2525956159b2714d86
-    assemblyName: Unity.2D.SpriteShape.Runtime.dll
-    namespaceName: UnityEngine.U2D
-    className: SpriteShapeController
-  - hash:
-      serializedVersion: 2
       Hash: 234d407605354852c48e57df17c9a1c6
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -285,12 +280,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Aspect
-  - hash:
-      serializedVersion: 2
-      Hash: 523ce309f50d9eee6a8fc0e2f86c9c97
-    assemblyName: Unity.2D.SpriteShape.Runtime.dll
-    namespaceName: 
-    className: SpriteShapeGeometryCache
   - hash:
       serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
@@ -335,18 +324,6 @@ ScriptsOnlyBuild:
     className: Event
   - hash:
       serializedVersion: 2
-      Hash: 87cef3c82381dc586f6772c3e27561b6
-    assemblyName: Unity.2D.Animation.Runtime.dll
-    namespaceName: UnityEngine.Experimental.U2D.Animation
-    className: SpriteLibrary
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.2D.PixelPerfect.dll
-    namespaceName: UnityEngine.U2D
-    className: CinemachinePixelPerfect
-  - hash:
-      serializedVersion: 2
       Hash: b3adf2cbdfb83d53378386530d2f824d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -369,12 +346,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SubMeshUI
-  - hash:
-      serializedVersion: 2
-      Hash: 63bdc2cf3273aa9bf650350f19d2af61
-    assemblyName: Unity.2D.PixelPerfect.dll
-    namespaceName: UnityEngine.U2D
-    className: PixelPerfectCamera
   - hash:
       serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
@@ -407,22 +378,10 @@ ScriptsOnlyBuild:
     className: EventSystem
   - hash:
       serializedVersion: 2
-      Hash: b424b4eeb810aecb0ff91c62639241e9
-    assemblyName: Unity.2D.Animation.Runtime.dll
-    namespaceName: UnityEngine.Experimental.U2D.Animation
-    className: SpriteResolver
-  - hash:
-      serializedVersion: 2
       Hash: 0fb27be807aa299702f28ad0bcad1f46
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ControlPlayableAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 0edeba255bdbade25edc357f1412ba38
-    assemblyName: Unity.2D.SpriteShape.Runtime.dll
-    namespaceName: UnityEngine.U2D
-    className: SpriteShape
   - hash:
       serializedVersion: 2
       Hash: 5cc439bf63c0539d39588e69465ac2ab
@@ -474,12 +433,6 @@ ScriptsOnlyBuild:
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.2D.Animation.Runtime.dll
-    namespaceName: UnityEngine.U2D.Animation
-    className: SpriteSkinEntity
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SpriteAnimator
@@ -521,12 +474,6 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 71b711096c6c32621c1d4c02310898b7
-    assemblyName: Unity.2D.Animation.Runtime.dll
-    namespaceName: UnityEngine.U2D.Animation
-    className: SpriteSkin
-  - hash:
-      serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -539,6 +486,12 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
+      Hash: 54a5082489fad547766d3d4d7635df12
+    assemblyName: Unity.ScriptableBuildPipeline.dll
+    namespaceName: UnityEngine.Build.Pipeline
+    className: CompatibilityAssetBundleManifest
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -549,12 +502,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
-  - hash:
-      serializedVersion: 2
-      Hash: 28cfb4bd305dd11c6326cc3ee7c14138
-    assemblyName: Unity.2D.Animation.Runtime.dll
-    namespaceName: UnityEngine.Experimental.U2D.Animation
-    className: SpriteLibraryAsset
   - hash:
       serializedVersion: 2
       Hash: 87ad3705a58f19c47136728d4a6e9c47
@@ -581,7 +528,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: ab6455ff6f443f7f3e5eb9db33bd5189
+      Hash: 7af76f88234d1c1d2599dbae404e3dac
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Animate
@@ -741,7 +688,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 28105b4ac2ccc64700b1db843572145a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioController
   platform: 5
   scenePathNames:
   - Assets/Scenes/Main Scene.unity
-  playerPath: C:/Users/WINDOWS 10/Desktop/build 7.4.21/Prototype 4.exe
+  playerPath: C:/Users/WINDOWS 10/Desktop/build 8.4.21/Prototype 4.exe

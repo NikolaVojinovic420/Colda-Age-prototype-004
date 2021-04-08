@@ -46,7 +46,10 @@ public class ExecuteState : State
 
         //exhaust or discard event
         if (effect.exhaustable)
+        {
+            currentEvent.gameObject.GetComponent<Animate>().DisolveCard();
             UnityEngine.Object.Destroy(currentEvent.gameObject);
+        }    
         else
         {
             currentEvent.Transfer(_stateMachine.history.transform, false);
@@ -60,6 +63,7 @@ public class ExecuteState : State
             if (u == null)
                 continue;
             u.Fatique(2);
+            u.gameObject.GetComponent<AudioController>().PlayFlip();
             _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, u);
         }
 
@@ -67,7 +71,7 @@ public class ExecuteState : State
 
         _stateMachine.vigilant.Reorder();
 
-        _stateMachine.SetState(new DrawUnitState(_stateMachine));
+        _stateMachine.SetState(new DrawEventState(_stateMachine));
         yield break;
     }
 }

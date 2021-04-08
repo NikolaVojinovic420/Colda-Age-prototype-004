@@ -12,17 +12,14 @@ public class Animate : MonoBehaviour
     //rotation
     [SerializeField]
     float rotateSpeed;
-    //poof
-    public GameObject poofEffect;
+    //disolve
+    public GameObject DisolveEffect;
+    [SerializeField]
+    GameObject front;
 
     void Awake()
     {
-        card = GetComponent<Card>();
-        
-    }
-    private void Start()
-    {
-        Poof();
+        card = GetComponent<Card>();       
     }
 
     void Update()
@@ -40,10 +37,10 @@ public class Animate : MonoBehaviour
         else
             transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 180, 0f).normalized, rotateSpeed * Time.deltaTime);
     }
-    public void Poof() => Instantiate(poofEffect, gameObject.transform);
-    
-    public void Disapear()
+    public void DisolveCard()
     {
-
+        ParticleSystem.ShapeModule shape = DisolveEffect.GetComponent<ParticleSystem>().shape;
+        shape.texture = front.GetComponent<SpriteRenderer>().sprite.texture;
+        Instantiate(DisolveEffect, GameObject.FindWithTag("EventStage").transform);
     }
 }

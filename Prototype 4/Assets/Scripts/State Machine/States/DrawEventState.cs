@@ -15,6 +15,7 @@ internal class DrawEventState : State
         //draw event to event stage
         Event drawnEvent = _stateMachine.future.Draw();
         drawnEvent.Transfer(_stateMachine.eventStageObject.transform, true);
+        drawnEvent.gameObject.GetComponent<AudioController>().PlayDraw();
 
         _stateMachine.SetState(new PlayState(_stateMachine));
         yield break;
