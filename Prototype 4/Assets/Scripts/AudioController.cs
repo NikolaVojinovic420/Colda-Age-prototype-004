@@ -10,6 +10,8 @@ public class AudioController : MonoBehaviour
     AudioClip drawClip;
     [SerializeField]
     AudioClip flipClip;
+    [SerializeField]
+    AudioClip progressClip;
     AudioSource AS;
     void Awake()
     {
@@ -31,8 +33,9 @@ public class AudioController : MonoBehaviour
         AS.Play();
     }
     //inserting new card audio
-    public void PlayInserting()
+    public void PlayQuestProgress()
     {
-
+        AS.clip = progressClip;
+        AS.Play();
     }
 }
