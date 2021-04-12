@@ -16,12 +16,12 @@ public class EventDeck : MonoBehaviour
         }
     }
 
-    public Event Draw()
+    public Event Draw() 
     {
         Event e = deck.Pop();
         return e;
     }
-
+    public Event DrawRandom() => deck.PopRandom();
     public void AddEvent(Event e)
     {
         deck.Push(e);
@@ -31,7 +31,6 @@ public class EventDeck : MonoBehaviour
     {
         return deck.IsEmpty();
     }
-
     public void Reshuffle(EventDeck from)
     {
         while (!from.IsEmpty())

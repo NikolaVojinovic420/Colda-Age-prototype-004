@@ -31,9 +31,13 @@ public class ExecuteState : State
             // FIXME: unique events are copied, and should not be
             if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
             {
-                GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
+                //change progress slider value
+                if (_stateMachine.levelSlider.value < effect.insertEvent.GetComponent<Event>().progressLevel)
+                    _stateMachine.levelSlider.value = effect.insertEvent.GetComponent<Event>().progressLevel;
+                GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);      
+                eventObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                eventObject.transform.position = _stateMachine.eventStageObject.transform.position;
                 Event newEvent = eventObject.GetComponent<Event>();
-                //newEvent.GetComponent<Animate>().Poof();
                 _stateMachine.history.AddEvent(newEvent);
             }
             else

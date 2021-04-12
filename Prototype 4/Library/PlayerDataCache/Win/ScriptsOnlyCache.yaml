@@ -38,6 +38,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Main Scene.unity:
@@ -72,65 +73,67 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11436}
+      Script: {instanceID: 11440}
     - Class: 114
-      Script: {instanceID: 11458}
+      Script: {instanceID: 11462}
     - Class: 114
-      Script: {instanceID: 11556}
+      Script: {instanceID: 11560}
     - Class: 114
-      Script: {instanceID: 11564}
+      Script: {instanceID: 11568}
     - Class: 114
-      Script: {instanceID: 11642}
+      Script: {instanceID: 11590}
     - Class: 114
-      Script: {instanceID: 11686}
+      Script: {instanceID: 11648}
     - Class: 114
-      Script: {instanceID: 11756}
+      Script: {instanceID: 11692}
     - Class: 114
-      Script: {instanceID: 11782}
+      Script: {instanceID: 11762}
     - Class: 114
-      Script: {instanceID: 11902}
+      Script: {instanceID: 11788}
     - Class: 114
-      Script: {instanceID: 11914}
+      Script: {instanceID: 11908}
     - Class: 114
       Script: {instanceID: 11920}
     - Class: 114
-      Script: {instanceID: 12124}
+      Script: {instanceID: 11926}
     - Class: 114
-      Script: {instanceID: 12142}
+      Script: {instanceID: 12130}
     - Class: 114
-      Script: {instanceID: 12174}
+      Script: {instanceID: 12148}
     - Class: 114
-      Script: {instanceID: 12278}
+      Script: {instanceID: 12180}
     - Class: 114
-      Script: {instanceID: 12422}
+      Script: {instanceID: 12284}
     - Class: 114
-      Script: {instanceID: 12508}
+      Script: {instanceID: 12428}
     - Class: 114
-      Script: {instanceID: 12656}
+      Script: {instanceID: 12514}
     - Class: 114
-      Script: {instanceID: 12870}
+      Script: {instanceID: 12662}
     - Class: 114
-      Script: {instanceID: 12884}
+      Script: {instanceID: 12876}
     - Class: 114
-      Script: {instanceID: 12986}
+      Script: {instanceID: 12890}
     - Class: 114
-      Script: {instanceID: 13094}
+      Script: {instanceID: 12992}
     - Class: 114
-      Script: {instanceID: 13168}
+      Script: {instanceID: 13100}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 13174}
     - Class: 114
-      Script: {instanceID: 13336}
+      Script: {instanceID: 13190}
     - Class: 114
-      Script: {instanceID: 13414}
+      Script: {instanceID: 13342}
     - Class: 114
-      Script: {instanceID: 13524}
+      Script: {instanceID: 13420}
     - Class: 114
-      Script: {instanceID: 13544}
+      Script: {instanceID: 13530}
     - Class: 114
-      Script: {instanceID: 13566}
+      Script: {instanceID: 13550}
     - Class: 114
-      Script: {instanceID: 261828}
+      Script: {instanceID: 13572}
+    - Class: 114
+      Script: {instanceID: 13606}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -186,7 +189,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: eb9a940a0b885069b5be0fe44fb4e4b6
+      Hash: eb152215bffb25fbdc6b85919506e487
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StateMachine
@@ -208,6 +211,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: 28105b4ac2ccc64700b1db843572145a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AudioController
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -318,7 +327,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 881bc24a77de96426c46b1224ee8cfa8
+      Hash: f1d9b193b809a3e90c65c67521498901
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Event
@@ -688,13 +697,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 28105b4ac2ccc64700b1db843572145a
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AudioController
   platform: 5
   scenePathNames:
   - Assets/Scenes/Main Scene.unity
-  playerPath: C:/Users/WINDOWS 10/Desktop/build 8.4.21/Prototype 4.exe
+  playerPath: C:/Users/WINDOWS 10/Desktop/build 12.4.21/Prototype 4.exe

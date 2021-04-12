@@ -12,6 +12,8 @@ public class Event : Card
     private string storyText;
     public string GetStoryText() { return storyText; }
 
+    public float progressLevel;
+
     [SerializeField]
     private bool unique;
     public bool IsUnique() { return unique; }

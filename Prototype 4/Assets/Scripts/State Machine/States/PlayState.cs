@@ -12,7 +12,6 @@ public class PlayState : State
             Unit u = _stateMachine.vigilant.units[i];
             u.Recover(1);
         }
-
         yield break;
     }
     public override IEnumerator ResponseClicked(Response eventResponse)

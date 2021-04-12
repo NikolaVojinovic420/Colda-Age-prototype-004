@@ -82,7 +82,7 @@ public class UnitDisplay : MonoBehaviour
     private Vector3 CalcPosition(int index)
     {
         Vector3 parentPos = gameObject.transform.position;
-        Vector3 pos = new Vector3(parentPos.x + index * 3.5f, parentPos.y, parentPos.z);
+        Vector3 pos = new Vector3(parentPos.x + index * 4.2f, parentPos.y, parentPos.z);
         return pos;
     }
 

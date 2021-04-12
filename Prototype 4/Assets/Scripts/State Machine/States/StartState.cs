@@ -13,6 +13,9 @@ public class StartState : State
             u.Transfer(_stateMachine.vigilant.transform, true);
             _stateMachine.vigilant.Add(u);
         }
+        _stateMachine.AddSatteliteEventsInHistory();
+        _stateMachine.future.Reshuffle(_stateMachine.history);
+
 
         _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StateMachine : MonoBehaviour
 {
@@ -16,11 +17,21 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private GameObject vigilantObject;
     [SerializeField] private GameObject engagedObject;
 
+    [SerializeField] private GameObject weatherObject;
+    [SerializeField] private GameObject encounterObject;
+    [SerializeField] private GameObject campDutiesObject;
+
     [SerializeField] private GameObject vigilantAspectsObject;
     [SerializeField] private GameObject engagedAspectsObject;
 
+    public Slider levelSlider;
+
     public EventDeck future;
     public EventDeck history;
+
+    public EventDeck weather;
+    public EventDeck encounter;
+    public EventDeck campDuties;
 
     public UnitDisplay vigilant;
     public UnitDisplay engaged;
@@ -36,6 +47,10 @@ public class StateMachine : MonoBehaviour
 
         future = futureObject.GetComponent<EventDeck>();
         history = historyObject.GetComponent<EventDeck>();
+
+        weather = weatherObject.GetComponent<EventDeck>();
+        encounter = encounterObject.GetComponent<EventDeck>();
+        campDuties = campDutiesObject.GetComponent<EventDeck>();
 
         vigilant = vigilantObject.GetComponent<UnitDisplay>();
         engaged = engagedObject.GetComponent<UnitDisplay>();
@@ -64,5 +79,14 @@ public class StateMachine : MonoBehaviour
     public void UnitClicked(Unit unit)
     {
         StartCoroutine(state.UnitClicked(unit));
+    }
+    public void AddSatteliteEventsInHistory()
+    {
+        if(!weather.IsEmpty())
+            history.AddEvent(weather.DrawRandom());
+        if (!encounter.IsEmpty())
+            history.AddEvent(encounter.DrawRandom());
+        if (!campDuties.IsEmpty())
+            history.AddEvent(campDuties.DrawRandom());
     }
 }
