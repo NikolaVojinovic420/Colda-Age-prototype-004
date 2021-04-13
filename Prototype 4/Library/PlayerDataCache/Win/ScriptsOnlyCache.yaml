@@ -13,7 +13,6 @@ ScriptsOnlyBuild:
     - Response
     - StateMachine
     - Unit
-    - UnitDeck
     - UnitDisplay
     - UpdateEventUI
     - UpdateResponseUI
@@ -30,6 +29,9 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
+    UnityEditor.UI.dll:
+    - UnityEditor.UI.ButtonEditor
+    - UnityEditor.UI.ImageEditor
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.EventTrigger
@@ -78,8 +80,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11462}
     - Class: 114
       Script: {instanceID: 11560}
-    - Class: 114
-      Script: {instanceID: 11568}
     - Class: 114
       Script: {instanceID: 11590}
     - Class: 114
@@ -191,7 +191,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: eb152215bffb25fbdc6b85919506e487
+      Hash: 6a7e80a1c8d46afdd9823c07eb514171
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StateMachine
@@ -329,7 +329,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: f1d9b193b809a3e90c65c67521498901
+      Hash: bfd60b5f4b9088707f30b28edf82b08b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Event
@@ -647,7 +647,7 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
-      Hash: 02e06683b8dc0920a310211b1c86db2c
+      Hash: 60057726cab3e6abba4bf97f84c97ed0
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Effect
@@ -702,4 +702,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Scenes/Main Scene.unity
-  playerPath: C:/Users/WINDOWS 10/Desktop/reverse build 12.4.21/Prototype 4.exe
+  playerPath: C:/Users/WINDOWS 10/Desktop/Build 13.4.21/Prototype 4.exe

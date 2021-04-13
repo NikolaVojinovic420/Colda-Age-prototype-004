@@ -32,11 +32,13 @@ public class ExecuteState : State
             if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
             {      
                 GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
-                //change progress slider value
-                if (_stateMachine.levelSlider.value < eventObject.GetComponent<Event>().progressLevel)
-                     _stateMachine.levelSlider.value = eventObject.GetComponent<Event>().progressLevel;
+                Event e = eventObject.GetComponent<Event>();
+
+                if (e.AffectsProgress())
+                     _stateMachine.levelSlider.value = e.ProgressScale();
                 eventObject.transform.rotation = new Quaternion(0, 0, 0, 0);
                 eventObject.transform.position = _stateMachine.eventStageObject.transform.position;
+
                 Event newEvent = eventObject.GetComponent<Event>();
                 _stateMachine.history.AddEvent(newEvent);
             }

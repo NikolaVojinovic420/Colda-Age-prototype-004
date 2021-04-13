@@ -1723,7 +1723,6 @@ MonoBehaviour:
   win: 0
   loss: 0
   exhaustable: 0
-  draw: 0
   insertEvent: {fileID: 0}
 --- !u!114 &2980321557512842323
 MonoBehaviour:
@@ -2353,7 +2352,6 @@ MonoBehaviour:
   win: 0
   loss: 0
   exhaustable: 0
-  draw: 0
   insertEvent: {fileID: 0}
 --- !u!114 &5370441794419300110
 MonoBehaviour:
@@ -2525,6 +2523,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   storyText: 
+  affectProgress: 0
+  progressLevel: 0
   unique: 0
 --- !u!114 &-4097210105046447242
 MonoBehaviour:
@@ -2541,6 +2541,7 @@ MonoBehaviour:
   engageDisengageClip: {fileID: 8300000, guid: d6bd715b98bd22c47b76a2031ca593be, type: 3}
   drawClip: {fileID: 8300000, guid: b4543e6286cf0044995d2b62af78c0e3, type: 3}
   flipClip: {fileID: 8300000, guid: 0a7dc19a981d9764790a1887beeb57d4, type: 3}
+  progressClip: {fileID: 0}
 --- !u!82 &-2159603651522575979
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3807,7 +3808,6 @@ MonoBehaviour:
   win: 0
   loss: 0
   exhaustable: 0
-  draw: 0
   insertEvent: {fileID: 0}
 --- !u!114 &2363393233269197832
 MonoBehaviour:
@@ -4260,7 +4260,6 @@ MonoBehaviour:
   win: 0
   loss: 0
   exhaustable: 0
-  draw: 0
   insertEvent: {fileID: 0}
 --- !u!114 &73575023398276123
 MonoBehaviour:

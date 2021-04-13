@@ -11,9 +11,16 @@ internal class DrawEventState : State
         if (_stateMachine.future.IsEmpty())
         {
             _stateMachine.AddSatteliteEventsInHistory();
+            _stateMachine.newConditionNReshuffle.SetActive(true);
+            yield return new WaitForSeconds(0.7f);
+
             //reshuffle
             _stateMachine.future.Reshuffle(_stateMachine.history);
+
+            yield return new WaitForSeconds(1f);
         }
+        yield return new WaitForSeconds(0.7f);
+        _stateMachine.newConditionNReshuffle.SetActive(false);
 
         //draw event to event stage
         Event drawnEvent = _stateMachine.future.Draw();
@@ -21,6 +28,6 @@ internal class DrawEventState : State
         drawnEvent.gameObject.GetComponent<AudioController>().PlayDraw();
 
         _stateMachine.SetState(new PlayState(_stateMachine));
-        yield break;
+        
     }
 }

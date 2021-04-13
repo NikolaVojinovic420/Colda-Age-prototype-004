@@ -12,7 +12,12 @@ public class Event : Card
     private string storyText;
     public string GetStoryText() { return storyText; }
 
-    public float progressLevel;
+    [SerializeField]
+    private bool affectProgress;
+    public bool AffectsProgress() => affectProgress;
+    [SerializeField]
+    private float progressLevel;
+    public float ProgressScale() => progressLevel;
 
     [SerializeField]
     private bool unique;

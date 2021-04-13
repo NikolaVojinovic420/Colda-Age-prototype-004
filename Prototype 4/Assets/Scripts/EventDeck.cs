@@ -25,6 +25,7 @@ public class EventDeck : MonoBehaviour
     public void AddEvent(Event e)
     {
         deck.Push(e);
+        e.Transfer(transform, false);
     }
 
     public bool IsEmpty()

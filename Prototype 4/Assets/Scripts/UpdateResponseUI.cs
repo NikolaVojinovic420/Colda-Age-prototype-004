@@ -28,7 +28,5 @@ public class UpdateResponseUI : MonoBehaviour
             exhaust.SetActive(true);
         if (effect.insertEvent != null)
             insert.SetActive(true);
-        if (effect.draw > 0)
-            textUI.text += $"\nDraw {effect.draw} units.";
     }
 }

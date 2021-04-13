@@ -31,11 +31,11 @@ public class Animate : MonoBehaviour
     void Flip()
     {
         if(card.IsActive())
-            transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 0, 0).normalized, rotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(transform.rotation.x, 0, 0).normalized, rotateSpeed * Time.deltaTime);
         else if(gameObject.GetComponent<Event>() != null)
-            transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 180, -90f).normalized, rotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(transform.rotation.x, 180, -90f).normalized, rotateSpeed * Time.deltaTime);
         else
-            transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(0, 180, 0f).normalized, rotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation.normalized, Quaternion.Euler(transform.rotation.x, 180, 0f).normalized, rotateSpeed * Time.deltaTime);
     }
     public void DisolveCard()
     {

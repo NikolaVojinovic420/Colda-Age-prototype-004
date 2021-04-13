@@ -41,6 +41,11 @@ public class StateMachine : MonoBehaviour
 
     private State state;
 
+    public GameObject winWindow;
+    public GameObject lossWindow;
+
+    public GameObject newConditionNReshuffle;
+
     void Awake()
     {
         state = new StartState(this);
