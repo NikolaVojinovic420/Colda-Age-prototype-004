@@ -94,4 +94,12 @@ public class UnitDisplay : MonoBehaviour
                 units[i].AddAspectTo(am);
         return am;
     }
+    public AspectMap CalcInactiveAspectSum()
+    {
+        AspectMap am = new AspectMap();
+        for (int i = 0; i < units.Length; i++)
+            if (units[i] != null && !units[i].IsActive())
+                units[i].AddAspectTo(am);
+        return am;
+    }
 }

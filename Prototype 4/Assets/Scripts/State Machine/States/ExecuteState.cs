@@ -76,7 +76,6 @@ public class ExecuteState : State
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
 
         _stateMachine.vigilant.Reorder();
-
         _stateMachine.SetState(new DrawEventState(_stateMachine));
         yield break;
     }

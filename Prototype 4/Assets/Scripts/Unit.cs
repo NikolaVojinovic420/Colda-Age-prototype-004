@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Unit : Card
 {
@@ -27,8 +28,8 @@ public class Unit : Card
     {
         if (!IsActive())
             return;
-
-        stateMachine.UnitClicked(this);
+        //if(!EventSystem.current.IsPointerOverGameObject())
+            stateMachine.UnitClicked(this);
     }
 
     public void AddAspectTo(AspectMap am) { am.Add(aspect); }

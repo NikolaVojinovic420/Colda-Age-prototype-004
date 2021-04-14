@@ -7,10 +7,13 @@ public class PlayState : State
     public PlayState(StateMachine stateMachine) : base(stateMachine) {}
     public override IEnumerator Start()
     {
-        for (int i = 0; i < _stateMachine.vigilant.units.Length; i++)
+        int index = _stateMachine.vigilant.units.Length;
+        for (int i = 0; i < index; i++)
         {
             Unit u = _stateMachine.vigilant.units[i];
             u.Recover(1);
+            _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
+            _stateMachine.tiredAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcInactiveAspectSum());
         }
         yield break;
     }

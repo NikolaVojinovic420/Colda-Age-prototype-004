@@ -23,6 +23,7 @@ public class StateMachine : MonoBehaviour
 
     [SerializeField] private GameObject vigilantAspectsObject;
     [SerializeField] private GameObject engagedAspectsObject;
+    [SerializeField] private GameObject tiredAspectsObject;
 
     public Slider levelSlider;
 
@@ -37,6 +38,7 @@ public class StateMachine : MonoBehaviour
     public UnitDisplay engaged;
 
     public AspectDisplay vigilantAspectsDisplay;
+    public AspectDisplay tiredAspectsDisplay;
     public AspectDisplay engagedAspectsDisplay;
 
     private State state;
@@ -61,6 +63,7 @@ public class StateMachine : MonoBehaviour
         engaged = engagedObject.GetComponent<UnitDisplay>();
 
         vigilantAspectsDisplay = vigilantAspectsObject.GetComponent<AspectDisplay>();
+        tiredAspectsDisplay = tiredAspectsObject.GetComponent<AspectDisplay>();
         engagedAspectsDisplay = engagedAspectsObject.GetComponent<AspectDisplay>();
     }
 
