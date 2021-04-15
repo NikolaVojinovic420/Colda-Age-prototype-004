@@ -10,7 +10,7 @@ internal class DrawEventState : State
         //if reshuffle needed
         if (_stateMachine.future.IsEmpty())
         {
-            _stateMachine.AddSatteliteEventsInHistory();
+            _stateMachine.AddSatteliteEventsInHistory(_stateMachine.refillingSatellites);
             _stateMachine.newConditionNReshuffle.SetActive(true);
             yield return new WaitForSeconds(0.7f);
 
@@ -18,8 +18,9 @@ internal class DrawEventState : State
             _stateMachine.future.Reshuffle(_stateMachine.history);
 
             yield return new WaitForSeconds(1f);
-        }
+        } 
         yield return new WaitForSeconds(0.7f);
+        _stateMachine.refillingSatellites.SetActive(false);
         _stateMachine.newConditionNReshuffle.SetActive(false);
 
         //draw event to event stage

@@ -17,13 +17,6 @@ public class Deck<C> where C : Card
         cards.RemoveAt(index);
         return popped;
     }
-    public C PopRandom()
-    {
-        int index = Random.Range(0,cards.Count);
-        C popped = cards[index];
-        cards.RemoveAt(index);
-        return popped;
-    }
 
     public bool IsEmpty()
     {

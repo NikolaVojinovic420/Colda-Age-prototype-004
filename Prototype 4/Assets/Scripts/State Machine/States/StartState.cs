@@ -13,10 +13,10 @@ public class StartState : State
             u.Transfer(_stateMachine.vigilant.transform, true);
             _stateMachine.vigilant.Add(u);
         }     
-        _stateMachine.AddSatteliteEventsInHistory();
+        _stateMachine.AddSatteliteEventsInHistory(_stateMachine.refillingSatellites);
 
         _stateMachine.newConditionNReshuffle.SetActive(true);
-        yield return new WaitForSeconds(0.7f);      
+        yield return new WaitForSeconds(0.7f);
 
         _stateMachine.future.Reshuffle(_stateMachine.history);
 

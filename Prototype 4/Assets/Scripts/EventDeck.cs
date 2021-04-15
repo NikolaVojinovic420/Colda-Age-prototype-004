@@ -5,15 +5,9 @@ using UnityEngine;
 public class EventDeck : MonoBehaviour
 {
     private readonly Deck<Event> deck = new Deck<Event>();
-
     public void Awake()
     {
-        for (int i = 0; i < transform.childCount; i++)
-        {
-            GameObject childObject = transform.GetChild(i).gameObject;
-            Event child = childObject.GetComponent<Event>();
-            deck.Push(child);
-        }
+        FillEventDeck();
     }
 
     public Event Draw() 
@@ -21,7 +15,6 @@ public class EventDeck : MonoBehaviour
         Event e = deck.Pop();
         return e;
     }
-    public Event DrawRandom() => deck.PopRandom();
     public void AddEvent(Event e)
     {
         deck.Push(e);
@@ -32,6 +25,7 @@ public class EventDeck : MonoBehaviour
     {
         return deck.IsEmpty();
     }
+    public void SelfShuffle() => deck.Shuffle();
     public void Reshuffle(EventDeck from)
     {
         while (!from.IsEmpty())
@@ -46,5 +40,14 @@ public class EventDeck : MonoBehaviour
     public bool Contains(string cardName)
     {
         return deck.Contains(cardName);
+    }
+    public void FillEventDeck()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject childObject = transform.GetChild(i).gameObject;
+            Event child = childObject.GetComponent<Event>();
+            deck.Push(child);
+        }
     }
 }

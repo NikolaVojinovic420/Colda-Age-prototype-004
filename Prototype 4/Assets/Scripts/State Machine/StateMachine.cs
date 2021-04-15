@@ -47,6 +47,7 @@ public class StateMachine : MonoBehaviour
     public GameObject lossWindow;
 
     public GameObject newConditionNReshuffle;
+    public GameObject refillingSatellites;
 
     void Awake()
     {
@@ -88,13 +89,32 @@ public class StateMachine : MonoBehaviour
     {
         StartCoroutine(state.UnitClicked(unit));
     }
-    public void AddSatteliteEventsInHistory()
+    public void AddSatteliteEventsInHistory(GameObject refillingWarning)
     {
-        if(!weather.IsEmpty())
-            history.AddEvent(weather.DrawRandom());
-        if (!encounter.IsEmpty())
-            history.AddEvent(encounter.DrawRandom());
-        if (!campDuties.IsEmpty())
-            history.AddEvent(campDuties.DrawRandom());
+        AddSattelite(weather, refillingWarning);
+        AddSattelite(encounter, refillingWarning);
+        AddSattelite(campDuties, refillingWarning);
+    }
+    void AddSattelite(EventDeck satelliteDeck, GameObject refillingWarning)
+    {
+        if (!satelliteDeck.IsEmpty())
+            history.AddEvent(satelliteDeck.Draw());
+        else
+        {
+            WriteSatelliteWarning(satelliteDeck, refillingWarning);
+            satelliteDeck.gameObject.GetComponent<FillWithPrefabs>().InstantiateCardsInDeck();
+            history.AddEvent(satelliteDeck.Draw());
+        }        
+    }
+    void WriteSatelliteWarning(EventDeck satelliteDeck,GameObject refillingWarning)
+    {
+        if (refillingWarning.activeInHierarchy)
+        {
+            refillingWarning.GetComponent<Text>().text = $"{satelliteDeck.gameObject.name} - {refillingWarning.GetComponent<Text>().text}";
+            return;
+        }  
+        string[] txt = refillingWarning.GetComponent<Text>().text.Split('-');
+        refillingWarning.GetComponent<Text>().text = $"{satelliteDeck.gameObject.name} - {txt[txt.Length - 1]}";
+        refillingWarning.SetActive(true);
     }
 }
