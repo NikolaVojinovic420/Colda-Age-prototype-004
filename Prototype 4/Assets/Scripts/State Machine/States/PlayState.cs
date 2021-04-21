@@ -13,7 +13,6 @@ public class PlayState : State
             Unit u = _stateMachine.vigilant.units[i];
             u.Recover(1);
             _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
-            _stateMachine.tiredAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcInactiveAspectSum());
         }
         yield break;
     }

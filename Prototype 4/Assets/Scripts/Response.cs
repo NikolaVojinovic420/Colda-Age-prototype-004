@@ -23,10 +23,6 @@ public class Response : MonoBehaviour
     {
         AspectDisplay engagedAspectDisplay = stateMachine.engagedAspectsDisplay;
 
-        //Debug.Log(engagedAspectDisplay._aspect.a+" >= "+cost.a+" && "+
-        //    engagedAspectDisplay._aspect.p+" >= "+cost.p+" && "+
-        //    engagedAspectDisplay._aspect.l+" >= "+cost.l);
-
         return engagedAspectDisplay._aspect.a >= cost.a &&
             engagedAspectDisplay._aspect.p >= cost.p &&
             engagedAspectDisplay._aspect.l >= cost.l;

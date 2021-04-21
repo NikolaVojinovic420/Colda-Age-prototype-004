@@ -10,7 +10,7 @@ internal class DrawEventState : State
         //if reshuffle needed
         if (_stateMachine.future.IsEmpty())
         {
-            _stateMachine.AddSatteliteEventsInHistory(_stateMachine.refillingSatellites);
+            _stateMachine.AddEventsInHistory();
             _stateMachine.newConditionNReshuffle.SetActive(true);
             yield return new WaitForSeconds(0.7f);
 
@@ -20,16 +20,13 @@ internal class DrawEventState : State
             yield return new WaitForSeconds(1f);
         } 
         yield return new WaitForSeconds(0.7f);
-        _stateMachine.refillingSatellites.SetActive(false);
         _stateMachine.newConditionNReshuffle.SetActive(false);
 
         //draw event to event stage
         Event drawnEvent = _stateMachine.future.Draw();
         drawnEvent.Transfer(_stateMachine.eventStageObject.transform, true);
-        drawnEvent.gameObject.GetComponent<AudioController>().PlayDraw();  
-        
+        drawnEvent.gameObject.GetComponent<AudioController>().PlayDraw();   
 
-        _stateMachine.SetState(new PlayState(_stateMachine));
-        
+        _stateMachine.SetState(new PlayState(_stateMachine));      
     }
 }

@@ -11,34 +11,23 @@ public class StateMachine : MonoBehaviour
 
     public GameObject eventStageObject;
 
-    [SerializeField] private GameObject preparingObject;
-    [SerializeField] private GameObject recoveringObject;
+    [SerializeField] private GameObject eventsObject;
 
     [SerializeField] private GameObject vigilantObject;
     [SerializeField] private GameObject engagedObject;
 
-    [SerializeField] private GameObject weatherObject;
-    [SerializeField] private GameObject encounterObject;
-    [SerializeField] private GameObject campDutiesObject;
-
     [SerializeField] private GameObject vigilantAspectsObject;
     [SerializeField] private GameObject engagedAspectsObject;
-    [SerializeField] private GameObject tiredAspectsObject;
 
     public Slider levelSlider;
 
     public EventDeck future;
     public EventDeck history;
 
-    public EventDeck weather;
-    public EventDeck encounter;
-    public EventDeck campDuties;
-
     public UnitDisplay vigilant;
     public UnitDisplay engaged;
 
     public AspectDisplay vigilantAspectsDisplay;
-    public AspectDisplay tiredAspectsDisplay;
     public AspectDisplay engagedAspectsDisplay;
 
     private State state;
@@ -47,24 +36,20 @@ public class StateMachine : MonoBehaviour
     public GameObject lossWindow;
 
     public GameObject newConditionNReshuffle;
-    public GameObject refillingSatellites;
 
     void Awake()
     {
         state = new StartState(this);
 
+        levelSlider.value = 0;
+
         future = futureObject.GetComponent<EventDeck>();
         history = historyObject.GetComponent<EventDeck>();
-
-        weather = weatherObject.GetComponent<EventDeck>();
-        encounter = encounterObject.GetComponent<EventDeck>();
-        campDuties = campDutiesObject.GetComponent<EventDeck>();
 
         vigilant = vigilantObject.GetComponent<UnitDisplay>();
         engaged = engagedObject.GetComponent<UnitDisplay>();
 
         vigilantAspectsDisplay = vigilantAspectsObject.GetComponent<AspectDisplay>();
-        tiredAspectsDisplay = tiredAspectsObject.GetComponent<AspectDisplay>();
         engagedAspectsDisplay = engagedAspectsObject.GetComponent<AspectDisplay>();
     }
 
@@ -89,32 +74,36 @@ public class StateMachine : MonoBehaviour
     {
         StartCoroutine(state.UnitClicked(unit));
     }
-    public void AddSatteliteEventsInHistory(GameObject refillingWarning)
+    public void AddEventsInHistory()
     {
-        AddSattelite(weather, refillingWarning);
-        AddSattelite(encounter, refillingWarning);
-        AddSattelite(campDuties, refillingWarning);
+        for (int i = 0; i < eventsObject.transform.childCount; i++)
+        {
+            AddSattelite(eventsObject.transform.GetChild(i).GetComponent<EventDeck>());
+        }
     }
-    void AddSattelite(EventDeck satelliteDeck, GameObject refillingWarning)
+    void AddSattelite(EventDeck satelliteDeck)
     {
-        if (!satelliteDeck.IsEmpty())
+        if(satelliteDeck.IsEmpty())
+        {
+            satelliteDeck.gameObject.GetComponent<FillWithPrefabs>().InstantiateCardsInDeck(levelSlider.value * 100);
             history.AddEvent(satelliteDeck.Draw());
+        }
         else
-        {
-            WriteSatelliteWarning(satelliteDeck, refillingWarning);
-            satelliteDeck.gameObject.GetComponent<FillWithPrefabs>().InstantiateCardsInDeck();
             history.AddEvent(satelliteDeck.Draw());
-        }        
     }
-    void WriteSatelliteWarning(EventDeck satelliteDeck,GameObject refillingWarning)
+    public void IncreaseExploration(float amount)
     {
-        if (refillingWarning.activeInHierarchy)
-        {
-            refillingWarning.GetComponent<Text>().text = $"{satelliteDeck.gameObject.name} - {refillingWarning.GetComponent<Text>().text}";
+        if (levelSlider.value >= 1)
             return;
-        }  
-        string[] txt = refillingWarning.GetComponent<Text>().text.Split('-');
-        refillingWarning.GetComponent<Text>().text = $"{satelliteDeck.gameObject.name} - {txt[txt.Length - 1]}";
-        refillingWarning.SetActive(true);
+        levelSlider.value += amount / 100;
+    }
+
+    public int ReturningDistance()
+    {
+        if (levelSlider.value >= 0.75)
+            return 4;
+        if (levelSlider.value >= 0.5)
+            return 3;
+        return 2;
     }
 }

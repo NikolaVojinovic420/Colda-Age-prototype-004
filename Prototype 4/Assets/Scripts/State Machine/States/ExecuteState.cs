@@ -34,8 +34,6 @@ public class ExecuteState : State
                 GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
                 Event e = eventObject.GetComponent<Event>();
 
-                if (e.AffectsProgress())
-                     _stateMachine.levelSlider.value = e.ProgressScale();
                 eventObject.transform.rotation = new Quaternion(0, 0, 0, 0);
                 eventObject.transform.position = _stateMachine.eventStageObject.transform.position;
 
@@ -68,7 +66,7 @@ public class ExecuteState : State
             Unit u = _stateMachine.engaged.units[i];
             if (u == null)
                 continue;
-            u.Fatique(2);
+            u.Fatique(_stateMachine.ReturningDistance());
             u.gameObject.GetComponent<AudioController>().PlayFlip();
             _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, u);
         }
