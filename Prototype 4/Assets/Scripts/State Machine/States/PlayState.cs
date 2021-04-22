@@ -30,6 +30,7 @@ public class PlayState : State
         unit.gameObject.GetComponent<AudioController>().PlayEngageDisengage();
         _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         _stateMachine.engagedAspectsDisplay.SetAspect(_stateMachine.engaged.CalcAspectSum());
+        _stateMachine.DisplaySupplies();
 
         yield break;
     }

@@ -3499,7 +3499,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6496629424544647128}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: -0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6, y: 4, z: 0.02}
   m_Children:
@@ -3512,7 +3512,7 @@ Transform:
   - {fileID: 4518795491294051919}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
 --- !u!33 &6496629424544647109
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3618,8 +3618,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: 
   storyText: 
-  affectProgress: 0
-  progressLevel: 0
+  exploreRequirement: 80
+  startingEvent: 1
   unique: 0
 --- !u!114 &3101288980740167853
 MonoBehaviour:

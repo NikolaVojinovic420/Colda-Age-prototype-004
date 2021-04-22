@@ -12,11 +12,10 @@ internal class DrawEventState : State
         {
             _stateMachine.AddEventsInHistory();
             _stateMachine.newConditionNReshuffle.SetActive(true);
-            yield return new WaitForSeconds(0.7f);
+            yield return new WaitForSeconds(1f);
 
             //reshuffle
             _stateMachine.future.Reshuffle(_stateMachine.history);
-
             yield return new WaitForSeconds(1f);
         } 
         yield return new WaitForSeconds(0.7f);

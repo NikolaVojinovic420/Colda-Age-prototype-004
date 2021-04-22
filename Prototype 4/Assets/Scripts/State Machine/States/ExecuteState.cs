@@ -72,6 +72,7 @@ public class ExecuteState : State
         }
 
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
+        _stateMachine.DisplaySupplies();
 
         _stateMachine.vigilant.Reorder();
         _stateMachine.SetState(new DrawEventState(_stateMachine));

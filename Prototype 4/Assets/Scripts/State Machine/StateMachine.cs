@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class StateMachine : MonoBehaviour
 {
+    [SerializeField] private int supplies;
+
     [SerializeField] private GameObject futureObject;
     [SerializeField] private GameObject historyObject;
 
@@ -18,6 +20,7 @@ public class StateMachine : MonoBehaviour
 
     [SerializeField] private GameObject vigilantAspectsObject;
     [SerializeField] private GameObject engagedAspectsObject;
+    [SerializeField] private GameObject supplyDisplay;
 
     public Slider levelSlider;
 
@@ -77,17 +80,20 @@ public class StateMachine : MonoBehaviour
     public void AddEventsInHistory()
     {
         for (int i = 0; i < eventsObject.transform.childCount; i++)
-            AddSattelite(eventsObject.transform.GetChild(i).GetComponent<EventDeck>());
+            FabricateEvent(eventsObject.transform.GetChild(i).GetComponent<EventDeck>());
     }
-    void AddSattelite(EventDeck satelliteDeck)
+    void FabricateEvent(EventDeck deck)
     {
-        if(satelliteDeck.IsEmpty())
-        {
-            satelliteDeck.gameObject.GetComponent<FillWithPrefabs>().InstantiateCardsInDeck(levelSlider.value * 100);
-            history.AddEvent(satelliteDeck.Draw());
-        }
-        else
-            history.AddEvent(satelliteDeck.Draw());
+        if(deck.IsEmpty())
+            deck.gameObject.GetComponent<Prefabrications>().InstantiateCardsInDeck(levelSlider.value * 100, history);
+
+        if(!deck.IsEmpty())
+            history.AddEvent(deck.Draw());
+    }
+    public void SetEventsRequirements()
+    {
+        for (int i = 0; i < eventsObject.transform.childCount; i++)
+            eventsObject.transform.GetChild(i).GetComponent<Prefabrications>().RandomizePrefabedEventsRequirement();
     }
     public void IncreaseExploration(float amount)
     {
@@ -104,4 +110,8 @@ public class StateMachine : MonoBehaviour
             return 3;
         return 2;
     }
+    public void AddSupplies(int amount) => supplies += amount;
+    public void SpendSupplies(int amount) => supplies -= amount;
+    public int ReturnSupplies() => supplies;
+    public void DisplaySupplies() => supplyDisplay.GetComponent<Text>().text = $"SUPPLIES\n{ReturnSupplies()}";
 }

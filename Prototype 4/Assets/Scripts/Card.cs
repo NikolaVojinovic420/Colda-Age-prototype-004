@@ -8,6 +8,7 @@ public class Card : MonoBehaviour
 
     private string cardName;
     public string GetCardName() { return cardName; }
+    public void SetCardName(string name) => cardName = name;
 
     private bool Active;
     public virtual bool IsActive() { return Active; }

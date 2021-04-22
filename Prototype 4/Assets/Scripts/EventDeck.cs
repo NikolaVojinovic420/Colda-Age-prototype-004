@@ -36,7 +36,6 @@ public class EventDeck : MonoBehaviour
         }
         deck.Shuffle();
     }
-
     public bool Contains(string cardName)
     {
         return deck.Contains(cardName);
