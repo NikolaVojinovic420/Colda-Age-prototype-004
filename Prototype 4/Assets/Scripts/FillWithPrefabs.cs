@@ -22,8 +22,8 @@ public class FillWithPrefabs : MonoBehaviour
     {
         foreach (GameObject item in cards)
         {
-            if(requiredValue >= item.GetComponent<Event>().RequiredScale() && requiredValue <= 100)
-            Instantiate(item, transform);
+            if(requiredValue >= item.GetComponent<Event>().RequiredScale())
+                Instantiate(item, transform);
         }
         deck.FillEventDeck();
         deck.SelfShuffle();

@@ -25,8 +25,6 @@ public class StartState : State
 
         yield return new WaitForSeconds(1f);
 
-        _stateMachine.SetState(new DrawEventState(_stateMachine));
-
-        
+        _stateMachine.SetState(new DrawEventState(_stateMachine));   
     }
 }

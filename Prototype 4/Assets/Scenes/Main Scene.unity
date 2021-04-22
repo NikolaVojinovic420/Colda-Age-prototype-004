@@ -130,6 +130,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 27533959}
+  - component: {fileID: 27533961}
+  - component: {fileID: 27533960}
   m_Layer: 0
   m_Name: Necromancer
   m_TagString: Untagged
@@ -151,6 +153,31 @@ Transform:
   m_Father: {fileID: 860750664}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &27533960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27533958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6accd879f643542aacdaab280fce06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &27533961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27533958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f401ed53dc21851439c6c771afc66674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Prefabs/Cards/Events/Necromancer
 --- !u!1 &151193329 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6417845287293208878, guid: a6ac4dd44ffe7544f820ed30b11b855c,
@@ -5274,7 +5301,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 556262436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ef6af0494bbca41887b6e59f90750b, type: 3}
+  m_Script: {fileID: 11500000, guid: db6accd879f643542aacdaab280fce06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &556262439
@@ -5289,7 +5316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f401ed53dc21851439c6c771afc66674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Resources/Prefabs/Cards/Events/Weather
+  path: Prefabs/Cards/Events/Weather
 --- !u!4 &566560335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3806028916561438490, guid: f19e5a5bbbb9db740bbbe5b9fdfc70c7,
@@ -5305,6 +5332,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 667322822}
+  - component: {fileID: 667322824}
+  - component: {fileID: 667322823}
   m_Layer: 0
   m_Name: Gulag
   m_TagString: Untagged
@@ -5326,6 +5355,31 @@ Transform:
   m_Father: {fileID: 860750664}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &667322823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667322821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6accd879f643542aacdaab280fce06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &667322824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667322821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f401ed53dc21851439c6c771afc66674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Prefabs/Cards/Events/Gulag
 --- !u!1 &690985714 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 690985714, guid: a6ac4dd44ffe7544f820ed30b11b855c,
@@ -5499,8 +5553,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1015372202}
-  - component: {fileID: 1015372204}
   - component: {fileID: 1015372203}
+  - component: {fileID: 1015372204}
   m_Layer: 0
   m_Name: Quest
   m_TagString: Untagged
@@ -5534,7 +5588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f401ed53dc21851439c6c771afc66674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  path: Resources/Prefabs/Cards/Events/Refinery quest
+  path: Prefabs/Cards/Events/Refinery quest
 --- !u!114 &1015372204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5544,7 +5598,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1015372201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1ef6af0494bbca41887b6e59f90750b, type: 3}
+  m_Script: {fileID: 11500000, guid: db6accd879f643542aacdaab280fce06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1210213867
@@ -5911,6 +5965,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1596525543}
+  - component: {fileID: 1596525545}
+  - component: {fileID: 1596525544}
   m_Layer: 0
   m_Name: Points of interest
   m_TagString: Untagged
@@ -5932,6 +5988,31 @@ Transform:
   m_Father: {fileID: 860750664}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1596525544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596525542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6accd879f643542aacdaab280fce06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1596525545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596525542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f401ed53dc21851439c6c771afc66674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Prefabs/Cards/Events/Points of interest
 --- !u!1 &1619732177
 GameObject:
   m_ObjectHideFlags: 0
@@ -6070,6 +6151,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1854017918}
+  - component: {fileID: 1854017920}
+  - component: {fileID: 1854017919}
   m_Layer: 0
   m_Name: The settlement
   m_TagString: Untagged
@@ -6091,6 +6174,31 @@ Transform:
   m_Father: {fileID: 860750664}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1854017919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854017917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6accd879f643542aacdaab280fce06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1854017920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854017917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f401ed53dc21851439c6c771afc66674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Prefabs/Cards/Events/The settlement
 --- !u!4 &1890755015 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3509302385285377243, guid: 7968886cfc0ace34bbd7063265269cd7,
@@ -6112,6 +6220,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1977590318}
+  - component: {fileID: 1977590320}
+  - component: {fileID: 1977590319}
   m_Layer: 0
   m_Name: The outside
   m_TagString: Untagged
@@ -6133,6 +6243,31 @@ Transform:
   m_Father: {fileID: 860750664}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1977590319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977590317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db6accd879f643542aacdaab280fce06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1977590320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977590317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f401ed53dc21851439c6c771afc66674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: Prefabs/Cards/Events/The outside
 --- !u!4 &2073413144 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6741617235258197279, guid: e95dcffbc1106174487ffb792e8ed1c6,

@@ -77,9 +77,7 @@ public class StateMachine : MonoBehaviour
     public void AddEventsInHistory()
     {
         for (int i = 0; i < eventsObject.transform.childCount; i++)
-        {
             AddSattelite(eventsObject.transform.GetChild(i).GetComponent<EventDeck>());
-        }
     }
     void AddSattelite(EventDeck satelliteDeck)
     {
@@ -100,7 +98,7 @@ public class StateMachine : MonoBehaviour
 
     public int ReturningDistance()
     {
-        if (levelSlider.value >= 0.75)
+        if (levelSlider.value >= 0.90)
             return 4;
         if (levelSlider.value >= 0.5)
             return 3;

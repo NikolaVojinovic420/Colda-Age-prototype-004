@@ -14,6 +14,7 @@ public class Event : Card
 
     [SerializeField]
     private float exploreRequirement;
+    private float saveExploreRequirement = 0;
     public float RequiredScale() => exploreRequirement;
 
     [SerializeField]
@@ -26,5 +27,14 @@ public class Event : Card
         animator.moveDestination = gameObject.transform.parent.position;
         //pull name from gameObject at instantiation
         eventName = gameObject.name.Split('(')[0];
+    }
+    public void StopInstantiation() //put expReq over 101 and save // call on prefab
+    {
+        saveExploreRequirement = exploreRequirement;
+        exploreRequirement = 101;
+    }
+    public void ReturnInstantiation()
+    {
+        exploreRequirement = saveExploreRequirement;
     }
 }
