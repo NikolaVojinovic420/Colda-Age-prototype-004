@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 internal class DrawEventState : State
 {
@@ -13,7 +14,12 @@ internal class DrawEventState : State
             _stateMachine.AddEventsInHistory();
             _stateMachine.newConditionNReshuffle.SetActive(true);
             yield return new WaitForSeconds(1f);
-
+            // eat supplies
+            if(!_stateMachine.supplies.EatSupplies(_stateMachine.vigilantAspectsDisplay._aspect))
+            {
+                _stateMachine.lossWindow.GetComponentInChildren<Text>().text += "\n\nout of supplies";
+                _stateMachine.lossWindow.SetActive(true);
+            }
             //reshuffle
             _stateMachine.future.Reshuffle(_stateMachine.history);
             yield return new WaitForSeconds(1f);

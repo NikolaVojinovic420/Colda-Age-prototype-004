@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ExecuteState : State
 {
@@ -26,7 +27,14 @@ public class ExecuteState : State
             yield break;
         }
 
-        if (effect.insertEvent != null) //insert new event into history
+        if (effect.produce) //produce supplies
+            _stateMachine.supplies.ProduceSupplies(_stateMachine.vigilantAspectsDisplay._aspect);
+
+        if (effect.loot) //brings loot
+            for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
+                _stateMachine.engaged.units[i].bringsLoot = true;
+
+                if (effect.insertEvent != null) //insert new event into history
         {
             // FIXME: unique events are copied, and should not be
             if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
@@ -59,6 +67,12 @@ public class ExecuteState : State
             currentEvent.Transfer(_stateMachine.history.transform, false);
             _stateMachine.history.AddEvent(currentEvent);
         }
+
+        //send supplies with engaged units
+        _stateMachine.supplies.SendSupplies(_stateMachine.engagedAspectsDisplay._aspect);
+
+        //increase exploration
+        _stateMachine.IncreaseExploration(_stateMachine.engagedAspectsDisplay._aspect);
 
         //move all units from engaged back to vigilant
         for (int i = 0; i < _stateMachine.engaged.units.Length; i++)

@@ -9,6 +9,7 @@ public class Unit : Card
     private StateMachine stateMachine;
 
     public int timeToRecovery = 0;
+    public bool bringsLoot;
     public void Fatique(int strain) { timeToRecovery += strain; }
     public void Recover(int betterment)
     {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class StateMachine : MonoBehaviour
 {
-    [SerializeField] private int supplies;
+    [SerializeField] private GameObject suppliesObject;
 
     [SerializeField] private GameObject futureObject;
     [SerializeField] private GameObject historyObject;
@@ -21,6 +21,8 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private GameObject vigilantAspectsObject;
     [SerializeField] private GameObject engagedAspectsObject;
     [SerializeField] private GameObject supplyDisplay;
+
+    public Supplies supplies;
 
     public Slider levelSlider;
 
@@ -44,7 +46,7 @@ public class StateMachine : MonoBehaviour
     {
         state = new StartState(this);
 
-        levelSlider.value = 0;
+        supplies = suppliesObject.GetComponent<Supplies>();
 
         future = futureObject.GetComponent<EventDeck>();
         history = historyObject.GetComponent<EventDeck>();
@@ -85,7 +87,7 @@ public class StateMachine : MonoBehaviour
     void FabricateEvent(EventDeck deck)
     {
         if(deck.IsEmpty())
-            deck.gameObject.GetComponent<Prefabrications>().InstantiateCardsInDeck(levelSlider.value * 100, history);
+            deck.gameObject.GetComponent<Prefabrications>().InstantiateCardsInDeck(levelSlider.value, history);
 
         if(!deck.IsEmpty())
             history.AddEvent(deck.Draw());
@@ -95,23 +97,21 @@ public class StateMachine : MonoBehaviour
         for (int i = 0; i < eventsObject.transform.childCount; i++)
             eventsObject.transform.GetChild(i).GetComponent<Prefabrications>().RandomizePrefabedEventsRequirement();
     }
-    public void IncreaseExploration(float amount)
+    public void IncreaseExploration(Aspect a)
     {
-        if (levelSlider.value >= 1)
+        if (levelSlider.value >= 100)
             return;
-        levelSlider.value += amount / 100;
+        int amount = a.a * 1 + a.p * 2 + a.l * 3;
+        levelSlider.value += amount;
     }
 
     public int ReturningDistance()
     {
-        if (levelSlider.value >= 0.90)
+        if (levelSlider.value >= 90)
             return 4;
-        if (levelSlider.value >= 0.5)
+        if (levelSlider.value >= 50)
             return 3;
         return 2;
     }
-    public void AddSupplies(int amount) => supplies += amount;
-    public void SpendSupplies(int amount) => supplies -= amount;
-    public int ReturnSupplies() => supplies;
-    public void DisplaySupplies() => supplyDisplay.GetComponent<Text>().text = $"SUPPLIES\n{ReturnSupplies()}";
+    public void DisplaySupplies() => supplyDisplay.GetComponent<Text>().text = $"SUPPLIES\n{supplies.GetValue()}\nUNITS RETURN\n{ReturningDistance()-1}";
 }

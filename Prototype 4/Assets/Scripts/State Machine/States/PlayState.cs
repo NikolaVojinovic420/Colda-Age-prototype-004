@@ -11,6 +11,11 @@ public class PlayState : State
         for (int i = 0; i < index; i++)
         {
             Unit u = _stateMachine.vigilant.units[i];
+            if (u.timeToRecovery == 1 && u.bringsLoot)
+            {
+                _stateMachine.supplies.ReturnLoot();
+                u.bringsLoot = false;
+            }
             u.Recover(1);
             _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         }
@@ -30,7 +35,6 @@ public class PlayState : State
         unit.gameObject.GetComponent<AudioController>().PlayEngageDisengage();
         _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         _stateMachine.engagedAspectsDisplay.SetAspect(_stateMachine.engaged.CalcAspectSum());
-        _stateMachine.DisplaySupplies();
 
         yield break;
     }

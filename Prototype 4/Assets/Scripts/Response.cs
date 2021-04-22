@@ -23,9 +23,10 @@ public class Response : MonoBehaviour
     {
         AspectDisplay engagedAspectDisplay = stateMachine.engagedAspectsDisplay;
 
+
         return engagedAspectDisplay._aspect.a >= cost.a &&
             engagedAspectDisplay._aspect.p >= cost.p &&
-            engagedAspectDisplay._aspect.l >= cost.l;
+            engagedAspectDisplay._aspect.l >= cost.l && stateMachine.supplies.CheckSuppliesForSend(stateMachine.engagedAspectsDisplay._aspect);
     }
     public bool CurrentVigilantCanPay()
     {
