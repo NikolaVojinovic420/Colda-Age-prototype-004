@@ -54,8 +54,42 @@ public class ExecuteState : State
             }
         }
 
-        Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
+        _stateMachine.supplies.SendSupplies(_stateMachine.engagedAspectsDisplay._aspect); //send supplies with engaged units
 
+        _stateMachine.IncreaseExploration(_stateMachine.engagedAspectsDisplay._aspect);  //increase exploration
+        //block/exhaust event
+        {
+            if(effect.exhaustEvent != null)
+            {
+                if(_stateMachine.future.Contains(effect.exhaustEvent.name))
+                {
+                    Event e = _stateMachine.future.RemoveWhereName(effect.exhaustEvent.name);
+                    e.gameObject.GetComponent<Animate>().DisolveCard();
+                    Object.Destroy(e.gameObject);
+                }
+            }
+        }
+
+        //upgrades
+        if(effect.upgradeSend) //upgrade spending for send
+            _stateMachine.supplies.UpgradeSendIndex();
+
+        if(effect.upgradeProduce) //upgrade produce
+            _stateMachine.supplies.UpgradeProductionIndex();
+
+        if (effect.upgradeEat) //upgrade eat at reshuffling
+            _stateMachine.supplies.UpgradeEatIndex();
+
+        if (effect.upgradeUnitA && _stateMachine.engaged.transform.childCount == 1) //upgrade unit aggression
+            _stateMachine.supplies.UpgradeAggression(_stateMachine.engaged.transform.GetChild(0).gameObject);
+
+        if (effect.upgradeUnitP && _stateMachine.engaged.transform.childCount == 1) //upgrade unit aggression
+            _stateMachine.supplies.UpgradePractical(_stateMachine.engaged.transform.GetChild(0).gameObject);
+
+        if (effect.upgradeUnitL && _stateMachine.engaged.transform.childCount == 1) //upgrade unit aggression
+            _stateMachine.supplies.UpgradeLeadership(_stateMachine.engaged.transform.GetChild(0).gameObject);
+
+        Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
         //exhaust or discard event
         if (effect.exhaustable)
         {
@@ -67,12 +101,6 @@ public class ExecuteState : State
             currentEvent.Transfer(_stateMachine.history.transform, false);
             _stateMachine.history.AddEvent(currentEvent);
         }
-
-        //send supplies with engaged units
-        _stateMachine.supplies.SendSupplies(_stateMachine.engagedAspectsDisplay._aspect);
-
-        //increase exploration
-        _stateMachine.IncreaseExploration(_stateMachine.engagedAspectsDisplay._aspect);
 
         //move all units from engaged back to vigilant
         for (int i = 0; i < _stateMachine.engaged.units.Length; i++)

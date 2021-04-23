@@ -113,5 +113,5 @@ public class StateMachine : MonoBehaviour
             return 3;
         return 2;
     }
-    public void DisplaySupplies() => supplyDisplay.GetComponent<Text>().text = $"SUPPLIES\n{supplies.GetValue()}\nUNITS RETURN\n{ReturningDistance()-1}";
+    public void DisplaySupplies() => supplyDisplay.GetComponent<Text>().text = $"SUPPLIES\n{supplies.GetValue()}";
 }

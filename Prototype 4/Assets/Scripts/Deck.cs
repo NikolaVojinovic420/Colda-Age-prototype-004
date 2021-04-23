@@ -17,7 +17,23 @@ public class Deck<C> where C : Card
         cards.RemoveAt(index);
         return popped;
     }
-
+    public C RemoveWithName(string cardName)
+    {
+        int index = -1;
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if (cardName.Equals(cards[i].GetCardName()))
+                index = i;
+        }
+        if (index < 0)
+            return null;
+        else
+        {
+            C removed = cards[index];
+            cards.RemoveAt(index);
+            return removed;
+        }
+    }
     public bool IsEmpty()
     {
         return cards.Count == 0;

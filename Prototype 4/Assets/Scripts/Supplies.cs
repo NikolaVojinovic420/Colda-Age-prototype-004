@@ -43,9 +43,33 @@ public class Supplies : MonoBehaviour
         return true;
     }
     public void ReturnLoot() => value += Mathf.RoundToInt((exploreLevel.value * lootIndex) /100);
-    public void SpendToTrain(int amount)//TODO
+    public void UpgradeAggression(GameObject unit) // cut 1/5
     {
-        value -= amount;
-        //upgrade aspect point for price
+        value -= Mathf.RoundToInt(value/5);
+        unit.GetComponent<Aspect>().AddAgression(1);
     }
+    public void UpgradePractical(GameObject unit) // cut 1/4
+    {
+        value -= Mathf.RoundToInt(value / 4);
+        unit.GetComponent<Aspect>().AddPractical(1);
+    }
+    public void UpgradeLeadership(GameObject unit) // cut 1/3
+    {
+        value -= Mathf.RoundToInt(value / 3);
+        unit.GetComponent<Aspect>().AddLeadership(1);
+    }
+    public void UpgradeProductionIndex() => produceIndexP += 1;
+    public void UpgradeSendIndex()
+    {
+        DecreaseByOne(sendIndexA);
+        DecreaseByOne(sendIndexP);
+        DecreaseByOne(sendIndexL);
+    }
+    void DecreaseByOne(int send)
+    {
+        if (send <= 0)
+            return;
+        send -= 1;
+    }
+    public void UpgradeEatIndex() => DecreaseByOne(eatIndexA); 
 }

@@ -40,6 +40,10 @@ public class EventDeck : MonoBehaviour
     {
         return deck.Contains(cardName);
     }
+    public Event RemoveWhereName(string cardName)
+    {
+        return deck.RemoveWithName(cardName);
+    }
     public void FillEventDeck()
     {
         for (int i = 0; i < transform.childCount; i++)

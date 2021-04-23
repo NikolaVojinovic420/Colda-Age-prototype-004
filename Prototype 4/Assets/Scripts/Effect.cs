@@ -9,7 +9,14 @@ public class Effect : MonoBehaviour
     public bool exhaustable;
     public GameObject insertEvent;
 
-    public string exhaustEvent;
+    public GameObject exhaustEvent;
     public bool produce;
     public bool loot;
+
+    public bool upgradeSend;
+    public bool upgradeProduce;
+    public bool upgradeEat;
+    public bool upgradeUnitA;
+    public bool upgradeUnitP;
+    public bool upgradeUnitL;
 }
