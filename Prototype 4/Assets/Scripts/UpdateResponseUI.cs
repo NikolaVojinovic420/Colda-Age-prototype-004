@@ -5,8 +5,9 @@ using TMPro;
 
 public class UpdateResponseUI : MonoBehaviour
 {
-    public TMP_Text textUI,a,p,c;
-    public GameObject loss, win, exhaust, insert, playable, forbiden;
+    public TMP_Text textUI, textExplainUI, a, p, c;
+    public GameObject loss, win, playable, forbiden;
+
     Effect effect;
     Aspect aspect;
     Response response;
@@ -22,14 +23,17 @@ public class UpdateResponseUI : MonoBehaviour
         p.text = $"{aspect.p}";
         c.text = $"{aspect.l}";
 
-        if (effect.loss)
-            loss.SetActive(true);
-        if (effect.win)
-            win.SetActive(true);
+        textExplainUI.text = $"{effect.SetOneUpgradeText()}";
         if (effect.exhaustable)
-            exhaust.SetActive(true);
+            textExplainUI.text += $"\n- Exhaust this";
         if (effect.insertEvent != null)
-            insert.SetActive(true);
+            textExplainUI.text += $"\n- Insert new";
+        if (effect.exhaustEvent)
+            textExplainUI.text += $"\n- Block one path";
+        if (effect.produce)
+            textExplainUI.text += $"\n- Produce supplies";
+        if (effect.loot)
+            textExplainUI.text += $"\n- Bring loot on return";
     }
     void Update()
     {
@@ -38,6 +42,8 @@ public class UpdateResponseUI : MonoBehaviour
     }
     void UpdatePlayable()
     {
+        if(gameObject.GetComponentInParent<Event>().Defending() && response.CurrentVigilantCanPay())
+            playable.SetActive(true);
         if (response.CurrentEngagedCanPay())
             playable.SetActive(true);
         else
@@ -58,5 +64,28 @@ public class UpdateResponseUI : MonoBehaviour
             entered = false;
             forbiden.SetActive(false);
         }
+    }
+    public void ActivateExplainingWindow()
+    {
+        if (effect.loss)
+        {
+            loss.SetActive(true);
+            return;
+        }
+            
+        if (effect.win)
+        {
+            win.SetActive(true);
+            return;
+        }
+
+        textExplainUI.gameObject.SetActive(true);
+       
+    }
+    public void DeactivateExplainingWindow()
+    {
+        win.SetActive(false);
+        loss.SetActive(false);
+        textExplainUI.gameObject.SetActive(false);
     }
 }

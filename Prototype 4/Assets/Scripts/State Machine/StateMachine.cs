@@ -22,9 +22,9 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private GameObject engagedAspectsObject;
     [SerializeField] private GameObject supplyDisplay;
 
-    public Supplies supplies;
-
     public Slider levelSlider;
+
+    public Supplies supplies;
 
     public EventDeck future;
     public EventDeck history;
@@ -107,7 +107,7 @@ public class StateMachine : MonoBehaviour
 
     public int ReturningDistance()
     {
-        if (levelSlider.value >= 90)
+        if (levelSlider.value >= 80)
             return 4;
         if (levelSlider.value >= 50)
             return 3;

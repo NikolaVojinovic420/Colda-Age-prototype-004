@@ -32,27 +32,33 @@ public class ExecuteState : State
 
         if (effect.loot) //brings loot
             for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
-                _stateMachine.engaged.units[i].bringsLoot = true;
+            {
+                Unit u = _stateMachine.engaged.units[i];
+                if (u == null)
+                    continue;
+                u.bringsLoot = true;
+            }
+                
 
                 if (effect.insertEvent != null) //insert new event into history
-        {
-            // FIXME: unique events are copied, and should not be
-            if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
-            {      
-                GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
-                Event e = eventObject.GetComponent<Event>();
+                {
+                    // FIXME: unique events are copied, and should not be
+                    if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
+                    {      
+                        GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
+                        Event e = eventObject.GetComponent<Event>();
+                        e.ReturnInstantiation(); //if blocked instantiation
+                        eventObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                        eventObject.transform.position = _stateMachine.eventStageObject.transform.position;
 
-                eventObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-                eventObject.transform.position = _stateMachine.eventStageObject.transform.position;
-
-                Event newEvent = eventObject.GetComponent<Event>();
-                _stateMachine.history.AddEvent(newEvent);
-            }
-            else
-            {
-                Debug.Log("inserted event in response already exists in history or future");
-            }
-        }
+                        Event newEvent = eventObject.GetComponent<Event>();
+                        _stateMachine.history.AddEvent(newEvent);
+                    }
+                    else
+                    {
+                        Debug.Log("inserted event in response already exists in history or future");
+                    }
+                }
 
         _stateMachine.supplies.SendSupplies(_stateMachine.engagedAspectsDisplay._aspect); //send supplies with engaged units
 
@@ -90,8 +96,15 @@ public class ExecuteState : State
             _stateMachine.supplies.UpgradeLeadership(_stateMachine.engaged.transform.GetChild(0).gameObject);
 
         Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
-        //exhaust or discard event
-        if (effect.exhaustable)
+
+        if (currentEvent.CheckInstanceLimit() && currentEvent.InstanceLimit <= _stateMachine.levelSlider.value) //check if limit reached
+            effect.stopMakingInstances = true;
+
+        if (effect.stopMakingInstances) //stop instances of this event
+            currentEvent.StopInstantiation();
+
+            //exhaust or discard event
+            if (effect.exhaustable)
         {
             currentEvent.gameObject.GetComponent<Animate>().DisolveCard();
             UnityEngine.Object.Destroy(currentEvent.gameObject);

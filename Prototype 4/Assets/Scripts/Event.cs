@@ -10,6 +10,13 @@ public class Event : Card
     [SerializeField]
     private bool startingEvent;
     public float RequiredScale() => exploreRequirement;
+    [SerializeField]
+    private bool hasInstanceLimit;
+    public bool CheckInstanceLimit() => hasInstanceLimit;
+    public int InstanceLimit;
+    [SerializeField]
+    private bool defensingevent;
+    public bool Defending() => defensingevent;
 
     private void Awake()
     {

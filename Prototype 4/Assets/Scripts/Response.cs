@@ -7,15 +7,19 @@ public class Response : MonoBehaviour
     private StateMachine stateMachine;
     private Card card;
     private Aspect cost;
+    private Effect effect;
     void Awake()
     {
         stateMachine = FindObjectOfType<StateMachine>();
         cost = GetComponent<Aspect>();
         card = transform.parent.gameObject.GetComponent<Card>();
+        effect = GetComponent<Effect>();
     }
     public void OnMouseDown()
     {
-        if (card.IsActive() && CurrentEngagedCanPay())
+        if(card.IsActive() && gameObject.GetComponentInParent<Event>().Defending() && CurrentVigilantCanPay())
+            stateMachine.ResponseClicked(this);
+        else if (card.IsActive() && CurrentEngagedCanPay())
             stateMachine.ResponseClicked(this);
     }
 

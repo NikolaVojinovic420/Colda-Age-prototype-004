@@ -28,9 +28,11 @@ public class PlayState : State
     }
     public override IEnumerator UnitClicked(Unit unit)
     {
+        Event e = _stateMachine.eventStageObject.GetComponentInChildren<Event>();//if we deffend settlement
+
         if (_stateMachine.engaged.Contains(unit))
             _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, unit);
-        else
+        else if(_stateMachine.vigilant.Contains(unit) && !e.Defending())
             _stateMachine.vigilant.TransferUnit(_stateMachine.engaged, unit);
         unit.gameObject.GetComponent<AudioController>().PlayEngageDisengage();
         _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());

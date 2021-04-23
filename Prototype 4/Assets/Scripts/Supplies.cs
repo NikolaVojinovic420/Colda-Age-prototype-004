@@ -43,19 +43,19 @@ public class Supplies : MonoBehaviour
         return true;
     }
     public void ReturnLoot() => value += Mathf.RoundToInt((exploreLevel.value * lootIndex) /100);
-    public void UpgradeAggression(GameObject unit) // cut 1/5
+    public void UpgradeAggression(GameObject unit)
     {
-        value -= Mathf.RoundToInt(value/5);
+        unit.GetComponent<Unit>().timeToRecovery += 1;
         unit.GetComponent<Aspect>().AddAgression(1);
     }
-    public void UpgradePractical(GameObject unit) // cut 1/4
+    public void UpgradePractical(GameObject unit)
     {
-        value -= Mathf.RoundToInt(value / 4);
+        unit.GetComponent<Unit>().timeToRecovery += 2;
         unit.GetComponent<Aspect>().AddPractical(1);
     }
-    public void UpgradeLeadership(GameObject unit) // cut 1/3
+    public void UpgradeLeadership(GameObject unit)
     {
-        value -= Mathf.RoundToInt(value / 3);
+        unit.GetComponent<Unit>().timeToRecovery += 3;
         unit.GetComponent<Aspect>().AddLeadership(1);
     }
     public void UpgradeProductionIndex() => produceIndexP += 1;
