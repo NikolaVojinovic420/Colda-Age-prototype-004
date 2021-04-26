@@ -603,7 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 1
+  noSendingAway: 1
+  stopInstantiating: 1
   win: 0
   loss: 0
   exhaustable: 1
@@ -2113,7 +2114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: here is some flavor text
+  m_text: He can be powerfull ally or most dangerous foe.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3424,11 +3425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d83753ae07b9248a6dd4968a811163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exploreRequirement: 0
+  exploreRequirement: 12
   startingEvent: 0
   hasInstanceLimit: 0
   InstanceLimit: 0
-  defensingevent: 0
+  irresponsive: 0
 --- !u!114 &556477731290204503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3690,7 +3691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   a: 5
   p: 0
-  l: 2
+  l: 3
 --- !u!114 &6549865605978666865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3703,7 +3704,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 1
+  noSendingAway: 0
+  stopInstantiating: 1
   win: 0
   loss: 0
   exhaustable: 1

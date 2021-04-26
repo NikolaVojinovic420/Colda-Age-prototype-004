@@ -870,7 +870,7 @@ GameObject:
   - component: {fileID: 4450294464364693251}
   - component: {fileID: 2614408777895009572}
   m_Layer: 0
-  m_Name: Response3
+  m_Name: Reduce spending
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -943,17 +943,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 0
-  exhaustable: 0
+  exhaustable: 1
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
   produce: 0
   loot: 0
   upgradeSend: 0
   upgradeProduce: 0
-  upgradeEat: 0
+  upgradeEat: 1
   upgradeUnitA: 0
   upgradeUnitP: 0
   upgradeUnitL: 0
@@ -993,7 +994,7 @@ GameObject:
   - component: {fileID: 3198054862465357871}
   - component: {fileID: 2432766780827041185}
   m_Layer: 0
-  m_Name: Response2
+  m_Name: Increase production
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1066,16 +1067,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 0
-  exhaustable: 0
+  exhaustable: 1
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
   produce: 0
   loot: 0
   upgradeSend: 0
-  upgradeProduce: 0
+  upgradeProduce: 1
   upgradeEat: 0
   upgradeUnitA: 0
   upgradeUnitP: 0
@@ -3555,7 +3557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: here is some flavor text
+  m_text: Pick upgrade.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4796,7 +4798,7 @@ GameObject:
   - component: {fileID: 1093336062076304833}
   - component: {fileID: 76339875459409048}
   m_Layer: 0
-  m_Name: Response4
+  m_Name: Exhaust
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4869,10 +4871,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 1
+  stopInstantiating: 0
   win: 0
   loss: 0
-  exhaustable: 0
+  exhaustable: 1
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
   produce: 0
@@ -5761,6 +5764,7 @@ Transform:
   - {fileID: 8359949744166503828}
   - {fileID: 4202531093622619320}
   - {fileID: 1406913131862228777}
+  - {fileID: 7170569621372970577}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: -90}
@@ -5871,7 +5875,7 @@ MonoBehaviour:
   startingEvent: 0
   hasInstanceLimit: 0
   InstanceLimit: 0
-  defensingevent: 0
+  irresponsive: 0
 --- !u!114 &448773785203825099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6206,7 +6210,7 @@ GameObject:
   - component: {fileID: 6586110925597255661}
   - component: {fileID: 2775689839199344186}
   m_Layer: 0
-  m_Name: Response1
+  m_Name: Reduce sending cost
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6279,15 +6283,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 0
-  exhaustable: 0
+  exhaustable: 1
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
   produce: 0
   loot: 0
-  upgradeSend: 0
+  upgradeSend: 1
   upgradeProduce: 0
   upgradeEat: 0
   upgradeUnitA: 0
@@ -6314,6 +6319,36 @@ MonoBehaviour:
   win: {fileID: 723996266477376351}
   playable: {fileID: 7543634507073447538}
   forbiden: {fileID: 4128280373032659055}
+--- !u!1 &8872327169093642794
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7170569621372970577}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7170569621372970577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8872327169093642794}
+  m_LocalRotation: {x: 0.7071068, y: -0.7071068, z: 0, w: 0}
+  m_LocalPosition: {x: -0.00025103494, y: -5.820766e-11, z: 0}
+  m_LocalScale: {x: 0.24999994, y: 0.16666663, z: 499.99976}
+  m_Children: []
+  m_Father: {fileID: 8582465122941306530}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9103847686647171009
 GameObject:
   m_ObjectHideFlags: 0

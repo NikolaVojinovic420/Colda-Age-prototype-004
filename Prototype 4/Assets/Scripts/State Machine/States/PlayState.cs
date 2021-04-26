@@ -33,8 +33,10 @@ public class PlayState : State
         if (_stateMachine.engaged.Contains(unit))
             _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, unit);
         else if(_stateMachine.vigilant.Contains(unit) && !e.Defending())
+        {
             _stateMachine.vigilant.TransferUnit(_stateMachine.engaged, unit);
-        unit.gameObject.GetComponent<AudioController>().PlayEngageDisengage();
+            unit.gameObject.GetComponent<AudioController>().PlayEngageDisengage();
+        }      
         _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         _stateMachine.engagedAspectsDisplay.SetAspect(_stateMachine.engaged.CalcAspectSum());
 

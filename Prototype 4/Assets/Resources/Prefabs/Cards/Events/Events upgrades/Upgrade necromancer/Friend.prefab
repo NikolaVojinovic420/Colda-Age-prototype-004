@@ -299,7 +299,7 @@ MonoBehaviour:
   startingEvent: 0
   hasInstanceLimit: 0
   InstanceLimit: 0
-  defensingevent: 0
+  irresponsive: 0
 --- !u!114 &8421291496378991138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 2991131651963091972}
   - component: {fileID: 6080151614386572755}
   m_Layer: 0
-  m_Name: Response1
+  m_Name: Enemy of mine enemy
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -647,7 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
+  a: 5
   p: 0
   l: 0
 --- !u!114 &2991131651963091972
@@ -662,12 +662,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 1
   win: 0
   loss: 0
-  exhaustable: 0
+  exhaustable: 1
   insertEvent: {fileID: 0}
-  exhaustEvent: {fileID: 0}
+  exhaustEvent: {fileID: 8388356854984550723, guid: 7f66c398c4f56cd42aa5d7105f3a5e87,
+    type: 3}
   produce: 0
   loot: 0
   upgradeSend: 0
@@ -1977,7 +1979,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: here is some flavor text
+  m_text: Some trade or maybe get some assistance with Gulag forces.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4139,7 +4141,7 @@ GameObject:
   - component: {fileID: 5703436892267912426}
   - component: {fileID: 6245380461455771341}
   m_Layer: 0
-  m_Name: Response3
+  m_Name: Make an enemy
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4212,11 +4214,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 1
   win: 0
   loss: 0
-  exhaustable: 0
-  insertEvent: {fileID: 0}
+  exhaustable: 1
+  insertEvent: {fileID: 1313439663994183641, guid: 90ea1217752774d4d9c09c785b99b656,
+    type: 3}
   exhaustEvent: {fileID: 0}
   produce: 0
   loot: 0
@@ -4262,7 +4266,7 @@ GameObject:
   - component: {fileID: 6811122046866654150}
   - component: {fileID: 5991721413498906184}
   m_Layer: 0
-  m_Name: Response2
+  m_Name: Ambasadors
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4321,7 +4325,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 0
-  p: 0
+  p: 4
   l: 0
 --- !u!114 &6811122046866654150
 MonoBehaviour:
@@ -4335,14 +4339,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
   produce: 0
-  loot: 0
+  loot: 1
   upgradeSend: 0
   upgradeProduce: 0
   upgradeEat: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7627380828704180472}
   - component: {fileID: 7492476435254448545}
   m_Layer: 0
-  m_Name: Ignore
+  m_Name: Skip turn
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -88,7 +88,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 1
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0
@@ -704,7 +705,7 @@ MonoBehaviour:
   startingEvent: 1
   hasInstanceLimit: 0
   InstanceLimit: 0
-  defensingevent: 0
+  irresponsive: 1
 --- !u!114 &6976062946186358002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1498,7 +1499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 1
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0
@@ -1879,7 +1881,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: here is some flavor text
+  m_text: Organize people inside settlement.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6200,9 +6202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
-  p: 0
-  l: 0
+  a: 12
+  p: 8
+  l: 1
 --- !u!114 &5374039950676356374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6215,7 +6217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 1
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0
@@ -6399,8 +6402,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 0
-  p: 0
-  l: 0
+  p: 10
+  l: 1
 --- !u!114 &6572781641704370746
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6413,7 +6416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 1
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0

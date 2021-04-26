@@ -9,10 +9,11 @@ ScriptsOnlyBuild:
     - Effect
     - Event
     - EventDeck
-    - FillWithPrefabs
     - Menu
+    - Prefabrications
     - Response
     - StateMachine
+    - Supplies
     - Unit
     - UnitDisplay
     - UpdateEventUI
@@ -113,27 +114,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12666}
     - Class: 114
-      Script: {instanceID: 12880}
+      Script: {instanceID: 12782}
     - Class: 114
-      Script: {instanceID: 12894}
+      Script: {instanceID: 12882}
     - Class: 114
-      Script: {instanceID: 12996}
+      Script: {instanceID: 12896}
     - Class: 114
-      Script: {instanceID: 13104}
+      Script: {instanceID: 12998}
     - Class: 114
-      Script: {instanceID: 13178}
+      Script: {instanceID: 13106}
     - Class: 114
-      Script: {instanceID: 13194}
+      Script: {instanceID: 13180}
     - Class: 114
-      Script: {instanceID: 13346}
+      Script: {instanceID: 13196}
     - Class: 114
-      Script: {instanceID: 13424}
+      Script: {instanceID: 13348}
     - Class: 114
-      Script: {instanceID: 13534}
+      Script: {instanceID: 13426}
     - Class: 114
-      Script: {instanceID: 13554}
+      Script: {instanceID: 13536}
     - Class: 114
-      Script: {instanceID: 13576}
+      Script: {instanceID: 13556}
+    - Class: 114
+      Script: {instanceID: 13578}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -195,7 +198,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: a7c5d0366cef8c62f692b7134aab5bfc
+      Hash: 73fd8f003c424b4161bb58809884aefd
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: StateMachine
@@ -333,7 +336,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: bfd60b5f4b9088707f30b28edf82b08b
+      Hash: 4f6e040619ff901f4252d440a6a9a792
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Event
@@ -342,10 +345,10 @@ ScriptsOnlyBuild:
       Hash: 6059f9b8098f6840886604f9b0dd54d7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: FillWithPrefabs
+    className: Prefabrications
   - hash:
       serializedVersion: 2
-      Hash: 59c4fbbf29ecbc7962b03edea0b60385
+      Hash: a8ca673d2b161a76921605def7d27ca6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpdateResponseUI
@@ -423,7 +426,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 96b8ee9def61cbabca2a061226b2de33
+      Hash: b61b77a17defec47c5ca107a3032d218
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Unit
@@ -459,7 +462,7 @@ ScriptsOnlyBuild:
     className: TMP_SpriteAnimator
   - hash:
       serializedVersion: 2
-      Hash: 290b721e7607c4c1d4506ee05e9ea5aa
+      Hash: b449dad087f9d2a8a5750108bff48d7c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: UpdateUnitUI
@@ -493,6 +496,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: VerticalLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: fc0657bf097a367f0ef793ef81baf09d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Supplies
   - hash:
       serializedVersion: 2
       Hash: 783f593b9380cf72d0f7ebfd4a0d4bcd
@@ -657,7 +666,7 @@ ScriptsOnlyBuild:
     className: TestRunCallbackListener
   - hash:
       serializedVersion: 2
-      Hash: 60057726cab3e6abba4bf97f84c97ed0
+      Hash: 16f0315bb6ab5f7daa5ce74b8889b01b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Effect
@@ -706,4 +715,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/Main Scene.unity
-  playerPath: C:/Users/WINDOWS 10/Desktop/Build 15.4.21/Prototype 4.exe
+  playerPath: C:/Users/WINDOWS 10/Desktop/Game prototype build/Prototype 4.exe

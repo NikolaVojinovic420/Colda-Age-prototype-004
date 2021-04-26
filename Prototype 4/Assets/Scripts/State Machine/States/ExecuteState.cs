@@ -15,69 +15,53 @@ public class ExecuteState : State
 
     public override IEnumerator Start()
     {
-        if (effect.loss) //loss
+        //loss
+        if (effect.loss) 
         {
             _stateMachine.SetState(new LossState(_stateMachine));
             yield break;
         }
 
-        if (effect.win) //win
+        //win
+        if (effect.win) 
         {
             _stateMachine.SetState(new WinState(_stateMachine));
             yield break;
         }
 
-        if (effect.produce) //produce supplies
-            _stateMachine.supplies.ProduceSupplies(_stateMachine.vigilantAspectsDisplay._aspect);
+        //produce supplies
+        if (effect.produce) 
+                _stateMachine.supplies.ProduceSupplies(_stateMachine.vigilantAspectsDisplay._aspect);
 
-        if (effect.loot) //brings loot
-            for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
-            {
-                Unit u = _stateMachine.engaged.units[i];
-                if (u == null)
-                    continue;
-                u.bringsLoot = true;
-            }
-                
-
-                if (effect.insertEvent != null) //insert new event into history
+        //brings loot
+        if (effect.loot) 
+                for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
                 {
-                    // FIXME: unique events are copied, and should not be
-                    if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
-                    {      
-                        GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
-                        Event e = eventObject.GetComponent<Event>();
-                        e.ReturnInstantiation(); //if blocked instantiation
-                        eventObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-                        eventObject.transform.position = _stateMachine.eventStageObject.transform.position;
-
-                        Event newEvent = eventObject.GetComponent<Event>();
-                        _stateMachine.history.AddEvent(newEvent);
-                    }
-                    else
-                    {
-                        Debug.Log("inserted event in response already exists in history or future");
-                    }
+                    Unit u = _stateMachine.engaged.units[i];
+                    if (u == null)
+                        continue;
+                    u.bringsLoot = true;
                 }
 
-        _stateMachine.supplies.SendSupplies(_stateMachine.engagedAspectsDisplay._aspect); //send supplies with engaged units
+        //send supplies with engaged units
+        if (!effect.noSendingAway)
+            _stateMachine.supplies.SendSupplies(_stateMachine.engagedAspectsDisplay._aspect);
 
-        _stateMachine.IncreaseExploration(_stateMachine.engagedAspectsDisplay._aspect);  //increase exploration
+        //increase exploration
+        _stateMachine.IncreaseExploration(_stateMachine.engagedAspectsDisplay._aspect);  
+
         //block/exhaust event
+        if (effect.exhaustEvent != null)
         {
-            if(effect.exhaustEvent != null)
+            if (effect.exhaustEvent.name != null && _stateMachine.future.Contains(effect.exhaustEvent.name))
             {
-                if(_stateMachine.future.Contains(effect.exhaustEvent.name))
-                {
-                    Event e = _stateMachine.future.RemoveWhereName(effect.exhaustEvent.name);
-                    e.gameObject.GetComponent<Animate>().DisolveCard();
-                    Object.Destroy(e.gameObject);
-                }
+                Event e = _stateMachine.future.RemoveWhereName(effect.exhaustEvent.name);
+                Object.Destroy(e.gameObject);
             }
         }
 
         //upgrades
-        if(effect.upgradeSend) //upgrade spending for send
+        if (effect.upgradeSend) //upgrade spending for send
             _stateMachine.supplies.UpgradeSendIndex();
 
         if(effect.upgradeProduce) //upgrade produce
@@ -95,16 +79,16 @@ public class ExecuteState : State
         if (effect.upgradeUnitL && _stateMachine.engaged.transform.childCount == 1) //upgrade unit aggression
             _stateMachine.supplies.UpgradeLeadership(_stateMachine.engaged.transform.GetChild(0).gameObject);
 
+        //stop instantiating && exhaust or discard event 
         Event currentEvent = eventResponse.gameObject.transform.parent.gameObject.GetComponent<Event>();
 
-        if (currentEvent.CheckInstanceLimit() && currentEvent.InstanceLimit <= _stateMachine.levelSlider.value) //check if limit reached
-            effect.stopMakingInstances = true;
+        if (effect.stopInstantiating)
+            _stateMachine.BlockPrefab(currentEvent);
 
-        if (effect.stopMakingInstances) //stop instances of this event
-            currentEvent.StopInstantiation();
+        if (currentEvent.hasInstanceLimit && currentEvent.InstanceLimit >= _stateMachine.levelSlider.value)
+            _stateMachine.BlockPrefab(currentEvent);
 
-            //exhaust or discard event
-            if (effect.exhaustable)
+        if (effect.exhaustable)
         {
             currentEvent.gameObject.GetComponent<Animate>().DisolveCard();
             UnityEngine.Object.Destroy(currentEvent.gameObject);
@@ -114,16 +98,38 @@ public class ExecuteState : State
             currentEvent.Transfer(_stateMachine.history.transform, false);
             _stateMachine.history.AddEvent(currentEvent);
         }
-
+    
         //move all units from engaged back to vigilant
         for (int i = 0; i < _stateMachine.engaged.units.Length; i++)
         {
             Unit u = _stateMachine.engaged.units[i];
             if (u == null)
                 continue;
-            u.Fatique(_stateMachine.ReturningDistance());
-            u.gameObject.GetComponent<AudioController>().PlayFlip();
+            if(!effect.noSendingAway)
+            {
+                u.SendAway(_stateMachine.ReturningDistance());
+                u.gameObject.GetComponent<AudioController>().PlayFlip();
+            }  
             _stateMachine.engaged.TransferUnit(_stateMachine.vigilant, u);
+        }
+
+        if (effect.insertEvent != null) //insert new event into history
+        {
+            // FIXME: unique events are copied, and should not be
+            if (!_stateMachine.history.Contains(effect.insertEvent.name) && !_stateMachine.future.Contains(effect.insertEvent.name))
+            {
+                GameObject eventObject = UnityEngine.Object.Instantiate(effect.insertEvent, _stateMachine.history.transform);
+                Event e = eventObject.GetComponent<Event>();
+                eventObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+                eventObject.transform.position = _stateMachine.eventStageObject.transform.position;
+
+                Event newEvent = eventObject.GetComponent<Event>();
+                _stateMachine.history.AddEvent(newEvent);
+            }
+            else
+            {
+                Debug.Log("inserted event in response already exists in history or future");
+            }
         }
 
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());

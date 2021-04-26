@@ -933,7 +933,7 @@ GameObject:
   - component: {fileID: 6495266751198461419}
   - component: {fileID: 4713703564681855018}
   m_Layer: 0
-  m_Name: Leave farm
+  m_Name: Not now
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,7 +947,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2585931473254421787}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36, y: -0.35, z: -1}
+  m_LocalPosition: {x: -0.12, y: -0.35, z: -1}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.02}
   m_Children:
   - {fileID: 8574613723535630501}
@@ -1006,7 +1006,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 1
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0
@@ -2286,7 +2287,7 @@ MonoBehaviour:
   startingEvent: 0
   hasInstanceLimit: 1
   InstanceLimit: 51
-  defensingevent: 0
+  irresponsive: 0
 --- !u!114 &2546487000242809202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2473,7 +2474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 0
-  p: 0
+  p: 5
   l: 0
 --- !u!114 &9082139716366669652
 MonoBehaviour:
@@ -2487,7 +2488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0

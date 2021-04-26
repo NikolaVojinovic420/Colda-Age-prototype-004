@@ -530,7 +530,7 @@ GameObject:
   - component: {fileID: 3392232408529827794}
   - component: {fileID: 2499648342399210076}
   m_Layer: 0
-  m_Name: Response2
+  m_Name: Die
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -603,9 +603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
-  loss: 0
+  loss: 1
   exhaustable: 0
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
@@ -3501,7 +3502,7 @@ MonoBehaviour:
   startingEvent: 0
   hasInstanceLimit: 0
   InstanceLimit: 0
-  defensingevent: 0
+  irresponsive: 1
 --- !u!114 &380617881317897782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3629,7 +3630,7 @@ GameObject:
   - component: {fileID: 6346966532232480784}
   - component: {fileID: 2735760442951137735}
   m_Layer: 0
-  m_Name: Response1
+  m_Name: Fight
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3687,7 +3688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
+  a: 14
   p: 0
   l: 0
 --- !u!114 &6346966532232480784
@@ -3702,7 +3703,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0

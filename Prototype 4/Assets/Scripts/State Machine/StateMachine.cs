@@ -22,6 +22,8 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private GameObject engagedAspectsObject;
     [SerializeField] private GameObject supplyDisplay;
 
+    [SerializeField] private GameObject blockedEventsObject;
+
     public Slider levelSlider;
 
     public Supplies supplies;
@@ -42,6 +44,8 @@ public class StateMachine : MonoBehaviour
 
     public GameObject newConditionNReshuffle;
 
+    public EventDeck blockedEvents;
+
     void Awake()
     {
         state = new StartState(this);
@@ -56,6 +60,8 @@ public class StateMachine : MonoBehaviour
 
         vigilantAspectsDisplay = vigilantAspectsObject.GetComponent<AspectDisplay>();
         engagedAspectsDisplay = engagedAspectsObject.GetComponent<AspectDisplay>();
+
+        blockedEvents = blockedEventsObject.GetComponent<EventDeck>();
     }
 
     void Start()
@@ -87,11 +93,12 @@ public class StateMachine : MonoBehaviour
     void FabricateEvent(EventDeck deck)
     {
         if(deck.IsEmpty())
-            deck.gameObject.GetComponent<Prefabrications>().InstantiateCardsInDeck(levelSlider.value, history);
+            deck.gameObject.GetComponent<Prefabrications>().InstantiateCardsInDeck(levelSlider.value, history, blockedEvents);
 
         if(!deck.IsEmpty())
             history.AddEvent(deck.Draw());
     }
+    public void BlockPrefab(Event e) => blockedEvents.AddEvent(e);
     public void SetEventsRequirements()
     {
         for (int i = 0; i < eventsObject.transform.childCount; i++)

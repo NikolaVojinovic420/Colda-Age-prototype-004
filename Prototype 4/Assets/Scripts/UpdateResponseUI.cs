@@ -44,7 +44,7 @@ public class UpdateResponseUI : MonoBehaviour
     {
         if(gameObject.GetComponentInParent<Event>().Defending() && response.CurrentVigilantCanPay())
             playable.SetActive(true);
-        if (response.CurrentEngagedCanPay())
+        else if (!gameObject.GetComponentInParent<Event>().Defending() && response.CurrentEngagedCanPay())
             playable.SetActive(true);
         else
             playable.SetActive(false);

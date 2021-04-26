@@ -18,12 +18,12 @@ public class Prefabrications : MonoBehaviour
     {
         cards = Resources.LoadAll(path, typeof(GameObject));
     }
-    public void InstantiateCardsInDeck(float requiredValue, EventDeck history)
+    public void InstantiateCardsInDeck(float requiredValue, EventDeck history, EventDeck blockedEvents)
     {
         foreach (GameObject item in cards)
         {
             Event e = item.GetComponent<Event>();
-            if (requiredValue >= e.RequiredScale() && !history.Contains(item.name))
+            if (requiredValue >= e.RequiredScale() && !history.Contains(item.name) && !blockedEvents.Contains(item.name))
                 Instantiate(item, transform);        
         }           
         deck.FillEventDeck();

@@ -9,13 +9,15 @@ public class UpdateUnitUI : MonoBehaviour
     void Awake()
     {
         nameUI.text = gameObject.name.Split('(')[0];
-        a.text = $"{GetComponent<Aspect>().a}";
-        p.text = $"{GetComponent<Aspect>().p}";
-        c.text = $"{GetComponent<Aspect>().l}";
+       
     }
     private void FixedUpdate()
     {
         turns.text = $"{GetComponent<Unit>().timeToRecovery}";
+        a.text = $"{GetComponent<Aspect>().a}";
+        p.text = $"{GetComponent<Aspect>().p}";
+        c.text = $"{GetComponent<Aspect>().l}";
     }
+
 }
 

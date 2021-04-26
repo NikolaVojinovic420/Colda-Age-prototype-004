@@ -10,7 +10,7 @@ public class Unit : Card
 
     public int timeToRecovery = 0;
     public bool bringsLoot;
-    public void Fatique(int strain) { timeToRecovery += strain; }
+    public void SendAway(int strain) { timeToRecovery += strain; }
     public void Recover(int betterment)
     {
         if (timeToRecovery > 0)

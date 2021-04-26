@@ -1722,7 +1722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 1
   exhaustable: 0
@@ -1772,7 +1773,7 @@ GameObject:
   - component: {fileID: 1622340106889070495}
   - component: {fileID: 1954733969024721425}
   m_Layer: 0
-  m_Name: Wait
+  m_Name: Check before get
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 0
-  p: 0
+  p: 3
   l: 0
 --- !u!114 &1622340106889070495
 MonoBehaviour:
@@ -1845,7 +1846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 0
+  noSendingAway: 0
+  stopInstantiating: 0
   win: 0
   loss: 0
   exhaustable: 0
@@ -2808,9 +2810,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
+  a: 10
   p: 0
-  l: 0
+  l: 1
 --- !u!114 &7026988376481888349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,10 +2825,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aad461f21e295341bb8638d69015490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stopMakingInstances: 1
+  noSendingAway: 0
+  stopInstantiating: 1
   win: 0
   loss: 0
-  exhaustable: 0
+  exhaustable: 1
   insertEvent: {fileID: 1674787883286826705, guid: fdf664d2588801f44ad3cbe4f52e1518,
     type: 3}
   exhaustEvent: {fileID: 0}
@@ -3582,11 +3585,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d83753ae07b9248a6dd4968a811163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exploreRequirement: 0
-  startingEvent: 0
+  exploreRequirement: 95
+  startingEvent: 1
   hasInstanceLimit: 0
   InstanceLimit: 0
-  defensingevent: 0
+  irresponsive: 0
 --- !u!114 &4384303913325528699
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -432,7 +432,7 @@ MonoBehaviour:
   startingEvent: 0
   hasInstanceLimit: 0
   InstanceLimit: 0
-  defensingevent: 0
+  irresponsive: 0
 --- !u!114 &7358702962324853156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 4270416058548170626}
   - component: {fileID: 5089132491844574805}
   m_Layer: 0
-  m_Name: Response1
+  m_Name: We are ready
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -987,9 +987,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22df7c728b8f3ad47af756e105743bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 0
-  p: 0
-  l: 0
+  a: 12
+  p: 5
+  l: 1
 --- !u!114 &4270416058548170626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1003,7 +1003,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopMakingInstances: 0
-  win: 0
+  win: 1
   loss: 0
   exhaustable: 0
   insertEvent: {fileID: 0}
@@ -4787,7 +4787,7 @@ GameObject:
   - component: {fileID: 6766551817446772588}
   - component: {fileID: 4930666251177448779}
   m_Layer: 0
-  m_Name: Response3
+  m_Name: All for nothing
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4862,7 +4862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stopMakingInstances: 0
   win: 0
-  loss: 0
+  loss: 1
   exhaustable: 0
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
@@ -4910,7 +4910,7 @@ GameObject:
   - component: {fileID: 5495734935968632896}
   - component: {fileID: 4749024113718785486}
   m_Layer: 0
-  m_Name: Response2
+  m_Name: Scout area
   m_TagString: Response
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4969,7 +4969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   a: 0
-  p: 0
+  p: 3
   l: 0
 --- !u!114 &5495734935968632896
 MonoBehaviour:
@@ -4990,7 +4990,7 @@ MonoBehaviour:
   insertEvent: {fileID: 0}
   exhaustEvent: {fileID: 0}
   produce: 0
-  loot: 0
+  loot: 1
   upgradeSend: 0
   upgradeProduce: 0
   upgradeEat: 0

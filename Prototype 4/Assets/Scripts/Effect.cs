@@ -5,7 +5,8 @@ using TMPro;
 
 public class Effect : MonoBehaviour
 {
-    public bool stopMakingInstances;
+    public bool noSendingAway;
+    public bool stopInstantiating;
 
     public bool win;
     public bool loss;

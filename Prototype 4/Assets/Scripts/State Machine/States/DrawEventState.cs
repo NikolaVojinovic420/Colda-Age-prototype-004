@@ -16,21 +16,23 @@ internal class DrawEventState : State
             yield return new WaitForSeconds(1f);
             // eat supplies
             if(!_stateMachine.supplies.EatSupplies(_stateMachine.vigilantAspectsDisplay._aspect))
-            {
+            {               
                 _stateMachine.lossWindow.GetComponentInChildren<Text>().text += "\n\nout of supplies";
                 _stateMachine.lossWindow.SetActive(true);
             }
+            _stateMachine.DisplaySupplies();
             //reshuffle
             _stateMachine.future.Reshuffle(_stateMachine.history);
             yield return new WaitForSeconds(1f);
         } 
         yield return new WaitForSeconds(0.7f);
         _stateMachine.newConditionNReshuffle.SetActive(false);
-
         //draw event to event stage
         Event drawnEvent = _stateMachine.future.Draw();
         drawnEvent.Transfer(_stateMachine.eventStageObject.transform, true);
-        drawnEvent.gameObject.GetComponent<AudioController>().PlayDraw();   
+        drawnEvent.gameObject.GetComponent<AudioController>().PlayDraw();
+
+        
 
         _stateMachine.SetState(new PlayState(_stateMachine));      
     }
