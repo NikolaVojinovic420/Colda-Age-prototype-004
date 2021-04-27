@@ -22,7 +22,6 @@ public class StartState : State
 
         _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
-        _stateMachine.DisplaySupplies();
 
         yield return new WaitForSeconds(1f);
 

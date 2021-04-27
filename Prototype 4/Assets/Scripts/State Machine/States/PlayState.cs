@@ -13,9 +13,12 @@ public class PlayState : State
             Unit u = _stateMachine.vigilant.units[i];
             if (u.timeToRecovery == 1 && u.bringsLoot)
             {
-                _stateMachine.supplies.ReturnLoot();
+                _stateMachine.supplies.ReturnLoot(u.gameObject.GetComponent<Aspect>());
                 u.bringsLoot = false;
             }
+            if(u.timeToRecovery == 1)
+            _stateMachine.IncreaseExploration(u.gameObject.GetComponent<Aspect>());
+
             u.Recover(1);
             _stateMachine.vigilantAspectsDisplay.SetAspect(_stateMachine.vigilant.CalcAspectSum());
         }

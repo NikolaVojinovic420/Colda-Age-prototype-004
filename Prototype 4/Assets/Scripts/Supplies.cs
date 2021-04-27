@@ -26,11 +26,7 @@ public class Supplies : MonoBehaviour
             return false;
         return true;
     }
-    public void SendSupplies(Aspect a)
-    {
-        int amount = a.a* sendIndexA +a.p * sendIndexP + a.l * sendIndexL;
-        value -= amount;
-    }
+    public void SendSupplies(Aspect a) => value -= a.a* sendIndexA + a.p* sendIndexP + a.l* sendIndexL;
     public void ProduceSupplies(Aspect a) => value += a.p * produceIndexP;
     public bool EatSupplies(Aspect a)
     {
@@ -42,7 +38,7 @@ public class Supplies : MonoBehaviour
         value -= amount;
         return true;
     }
-    public void ReturnLoot() => value += Mathf.RoundToInt((exploreLevel.value * lootIndex) /100);
+    public void ReturnLoot(Aspect a) => value += Mathf.RoundToInt((a.GetAggression() + a.GetPractical()) * lootIndex);
     public void UpgradeAggression(GameObject unit)
     {
         unit.GetComponent<Unit>().timeToRecovery += 1;

@@ -68,6 +68,10 @@ public class StateMachine : MonoBehaviour
     {
         StartCoroutine(state.Start());
     }
+    void Update()
+    {
+        DisplaySupplies();
+    }
 
     public void SetState(State state)
     {
@@ -108,7 +112,7 @@ public class StateMachine : MonoBehaviour
     {
         if (levelSlider.value >= 100)
             return;
-        int amount = a.a * 1 + a.p * 2 + a.l * 3;
+        int amount = a.a + a.p * 2 + a.l * 3;
         levelSlider.value += amount;
     }
 
@@ -120,5 +124,5 @@ public class StateMachine : MonoBehaviour
             return 3;
         return 2;
     }
-    public void DisplaySupplies() => supplyDisplay.GetComponent<Text>().text = $"SUPPLIES\n{supplies.GetValue()}";
+    void DisplaySupplies() => supplyDisplay.GetComponent<Text>().text = $"SUPPLIES\n{supplies.GetValue()}";
 }

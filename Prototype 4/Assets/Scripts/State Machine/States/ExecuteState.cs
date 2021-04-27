@@ -47,8 +47,7 @@ public class ExecuteState : State
         if (!effect.noSendingAway)
             _stateMachine.supplies.SendSupplies(_stateMachine.engagedAspectsDisplay._aspect);
 
-        //increase exploration
-        _stateMachine.IncreaseExploration(_stateMachine.engagedAspectsDisplay._aspect);  
+        //increase exploration in play state 
 
         //block/exhaust event
         if (effect.exhaustEvent != null)
@@ -133,7 +132,6 @@ public class ExecuteState : State
         }
 
         _stateMachine.engagedAspectsDisplay.SetAspect(new AspectMap());
-        _stateMachine.DisplaySupplies();
 
         _stateMachine.vigilant.Reorder();
         _stateMachine.SetState(new DrawEventState(_stateMachine));

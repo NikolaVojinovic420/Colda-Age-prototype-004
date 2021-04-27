@@ -20,7 +20,6 @@ internal class DrawEventState : State
                 _stateMachine.lossWindow.GetComponentInChildren<Text>().text += "\n\nout of supplies";
                 _stateMachine.lossWindow.SetActive(true);
             }
-            _stateMachine.DisplaySupplies();
             //reshuffle
             _stateMachine.future.Reshuffle(_stateMachine.history);
             yield return new WaitForSeconds(1f);
